@@ -1,0 +1,8 @@
+{
+  "name": "UCSM Mobile ",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "d53aa4a5"
+}
