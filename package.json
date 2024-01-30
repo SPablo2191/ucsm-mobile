@@ -9,7 +9,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prepare": "husky",
+    "prettier": "npx prettier --write .",
+    "pretty-quick": "npx pretty-quick --staged"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +56,7 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
     "eslint-plugin-prefer-arrow": "1.2.2",
+    "husky": "^9.0.7",
     "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.4.0",
@@ -62,13 +66,9 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "^3.2.4",
     "pretty-quick": "^4.0.0",
-    "simple-git-hooks": "^2.9.0",
     "ts-node": "^8.3.0",
     "typescript": "~5.2.2"
   },
   "description": "An Ionic project",
-  "prettier": "@ionic/prettier-config",
-  "simple-git-hooks": {
-	"pre-commit": "pretty-quick --staged"
-  }
+  "prettier": "@ionic/prettier-config"
 }

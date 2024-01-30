@@ -6319,6 +6319,15 @@
         "hash": "sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw=="
       }
     },
+    "npm:husky": {
+      "type": "npm",
+      "name": "npm:husky",
+      "data": {
+        "version": "9.0.7",
+        "packageName": "husky",
+        "hash": "sha512-vWdusw+y12DUEeoZqW1kplOFqk3tedGV8qlga8/SF6a3lOiWLqGZZQvfWvY0fQYdfiRi/u1DFNpudTSV9l1aCg=="
+      }
+    },
     "npm:icss-utils": {
       "type": "npm",
       "name": "npm:icss-utils",
@@ -9188,15 +9197,6 @@
         "version": "2.2.0",
         "packageName": "sigstore",
         "hash": "sha512-fcU9clHwEss2/M/11FFM8Jwc4PjBgbhXoNskoK5guoK0qGQBSeUbQZRJ+B2fDFIvhyf0gqCaPrel9mszbhAxug=="
-      }
-    },
-    "npm:simple-git-hooks": {
-      "type": "npm",
-      "name": "npm:simple-git-hooks",
-      "data": {
-        "version": "2.9.0",
-        "packageName": "simple-git-hooks",
-        "hash": "sha512-waSQ5paUQtyGC0ZxlHmcMmD9I1rRXauikBwX31bX58l5vTOhCEcBC5Bi+ZDkPXTjDnZAF8TbCqKBY+9+sVPScw=="
       }
     },
     "npm:sisteransi": {
