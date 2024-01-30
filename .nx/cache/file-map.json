@@ -78,6 +78,10 @@
         "hash": "14730831395863803542"
       },
       {
+        "file": "README.md",
+        "hash": "440771954097749458"
+      },
+      {
         "file": "angular.json",
         "hash": "5962391698463299839"
       },
@@ -111,7 +115,7 @@
       },
       {
         "file": "src/app/app-routing.module.ts",
-        "hash": "1386698874113161280"
+        "hash": "5939621198750760288"
       },
       {
         "file": "src/app/app.component.html",
