@@ -1909,6 +1909,15 @@
         "hash": "sha512-WstnLHiR8ipW2ASdO/eqSwgMHCuVvJE3qsUNPHWkup9f08/bcbKYZpOfaWNLw/ftNqEpFbjiRuocoYYyLP0/gw=="
       }
     },
+    "npm:@ionic/prettier-config": {
+      "type": "npm",
+      "name": "npm:@ionic/prettier-config",
+      "data": {
+        "version": "4.0.0",
+        "packageName": "@ionic/prettier-config",
+        "hash": "sha512-0DqL6CggVdgeJAWOLPUT73rF1VD5p0tVlCpC5GXz5vTIUBxNwsJ5085Q7wXjKiE5Odx3aOHGTcuRWCawFsLFag=="
+      }
+    },
     "npm:@ionic/utils-array": {
       "type": "npm",
       "name": "npm:@ionic/utils-array",
@@ -8488,6 +8497,15 @@
         "hash": "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="
       }
     },
+    "npm:prettier": {
+      "type": "npm",
+      "name": "npm:prettier",
+      "data": {
+        "version": "3.2.4",
+        "packageName": "prettier",
+        "hash": "sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ=="
+      }
+    },
     "npm:pretty-bytes": {
       "type": "npm",
       "name": "npm:pretty-bytes",
@@ -13674,6 +13692,13 @@
       {
         "source": "npm:@ionic/core",
         "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@ionic/prettier-config": [
+      {
+        "source": "npm:@ionic/prettier-config",
+        "target": "npm:prettier",
         "type": "static"
       }
     ],
