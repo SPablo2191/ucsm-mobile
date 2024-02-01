@@ -8605,6 +8605,15 @@
         "hash": "sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g=="
       }
     },
+    "npm:primeflex": {
+      "type": "npm",
+      "name": "npm:primeflex",
+      "data": {
+        "version": "3.3.1",
+        "packageName": "primeflex",
+        "hash": "sha512-zaOq3YvcOYytbAmKv3zYc+0VNS9Wg5d37dfxZnveKBFPr7vEIwfV5ydrpiouTft8MVW6qNjfkaQphHSnvgQbpQ=="
+      }
+    },
     "npm:proc-log": {
       "type": "npm",
       "name": "npm:proc-log",
