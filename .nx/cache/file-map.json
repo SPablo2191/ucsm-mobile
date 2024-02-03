@@ -305,7 +305,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "16166802039632301060"
+        "hash": "16246764703342576219"
       },
       {
         "file": "capacitor.config.ts",
@@ -321,11 +321,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "9480650980061771027"
+        "hash": "3942343257814222537"
       },
       {
         "file": "package.json",
-        "hash": "3049015037878365009"
+        "hash": "478278285422687142"
       },
       {
         "file": "resources/icon.png",
@@ -373,7 +373,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.html",
-        "hash": "17952556153543272541"
+        "hash": "18048505151095704690"
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.scss",
@@ -400,8 +400,100 @@
         "hash": "10792591670004591316"
       },
       {
+        "file": "src/assets/icon/Actfij.png",
+        "hash": "15195473147738021295"
+      },
+      {
+        "file": "src/assets/icon/avance_carrera.png",
+        "hash": "12090260744088901709"
+      },
+      {
+        "file": "src/assets/icon/avatar.png",
+        "hash": "9611028909418700077"
+      },
+      {
+        "file": "src/assets/icon/biblioteca.png",
+        "hash": "16947776754363225229"
+      },
+      {
+        "file": "src/assets/icon/calendario.png",
+        "hash": "1748324525463949080"
+      },
+      {
+        "file": "src/assets/icon/calendario_.png",
+        "hash": "4618971074190773257"
+      },
+      {
+        "file": "src/assets/icon/calendario_1.png",
+        "hash": "5653876850339665120"
+      },
+      {
+        "file": "src/assets/icon/cerrar-sesion.png",
+        "hash": "13218770829935705373"
+      },
+      {
+        "file": "src/assets/icon/deuda.png",
+        "hash": "16856211291494625311"
+      },
+      {
+        "file": "src/assets/icon/dinero_.png",
+        "hash": "5790092400496976456"
+      },
+      {
         "file": "src/assets/icon/favicon.png",
         "hash": "17482944836898362639"
+      },
+      {
+        "file": "src/assets/icon/inventario.png",
+        "hash": "3541613262226349831"
+      },
+      {
+        "file": "src/assets/icon/logoUCSM.png",
+        "hash": "4023549733554633881"
+      },
+      {
+        "file": "src/assets/icon/logo_ucsm.png",
+        "hash": "9710582473985310691"
+      },
+      {
+        "file": "src/assets/icon/logo_ucsm_4.png",
+        "hash": "17005976547654701468"
+      },
+      {
+        "file": "src/assets/icon/notas.png",
+        "hash": "9700084494510956480"
+      },
+      {
+        "file": "src/assets/icon/notas_.png",
+        "hash": "17096896215430685966"
+      },
+      {
+        "file": "src/assets/icon/ordenador-personal.png",
+        "hash": "5174588141155665231"
+      },
+      {
+        "file": "src/assets/icon/ordenador.png",
+        "hash": "8880669023180493476"
+      },
+      {
+        "file": "src/assets/icon/persona.png",
+        "hash": "15402825325427903299"
+      },
+      {
+        "file": "src/assets/icon/reporte_activo.png",
+        "hash": "8086490944809096500"
+      },
+      {
+        "file": "src/assets/icon/tesis.png",
+        "hash": "2334588665389745125"
+      },
+      {
+        "file": "src/assets/images/campus_home.jpg",
+        "hash": "6308619326885890569"
+      },
+      {
+        "file": "src/assets/images/campus_panoramica.jpg",
+        "hash": "12380522784614014089"
       },
       {
         "file": "src/assets/images/campus_vitral_2.png",

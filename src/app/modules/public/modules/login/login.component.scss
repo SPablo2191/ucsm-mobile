@@ -1,3 +1,9 @@
 ion-content {
   --background: url('/assets/images/campus_vitral_2.png') no-repeat center center / cover;
 }
+.icon {
+  width: 18px;
+  height: 18px;
+  padding-top: 15px;
+  color: var(--ion-color-primary);
+}

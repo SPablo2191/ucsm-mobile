@@ -8,33 +8,21 @@
         <strong>Iniciar Sesión</strong>
       </h1>
     </ion-text>
-    <ion-item class="ion-margin-top" ref="dniInput">
+    <ion-item class="ion-margin-top" shape="round" ref="dniInput">
       <ion-label position="floating" color="success">DNI</ion-label>
       <ion-input autofocus="true"></ion-input>
-      <ion-icon
-        style="width: 18px; height: 18px; padding-top: 15px; color: black"
-        slot="end"
-        name="person-outline"
-      ></ion-icon>
+      <ion-icon class="icon" slot="end" name="person-outline"></ion-icon>
       <ion-note slot="error">DNI invalido</ion-note>
     </ion-item>
-    <ion-item class="ion-margin-top" ref="passwordInput">
+    <ion-item class="ion-margin-top" shape="round" ref="passwordInput">
       <ion-label position="floating" color="success">Contraseña</ion-label>
       <ion-input type="password" #password></ion-input>
-      <ion-icon
-        style="width: 18px; height: 18px; padding-top: 15px; color: black"
-        slot="end"
-        name="eye-outline"
-      ></ion-icon>
-      <ion-icon
-        style="width: 18px; height: 18px; padding-top: 15px; color: black"
-        slot="end"
-        name="eye-off-outline"
-      ></ion-icon>
+      <ion-icon class="icon" slot="end" name="eye-outline"></ion-icon>
+      <ion-icon class="icon" slot="end" name="eye-off-outline"></ion-icon>
       <ion-note slot="error">Contraseña es requerida</ion-note>
     </ion-item>
     <br /><br /><br />
-    <div style="display: flex" class="flex ion-justify-content-center ion-align-items-center ion-margin-top">
+    <div class="flex ion-justify-content-center ion-align-items-center ion-margin-top">
       <ion-button type="submit" style="width: 250px" ill="solid" shape="round" size="default" color="success">
         <span>
           <strong>INGRESAR</strong>
