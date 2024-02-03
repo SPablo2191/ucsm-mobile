@@ -8,6 +8,7 @@ import { LoginComponent } from './login.component';
 import { UiInputComponent } from 'src/app/shared/ui/ui-input/ui-input.component';
 import { CardContainerComponent } from 'src/app/shared/card-container/card-container.component';
 import { UiPasswordComponent } from 'src/app/shared/ui/ui-password/ui-password.component';
+import { UiImgComponent } from 'src/app/shared/ui/ui-img/ui-img.component';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -20,6 +21,7 @@ import { UiPasswordComponent } from 'src/app/shared/ui/ui-password/ui-password.c
     UiInputComponent,
     CardContainerComponent,
     UiPasswordComponent,
+    UiImgComponent,
   ],
 })
 export class LoginModule {}
