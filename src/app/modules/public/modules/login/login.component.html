@@ -3,32 +3,21 @@
     <div class="ion-margin">
       <img alt="UCSM LOGO" src="/assets/icon/logo_ucsm_4.png" />
     </div>
-    <ion-text>
-      <h1 class="ion-text-center text-white">
-        <strong>Iniciar Sesión</strong>
-        <ui-input />
-      </h1>
-    </ion-text>
-    <ion-item class="ion-margin-top" shape="round" ref="dniInput">
-      <ion-label position="floating" color="success">DNI</ion-label>
-      <ion-input autofocus="true"></ion-input>
-      <ion-icon class="icon" slot="end" name="person-outline"></ion-icon>
-      <ion-note slot="error">DNI invalido</ion-note>
-    </ion-item>
-    <ion-item class="ion-margin-top" shape="round" ref="passwordInput">
-      <ion-label position="floating" color="success">Contraseña</ion-label>
-      <ion-input type="password" #password></ion-input>
-      <ion-icon class="icon" slot="end" name="eye-outline"></ion-icon>
-      <ion-icon class="icon" slot="end" name="eye-off-outline"></ion-icon>
-      <ion-note slot="error">Contraseña es requerida</ion-note>
-    </ion-item>
-    <br /><br /><br />
-    <div class="flex ion-justify-content-center ion-align-items-center ion-margin-top">
-      <ion-button type="submit" style="width: 250px" ill="solid" shape="round" size="default" color="success">
-        <span>
-          <strong>INGRESAR</strong>
-        </span>
-      </ion-button>
-    </div>
+    <card-container>
+      <ion-text>
+        <h1 class="ion-text-center">
+          <strong>Iniciar Sesión</strong>
+        </h1>
+      </ion-text>
+      <ui-input label="DNI" />
+      <ui-input />
+      <div class="flex ion-justify-content-center ion-align-items-center ion-margin-top">
+        <ion-button type="submit" style="width: 250px" ill="solid" shape="round" size="default" color="success">
+          <span>
+            <strong>INGRESAR</strong>
+          </span>
+        </ion-button>
+      </div>
+    </card-container>
   </form>
 </ion-content>

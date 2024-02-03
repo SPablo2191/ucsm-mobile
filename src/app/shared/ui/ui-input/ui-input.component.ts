@@ -1,18 +1,22 @@
 /* eslint-disable @angular-eslint/component-selector */
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { Component, Input } from '@angular/core';
+import { IonInput, IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'ui-input',
   standalone: true,
   imports: [IonicModule],
   template: `
-    <ion-item class="ion-margin-top" shape="round" ref="dniInput">
-      <ion-label position="floating" color="success">DNI</ion-label>
-      <ion-input autofocus="true"></ion-input>
-      <ion-icon class="icon" slot="end" name="person-outline"></ion-icon>
-      <ion-note slot="error">DNI invalido</ion-note>
-    </ion-item>
+    <ion-input
+      labelPlacement="floating"
+      [counter]="true"
+      maxlength="100"
+      fill="outline"
+      helperText="Enter an email"
+      errorText="Please enter a valid email"
+    >
+      <ion-icon slot="end" name="lock-closed" aria-hidden="true"></ion-icon>
+    </ion-input>
   `,
   styles: `
   .icon {
@@ -23,4 +27,4 @@ import { IonicModule } from '@ionic/angular';
 }
   `,
 })
-export class UiInputComponent {}
+export class UiInputComponent extends IonInput {}
