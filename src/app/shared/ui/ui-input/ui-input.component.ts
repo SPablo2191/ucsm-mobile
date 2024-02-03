@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input } from '@angular/core';
-import { IonInput, IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'ui-input',
@@ -8,23 +8,24 @@ import { IonInput, IonicModule } from '@ionic/angular';
   imports: [IonicModule],
   template: `
     <ion-input
+      [label]="label"
       labelPlacement="floating"
-      [counter]="true"
-      maxlength="100"
       fill="outline"
-      helperText="Enter an email"
-      errorText="Please enter a valid email"
+      [helperText]="helperText"
+      [errorText]="errorText"
     >
-      <ion-icon slot="end" name="lock-closed" aria-hidden="true"></ion-icon>
+      <ion-icon slot="end" [name]="IconName" aria-hidden="true"></ion-icon>
     </ion-input>
   `,
   styles: `
   .icon {
-  width: 18px;
-  height: 18px;
-  padding-top: 15px;
   color: var(--ion-color-primary);
 }
   `,
 })
-export class UiInputComponent extends IonInput {}
+export class UiInputComponent {
+  @Input() label: string = 'Email';
+  @Input() helperText: string = 'Enter an email';
+  @Input() errorText: string = 'Please enter a valid email';
+  @Input() IconName: string = 'mail';
+}
