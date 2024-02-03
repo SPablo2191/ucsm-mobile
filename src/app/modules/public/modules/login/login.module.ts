@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LoginComponent } from './login.component';
 import { UiInputComponent } from 'src/app/shared/ui/ui-input/ui-input.component';
 import { CardContainerComponent } from 'src/app/shared/card-container/card-container.component';
+import { UiPasswordComponent } from 'src/app/shared/ui/ui-password/ui-password.component';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -18,6 +19,7 @@ import { CardContainerComponent } from 'src/app/shared/card-container/card-conta
     ReactiveFormsModule,
     UiInputComponent,
     CardContainerComponent,
+    UiPasswordComponent,
   ],
 })
 export class LoginModule {}
