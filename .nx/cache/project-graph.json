@@ -1805,9 +1805,9 @@
       "type": "npm",
       "name": "npm:@ionic/angular",
       "data": {
-        "version": "7.6.6",
+        "version": "7.7.0",
         "packageName": "@ionic/angular",
-        "hash": "sha512-IuXkDRnmaTpeyBCO7qEcw6Xt9/itIRRf91fU5MOI/cTRwVqOX2QvsktpExeal5aYxJcyp887LCu+zJeyfkslyA=="
+        "hash": "sha512-jEPgg8J1ZX5mBiz80LUOmAOtMOZuVFE5ZVNxSuMzTFdD6j4rSFowuOmci4DZoewyveQgPx5h4Kg+rLuQrxTYow=="
       }
     },
     "npm:@ionic/angular-toolkit": {
@@ -1904,9 +1904,9 @@
       "type": "npm",
       "name": "npm:@ionic/core",
       "data": {
-        "version": "7.6.6",
+        "version": "7.7.0",
         "packageName": "@ionic/core",
-        "hash": "sha512-WstnLHiR8ipW2ASdO/eqSwgMHCuVvJE3qsUNPHWkup9f08/bcbKYZpOfaWNLw/ftNqEpFbjiRuocoYYyLP0/gw=="
+        "hash": "sha512-ewbvX8u4+FNRBAw1nqBuCy4dI8OLTxoqZgm4qRs4zbrNLJInwTpYjCPzYueN0KE9ufP0n9HhS23lfcrQzJC7Hg=="
       }
     },
     "npm:@ionic/prettier-config": {
@@ -2786,9 +2786,9 @@
       "type": "npm",
       "name": "npm:@stencil/core",
       "data": {
-        "version": "4.11.0",
+        "version": "4.12.0",
         "packageName": "@stencil/core",
-        "hash": "sha512-zsKhgIkTGo+s7IthitxR/MKiMS3Ck1yIypOdXr0aE6ofboKqe9NdffTcxZ0vel0wD2bZYOb6WfPMzuhRKk6+FA=="
+        "hash": "sha512-qAQcfNmp2sdxAh1DlyUhHfDmIUS7mhI+5LAhPphg74zK9sKgFL5vpLzgjs0wohpjlmI4msgJFYiRB8lxVPqjPg=="
       }
     },
     "npm:@tufjs/canonical-json": {
