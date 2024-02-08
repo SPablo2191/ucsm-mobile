@@ -305,7 +305,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "16246764703342576219"
+        "hash": "11860777182239771300"
       },
       {
         "file": "capacitor.config.ts",
@@ -321,11 +321,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "3942343257814222537"
+        "hash": "6974652816449809349"
       },
       {
         "file": "package.json",
-        "hash": "478278285422687142"
+        "hash": "11730699995602910661"
       },
       {
         "file": "resources/icon.png",
@@ -357,7 +357,7 @@
       },
       {
         "file": "src/app/app.module.ts",
-        "hash": "18290609238542648235"
+        "hash": "12350919007318449153"
       },
       {
         "file": "src/app/modules/private/private-routing.module.ts",
@@ -373,7 +373,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.html",
-        "hash": "18048505151095704690"
+        "hash": "15816535124750562841"
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.scss",
@@ -389,7 +389,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.module.ts",
-        "hash": "13400544225150359985"
+        "hash": "17040748983091009696"
       },
       {
         "file": "src/app/modules/public/public-routing.module.ts",
@@ -398,6 +398,38 @@
       {
         "file": "src/app/modules/public/public.module.ts",
         "hash": "10792591670004591316"
+      },
+      {
+        "file": "src/app/shared/card-container/card-container.component.spec.ts",
+        "hash": "14150034826102422282"
+      },
+      {
+        "file": "src/app/shared/card-container/card-container.component.ts",
+        "hash": "13244010808699349866"
+      },
+      {
+        "file": "src/app/shared/ui/ui-img/ui-img.component.spec.ts",
+        "hash": "11104369494486716131"
+      },
+      {
+        "file": "src/app/shared/ui/ui-img/ui-img.component.ts",
+        "hash": "17250270539098819668"
+      },
+      {
+        "file": "src/app/shared/ui/ui-input/ui-input.component.spec.ts",
+        "hash": "10823774365446385582"
+      },
+      {
+        "file": "src/app/shared/ui/ui-input/ui-input.component.ts",
+        "hash": "12457787475250430210"
+      },
+      {
+        "file": "src/app/shared/ui/ui-password/ui-password.component.spec.ts",
+        "hash": "1355436699765930182"
+      },
+      {
+        "file": "src/app/shared/ui/ui-password/ui-password.component.ts",
+        "hash": "5839312973579085870"
       },
       {
         "file": "src/assets/icon/Actfij.png",
@@ -517,7 +549,7 @@
       },
       {
         "file": "src/index.html",
-        "hash": "17086394375195079561"
+        "hash": "1549814662350270264"
       },
       {
         "file": "src/main.ts",
