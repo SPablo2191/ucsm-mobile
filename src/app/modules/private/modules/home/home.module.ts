@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { CardContainerComponent } from 'src/app/shared/card-container/card-container.component';
+import { UiImgComponent } from 'src/app/shared/ui/ui-img/ui-img.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [CommonModule, HomeRoutingModule, CardContainerComponent, UiImgComponent, IonicModule],
 })
 export class HomeModule {}
