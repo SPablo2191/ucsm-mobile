@@ -18,11 +18,20 @@
       </ion-button>
     </div>
     <card-container>
-      <career-card
-        title="Proceso de actualizacion de Ingenieria de sistemas"
-        subTitle="Código: 20122250982"
-        body="Ir a Carrera"
-      />
+      <div class="flex justify-content-center align-items-center text-2xl">
+        <p class="mr-4 text-xl" [ngClass]="{ 'title-section': !showEvent }" (click)="changeSection()">Carreras</p>
+        <p class="text-xl" [ngClass]="{ 'title-section': showEvent }" (click)="changeSection()">Novedades</p>
+      </div>
+      <div *ngIf="!showEvent; else events">
+        <career-card
+          title="Proceso de actualizacion de Ingenieria de sistemas"
+          subTitle="Código: 20122250982"
+          body="Ir a Carrera"
+        />
+      </div>
+      <ng-template #events>
+        <p>Events</p>
+      </ng-template>
     </card-container>
   </div>
 </ion-content>
