@@ -6,8 +6,8 @@ import { HomeComponent } from './home.component';
 import { CardContainerComponent } from 'src/app/shared/card-container/card-container.component';
 import { UiImgComponent } from 'src/app/shared/ui/ui-img/ui-img.component';
 import { IonicModule } from '@ionic/angular';
-import { CareerCardComponent } from 'src/app/shared/career-card/career-card.component';
-import { EventCardComponent } from 'src/app/shared/event-card/event-card.component';
+import { CareerCardComponent } from 'src/app/shared/cards/career-card/career-card.component';
+import { EventCardComponent } from 'src/app/shared/cards/event-card/event-card.component';
 
 @NgModule({
   declarations: [HomeComponent],
