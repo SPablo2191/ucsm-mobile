@@ -9,25 +9,35 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [CommonModule, IonicModule],
   template: `
-    <ion-card class="bg-white" (click)="goToSite()">
+    <ion-card class="career-card" (click)="goToSite()">
       <ion-card-header
         [ngClass]="{
           'py-1 flex justify-content-between': iconName,
           'py-1': !iconName
         }"
       >
-        <ion-card-title class="text-gray-800 font-bold text-left text-xl mt-2 py-2">{{ title }}</ion-card-title>
-        <ion-card-subtitle class="font-bold">{{ subTitle }}</ion-card-subtitle>
+        <ion-card-title class="text-gray-800 hover:text-white font-bold text-left text-xl mt-2 py-2">{{
+          title
+        }}</ion-card-title>
+        <ion-card-subtitle class="font-bold hover:text-white">{{ subTitle }}</ion-card-subtitle>
         <ion-icon [name]="iconName" size="large" class="my-1" *ngIf="iconName"></ion-icon>
       </ion-card-header>
 
       <ion-card-content>
-        <p class="text-right font-italic">{{ body }}</p>
+        <p class="text-right font-italic hover:text-white">{{ body }}</p>
         <ng-content></ng-content>
       </ion-card-content>
     </ion-card>
   `,
-  styles: ``,
+  styles: `
+  .career-card {
+	background-color: white;
+  	transition: background-color 0.3s, color 0.3s;
+}
+.career-card:hover {
+  background-color: #28B463;
+  color: white;
+}`,
 })
 export class CareerCardComponent {
   @Input() title!: string;

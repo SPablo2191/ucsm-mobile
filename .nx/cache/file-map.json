@@ -337,7 +337,7 @@
       },
       {
         "file": "src/app/app-routing.module.ts",
-        "hash": "3691181093485667678"
+        "hash": "9232462750530699133"
       },
       {
         "file": "src/app/app.component.html",
@@ -360,8 +360,32 @@
         "hash": "12350919007318449153"
       },
       {
+        "file": "src/app/modules/private/modules/home/home-routing.module.ts",
+        "hash": "3980283086825693385"
+      },
+      {
+        "file": "src/app/modules/private/modules/home/home.component.html",
+        "hash": "2412153043028710202"
+      },
+      {
+        "file": "src/app/modules/private/modules/home/home.component.scss",
+        "hash": "12481556780940384772"
+      },
+      {
+        "file": "src/app/modules/private/modules/home/home.component.spec.ts",
+        "hash": "16867291543595312190"
+      },
+      {
+        "file": "src/app/modules/private/modules/home/home.component.ts",
+        "hash": "8360891117504916318"
+      },
+      {
+        "file": "src/app/modules/private/modules/home/home.module.ts",
+        "hash": "6296612239143486180"
+      },
+      {
         "file": "src/app/modules/private/private-routing.module.ts",
-        "hash": "444256428290407563"
+        "hash": "10556524846443603144"
       },
       {
         "file": "src/app/modules/private/private.module.ts",
@@ -373,7 +397,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.html",
-        "hash": "15816535124750562841"
+        "hash": "16600878471167607244"
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.scss",
@@ -385,7 +409,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.ts",
-        "hash": "2829715873462157025"
+        "hash": "14600320496038350707"
       },
       {
         "file": "src/app/modules/public/modules/login/login.module.ts",
@@ -406,6 +430,22 @@
       {
         "file": "src/app/shared/card-container/card-container.component.ts",
         "hash": "13244010808699349866"
+      },
+      {
+        "file": "src/app/shared/career-card/career-card.component.spec.ts",
+        "hash": "12201381489949873515"
+      },
+      {
+        "file": "src/app/shared/career-card/career-card.component.ts",
+        "hash": "15397507027485563731"
+      },
+      {
+        "file": "src/app/shared/event-card/event-card.component.spec.ts",
+        "hash": "6746410284096868444"
+      },
+      {
+        "file": "src/app/shared/event-card/event-card.component.ts",
+        "hash": "16481494012665307969"
       },
       {
         "file": "src/app/shared/ui/ui-img/ui-img.component.spec.ts",
@@ -532,6 +572,10 @@
         "hash": "2140549427425945977"
       },
       {
+        "file": "src/assets/images/casa-marianista.jpg",
+        "hash": "16013687441631654484"
+      },
+      {
         "file": "src/assets/shapes.svg",
         "hash": "6713572288142939778"
       },
@@ -545,7 +589,7 @@
       },
       {
         "file": "src/global.scss",
-        "hash": "15605832072709947389"
+        "hash": "16014836377964796202"
       },
       {
         "file": "src/index.html",
