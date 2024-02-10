@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <div class="card">
+    <div class="card w-full">
       <div class="flex justify-content-between ml-2">
         <h1 class="text-white font-bold text-4xl text-left">
           ¡Hola, <br />
