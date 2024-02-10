@@ -9,4 +9,31 @@
     </div>
   </ui-card>
   <subject-card />
+  <p class="font-bold text-cyan-700">Tus Atajos</p>
+  <div class="grid">
+    <div class="col">
+      <link-button
+        imageSource="/assets/icon/ordenador-personal.png"
+        label="Aula Virtual"
+        [pathSite]="linkAulaVirtual"
+        class="p-4"
+      ></link-button>
+    </div>
+    <div class="col">
+      <link-button
+        imageSource="/assets/icon/tesis.png"
+        label="Matriculas"
+        [pathSite]="linkMatricula"
+        class="p-4"
+      ></link-button>
+    </div>
+    <div class="col">
+      <link-button
+        imageSource="/assets/icon/biblioteca.png"
+        label="Biblioteca"
+        [pathSite]="linkBiblioteca"
+        class="p-4"
+      ></link-button>
+    </div>
+  </div>
 </ion-content>
