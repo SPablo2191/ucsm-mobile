@@ -7,44 +7,68 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule],
   template: `
-    <ion-card class="card">
-      <ion-card-header>
-        <ion-card-title>
-          <div class="flex justify-content-between align-items-center">
-            <p class="font-bold text-xl text-white">Introducción a la Programación</p>
-            <p class="font-italic text-white text-xs">Ver Materia ></p>
-          </div>
-          <p class="font-bold text-white">En curso</p>
-        </ion-card-title>
-        <ion-card-subtitle> </ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        <div class="flex justify-content-between align-items-center">
-          <p class="font-bold text-white">Practica</p>
-          <p class="text-white">Aula: 3</p>
+    <div class="card ion-margin">
+      <div class="header">
+        <div class="info">En curso</div>
+        <div class="info text-right">Ver Materia ></div>
+      </div>
+      <div class="title">Introducción a la Programación</div>
+      <div class="content">
+        <div class="header">
+          <div class="info">Práctica</div>
+          <div class="info text-right">Aula: 3</div>
         </div>
-        <div class="flex justify-content-between align-items-center">
-          <p class="text-white">Docente: Angulo Osorio</p>
-          <p class="text-white">Pabellon: L</p>
+        <div class="header">
+          <div class="info">Docente: Angulo Osorio</div>
+          <div class="info text-right">Pabellón: L</div>
         </div>
-      </ion-card-content>
-    </ion-card>
+      </div>
+    </div>
   `,
   styles: `
-  .card {
-  background-color: #05BE6A; /* Color de fondo sólido */
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.card {
+  background-color: #05BE6A;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.20);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
 }
 
-ion-card-header,
-ion-card-content {
-  padding: 0.5rem; /* Ajustar el espacio interno */
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-ion-card-content > div {
-  margin-bottom: 0.1rem; /* Ajustar la separación entre los elementos */
-}`,
+.title {
+  width: 144px;
+  height: 39px;
+  color: white;
+  font-size: 16px;
+  font-family: Roboto;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.info {
+  width: 144px;
+  height: 14px;
+  color: white;
+  font-size: 10px;
+  font-family: Roboto;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.link {
+  font-size: 9px;
+  font-family: Roboto;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+
+`,
 })
 export class SubjectCardComponent {}
