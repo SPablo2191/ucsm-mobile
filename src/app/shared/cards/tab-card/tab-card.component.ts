@@ -21,7 +21,7 @@ import { Component } from '@angular/core';
         </div>
       </div>
       <div class="flex my-0 p-0 justify-content-start mx-2">
-        <p class="text-lg font-bold">Ingenieria de sistemas</p>
+        <p class="text-lg font-bold text-white">Ingenieria de sistemas</p>
       </div>
     </div>
   `,

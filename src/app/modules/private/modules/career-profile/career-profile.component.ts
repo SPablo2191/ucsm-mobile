@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './career-profile.component.html',
   styleUrl: './career-profile.component.css',
 })
-export class CareerProfileComponent {}
+export class CareerProfileComponent {
+  protected totalBalance: number = 0;
+}

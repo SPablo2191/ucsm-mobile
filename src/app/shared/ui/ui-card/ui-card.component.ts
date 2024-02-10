@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'app-ui-card',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'ui-card',
   standalone: true,
   imports: [IonicModule, CommonModule],
   template: `

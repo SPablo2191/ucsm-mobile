@@ -1,6 +1,12 @@
-<ion-content>
-  <div class="flex flex-column justify-content-center align-items-center ion-padding">
-    <tab-card />
-    <subject-card />
-  </div>
+<ion-content class="ion-padding">
+  <tab-card />
+  <ui-card>
+    <div class="grid text-lg">
+      <div class="col font-bold">Saldo a Pagar</div>
+      <div class="col flex justify-content-end">
+        <div class="">{{ totalBalance | currency: 'PEN' : 'symbol' : '' }}</div>
+      </div>
+    </div>
+  </ui-card>
+  <subject-card />
 </ion-content>
