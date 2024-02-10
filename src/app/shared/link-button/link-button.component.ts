@@ -19,7 +19,7 @@ import { Component, Input } from '@angular/core';
         cursor: pointer;
         border: none;
         background-color: white;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
         border-radius: 0.5rem;
         transition: transform 0.2s;
       }

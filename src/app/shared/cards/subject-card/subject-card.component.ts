@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'subject-card',
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, CommonModule],
   template: `
-    <div class="card ion-margin">
+    <div [ngClass]="{ 'selected-card': selected }" class="card ion-margin">
       <div class="header">
         <div class="info">En curso</div>
         <div class="info text-right">Ver Materia ></div>
@@ -26,49 +27,54 @@ import { IonicModule } from '@ionic/angular';
     </div>
   `,
   styles: `
-.card {
-  background-color: #05BE6A;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.20);
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 8px;
-}
+    .card {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.20);
+      border-radius: 5px;
+      display: flex;
+	  color:  #515a5a;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 8px;
+    }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
 
-.title {
-  width: 144px;
-  height: 39px;
-  color: white;
-  font-size: 16px;
-  font-family: Roboto;
-  font-weight: 700;
-  word-wrap: break-word;
-}
+    .title, .info {
+      width: 144px;
+      font-family: Roboto;
+      word-wrap: break-word;
+    }
 
-.info {
-  width: 144px;
-  height: 14px;
-  color: white;
-  font-size: 10px;
-  font-family: Roboto;
-  font-weight: 400;
-  word-wrap: break-word;
-}
+    .title {
+      height: 39px;
+      font-size: 16px;
+      font-weight: 700;
+    }
 
-.link {
-  font-size: 9px;
-  font-family: Roboto;
-  font-weight: 300;
-  word-wrap: break-word;
-}
+    .info {
+      height: 14px;
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    .selected-card {
+      background-color: #05BE6A; /* Color de fondo verde */
+    }
+
+    .selected-card .title, .selected-card .info {
+      color: white; /* Color de texto blanco */
+    }
+
+    .selected-card .link {
+      color: white; /* Color de texto blanco */
+    }
 
 `,
 })
-export class SubjectCardComponent {}
+export class SubjectCardComponent {
+  @Input() selected: boolean = false;
+}
