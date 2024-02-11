@@ -1,25 +1,32 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-
+import { Component, Input, LOCALE_ID } from '@angular/core';
+import LocaleEsPe from '@angular/common/locales/es-PE';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(LocaleEsPe);
 @Component({
-  selector: 'app-installment-card',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'installment-card',
   standalone: true,
   imports: [CommonModule],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-PE' }],
   template: `
     <div class="card ion-margin">
-      <div class="header">
-        <div class="info">En curso</div>
-        <div class="info text-right">Ver Materia ></div>
-      </div>
-      <div class="title">Introducción a la Programación</div>
-      <div class="content">
-        <div class="header">
-          <div class="info">Práctica</div>
-          <div class="info text-right">Aula: 3</div>
+      <div class="grid">
+        <div class="col-7">
+          <div class="info">Fecha de vencimiento: 23/10/24</div>
+          <div class="info">Código: 04</div>
+          <div class="header">
+            <div class="info">Pensión: {{ pension | currency: 'PEN' : 'symbol' : '' }}</div>
+            <div class="info">Mora: {{ defaultedLoan | currency: 'PEN' : 'symbol' : '' }}</div>
+          </div>
         </div>
-        <div class="header">
-          <div class="info">Docente: Angulo Osorio</div>
-          <div class="info text-right">Pabellón: L</div>
+        <div class="col-5">
+          <div class="flex flex-column">
+            <div class=" flex justify-content-center">
+              <span class="title">{{ total | currency: 'PEN' : 'symbol' : '' }}</span>
+            </div>
+            <div class="info flex justify-content-center">Deuda</div>
+          </div>
         </div>
       </div>
     </div>
@@ -42,13 +49,12 @@ import { Component } from '@angular/core';
     }
 
     .title, .info {
-      width: 144px;
+
       font-family: Roboto;
       word-wrap: break-word;
     }
 
     .title {
-      height: 39px;
       font-size: 16px;
       font-weight: 700;
     }
@@ -73,4 +79,8 @@ import { Component } from '@angular/core';
 
   `,
 })
-export class InstallmentCardComponent {}
+export class InstallmentCardComponent {
+  @Input() pension: number = 200;
+  @Input() defaultedLoan: number = 0;
+  @Input() total: number = 0;
+}
