@@ -1,1 +1,9 @@
-<header-page title="Deudas Pendientes" subtitle="Puedes ver tus deudas a pagar" imageurl="/assets/images/debt.png" />
+<ion-content class="ion-padding">
+  <header-page title="Deudas Pendientes" subtitle="Puedes ver tus deudas a pagar" imageurl="/assets/images/debt.png" />
+  <div class="flex flex-column my-4">
+    <div class="flex justify-content-center text-center">
+      <span class="total">{{ total | currency: 'PEN' : 'symbol' : '' }}</span>
+    </div>
+    <div class="flex justify-content-center text-center subtitle">saldo a pagar</div>
+  </div>
+</ion-content>

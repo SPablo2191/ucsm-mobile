@@ -1,0 +1,14 @@
+.total {
+  color: rgba(231, 76, 60, 0.8);
+  font-size: 40px;
+  font-family: Roboto;
+  font-weight: 900;
+  word-wrap: break-word;
+}
+.subtitle {
+  color: #575756;
+  font-size: 12px;
+  font-family: Roboto;
+  font-weight: 400;
+  word-wrap: break-word;
+}

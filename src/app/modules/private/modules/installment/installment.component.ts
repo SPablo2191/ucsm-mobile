@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './installment.component.html',
   styleUrl: './installment.component.css',
 })
-export class InstallmentComponent {}
+export class InstallmentComponent {
+  total: number = 4752.1;
+}
