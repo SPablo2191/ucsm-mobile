@@ -365,11 +365,11 @@
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.css",
-        "hash": "2652844193460267320"
+        "hash": "17199328202979427286"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.html",
-        "hash": "10377456743977054688"
+        "hash": "10516870324575288785"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.spec.ts",
@@ -393,7 +393,7 @@
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.component.html",
-        "hash": "17244505432286429104"
+        "hash": "12564303951155502160"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.component.spec.ts",
@@ -405,7 +405,7 @@
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.module.ts",
-        "hash": "8764738380187429803"
+        "hash": "17878588061627726994"
       },
       {
         "file": "src/app/modules/private/modules/home/home-routing.module.ts",
@@ -441,7 +441,7 @@
       },
       {
         "file": "src/app/modules/private/modules/installment/installment.component.html",
-        "hash": "14082805760317900725"
+        "hash": "7457586199736489638"
       },
       {
         "file": "src/app/modules/private/modules/installment/installment.component.spec.ts",
@@ -453,7 +453,7 @@
       },
       {
         "file": "src/app/modules/private/modules/installment/installment.module.ts",
-        "hash": "14182287983270230666"
+        "hash": "6539544730260407321"
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule-routing.module.ts",
@@ -465,7 +465,7 @@
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule.component.html",
-        "hash": "2464476696684131895"
+        "hash": "1271684699946073644"
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule.component.spec.ts",
@@ -477,7 +477,7 @@
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule.module.ts",
-        "hash": "13375132020721083595"
+        "hash": "1573265089084271911"
       },
       {
         "file": "src/app/modules/private/private-routing.module.ts",
@@ -549,7 +549,7 @@
       },
       {
         "file": "src/app/shared/cards/subject-card/subject-card.component.ts",
-        "hash": "12971090362299768237"
+        "hash": "17515890893856754132"
       },
       {
         "file": "src/app/shared/cards/tab-card/tab-card.component.spec.ts",
@@ -557,7 +557,15 @@
       },
       {
         "file": "src/app/shared/cards/tab-card/tab-card.component.ts",
-        "hash": "12628675336678777490"
+        "hash": "14210746236208216721"
+      },
+      {
+        "file": "src/app/shared/header-page/header-page.component.spec.ts",
+        "hash": "7982906518139871287"
+      },
+      {
+        "file": "src/app/shared/header-page/header-page.component.ts",
+        "hash": "14629282858795938281"
       },
       {
         "file": "src/app/shared/link-button/link-button.component.spec.ts",
@@ -565,7 +573,7 @@
       },
       {
         "file": "src/app/shared/link-button/link-button.component.ts",
-        "hash": "6223573261051153221"
+        "hash": "14673868686268891209"
       },
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.spec.ts",
@@ -765,7 +773,7 @@
       },
       {
         "file": "src/theme/variables.scss",
-        "hash": "4003800655078129049"
+        "hash": "2201326070770348009"
       },
       {
         "file": "src/zone-flags.ts",
