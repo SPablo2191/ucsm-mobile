@@ -38,7 +38,7 @@ export class CardContainerComponent implements AfterViewInit {
       let animation = this.animationCtrl
         .create()
         .addElement(this.card.nativeElement)
-        .duration(1500)
+        .duration(1000)
         .fromTo('transform', 'translateY(100%)', 'translateY(0)')
         .fromTo('opacity', '0', '1');
       animation.play();
