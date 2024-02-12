@@ -1,5 +1,14 @@
-<header-page
-  title="¡Bienvenido a tus notas!"
-  subtitle="Puedes ver tus avance de carrera aqui"
-  imageurl="/assets/images/grades.png"
-/>
+<ion-content>
+  <header-page
+    title="¡Bienvenido a tus notas!"
+    subtitle="Puedes ver tus avance de carrera aqui"
+    imageurl="/assets/images/grades.png" />
+  <ui-chart
+    [data]="[61, 25]"
+    type="doughnut"
+    [labels]="['Materias Llevadas', 'Materias No Llevadas']"
+    [backgroundColors]="['#05be6a', '#ada7a7']"
+    [hoverOffset]="4"
+    [options]="chartStyle"
+  ></ui-chart
+></ion-content>

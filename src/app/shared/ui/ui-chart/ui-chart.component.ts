@@ -4,20 +4,16 @@ import { IonicModule } from '@ionic/angular';
 import { Chart, ChartTypeRegistry } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { chartData } from 'src/app/core/interfaces/chart.data.interface';
-
+import { NgChartsModule } from 'ng2-charts';
 @Component({
-  selector: 'app-ui-chart',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'ui-chart',
   standalone: true,
-  imports: [CommonModule, IonicModule],
+  imports: [NgChartsModule, IonicModule],
   template: `
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title class="text-xl font-bold text-center">{{ titleLabel }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content class="flex justify-content-center">
-        <canvas id="chart">{{ chart }}</canvas>
-      </ion-card-content>
-    </ion-card>
+    <div>
+      <canvas id="chart">{{ chart }}</canvas>
+    </div>
   `,
   styles: ``,
 })
