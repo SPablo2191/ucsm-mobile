@@ -2215,6 +2215,15 @@
         "hash": "sha512-Wf963MzWtA2sjrNt+g18IAln9lKnlRp+K2eH4jjIoF1wYeq3aMREpG09xhlhdzS0EjwU7qmUJYangWa+151vZw=="
       }
     },
+    "npm:@kurkle/color": {
+      "type": "npm",
+      "name": "npm:@kurkle/color",
+      "data": {
+        "version": "0.3.2",
+        "packageName": "@kurkle/color",
+        "hash": "sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw=="
+      }
+    },
     "npm:@leichtgewicht/ip-codec": {
       "type": "npm",
       "name": "npm:@leichtgewicht/ip-codec",
@@ -4103,6 +4112,24 @@
         "version": "0.7.0",
         "packageName": "chardet",
         "hash": "sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA=="
+      }
+    },
+    "npm:chart.js": {
+      "type": "npm",
+      "name": "npm:chart.js",
+      "data": {
+        "version": "4.4.1",
+        "packageName": "chart.js",
+        "hash": "sha512-C74QN1bxwV1v2PEujhmKjOZ7iUM4w6BWs23Md/6aOZZSlwMzeCIDGuZay++rBgChYru7/+QFeoQW0fQoP534Dg=="
+      }
+    },
+    "npm:chartjs-plugin-datalabels": {
+      "type": "npm",
+      "name": "npm:chartjs-plugin-datalabels",
+      "data": {
+        "version": "2.2.0",
+        "packageName": "chartjs-plugin-datalabels",
+        "hash": "sha512-14ZU30lH7n89oq+A4bWaJPnAG8a7ZTk7dKf48YAzMvJjQtjrgg5Dpk9f+LbjCF6bpx3RAGTeL13IXpKQYyRvlw=="
       }
     },
     "npm:chokidar": {
@@ -16023,6 +16050,20 @@
       {
         "source": "npm:chalk",
         "target": "npm:supports-color",
+        "type": "static"
+      }
+    ],
+    "npm:chart.js": [
+      {
+        "source": "npm:chart.js",
+        "target": "npm:@kurkle/color",
+        "type": "static"
+      }
+    ],
+    "npm:chartjs-plugin-datalabels": [
+      {
+        "source": "npm:chartjs-plugin-datalabels",
+        "target": "npm:chart.js",
         "type": "static"
       }
     ],
