@@ -11,11 +11,29 @@ import { NgChartsModule } from 'ng2-charts';
   standalone: true,
   imports: [NgChartsModule, IonicModule],
   template: `
-    <div>
+    <div class="chart-container">
       <canvas id="chart">{{ chart }}</canvas>
     </div>
   `,
-  styles: ``,
+  styles: `
+  chart-container {
+}
+
+@media screen and (max-width: 767px) {
+  .chart-container {
+    height: 300px;
+	display: flex;
+  justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .chart-container {
+    height: 100%;
+	display: flex;
+  justify-content: center;
+  }
+}`,
 })
 export class UiChartComponent implements AfterViewInit {
   @Input() labels!: string[];

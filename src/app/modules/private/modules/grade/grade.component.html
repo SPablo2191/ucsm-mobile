@@ -2,7 +2,8 @@
   <header-page
     title="¡Bienvenido a tus notas!"
     subtitle="Puedes ver tus avance de carrera aqui"
-    imageurl="/assets/images/grades.png" />
+    imageurl="/assets/images/grades.png"
+  />
   <ui-chart
     [data]="[61, 25]"
     type="doughnut"
@@ -10,5 +11,7 @@
     [backgroundColors]="['#05be6a', '#ada7a7']"
     [hoverOffset]="4"
     [options]="chartStyle"
-  ></ui-chart
-></ion-content>
+  ></ui-chart>
+  <div class="chart-footer">Tienes 48 materias aprobadas de 60</div>
+  <div class="motivation-message">¡Sigue asi!</div>
+</ion-content>
