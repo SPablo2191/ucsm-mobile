@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="card ion-margin">
+    <div class="card ion-margin" (click)="goToSite()">
       <div class="grid">
         <div class="col-9">
           <div class="title">{{ title }}</div>
@@ -77,4 +78,12 @@ export class SubjectSimpleCardComponent {
   @Input() title: string = '';
   @Input() quantity: number = 0;
   @Input() info: string = '';
+  @Input() path!: string;
+  constructor(private router: Router) {}
+
+  goToSite() {
+    if (this.path) {
+      this.router.navigate([this.path]);
+    }
+  }
 }
