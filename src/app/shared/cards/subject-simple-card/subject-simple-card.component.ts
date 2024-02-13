@@ -83,7 +83,7 @@ export class SubjectSimpleCardComponent {
 
   goToSite() {
     if (this.path) {
-      this.router.navigate([this.path]);
+      this.router.navigate([this.path, this.title]);
     }
   }
 }

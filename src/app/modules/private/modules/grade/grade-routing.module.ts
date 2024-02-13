@@ -4,7 +4,10 @@ import { GradeComponent } from './grade.component';
 
 const routes: Routes = [
   { path: '', component: GradeComponent },
-  { path: 'subject', loadChildren: () => import('./modules/subject/subject.module').then((m) => m.SubjectModule) },
+  {
+    path: 'subject/:title',
+    loadChildren: () => import('./modules/subject/subject.module').then((m) => m.SubjectModule),
+  },
   {
     path: 'subject-description',
     loadChildren: () =>
