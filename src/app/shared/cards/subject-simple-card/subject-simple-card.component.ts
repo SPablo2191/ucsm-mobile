@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -10,15 +10,15 @@ import { Component } from '@angular/core';
     <div class="card ion-margin">
       <div class="grid">
         <div class="col-9">
-          <div class="title">Materias Aprobadas</div>
+          <div class="title">{{ title }}</div>
           <div class="info">Ver Materia >></div>
         </div>
         <div class="col-3">
           <div class="flex flex-column">
             <div class=" flex justify-content-center">
-              <span class="title">40</span>
+              <span class="title">{{ quantity }}</span>
             </div>
-            <div class="info flex justify-content-center"></div>
+            <div class="info flex justify-content-center">{{ info }}</div>
           </div>
         </div>
       </div>
@@ -73,4 +73,8 @@ import { Component } from '@angular/core';
 
   `,
 })
-export class SubjectSimpleCardComponent {}
+export class SubjectSimpleCardComponent {
+  @Input() title: string = '';
+  @Input() quantity: number = 0;
+  @Input() info: string = '';
+}
