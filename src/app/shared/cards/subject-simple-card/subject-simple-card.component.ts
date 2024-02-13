@@ -47,7 +47,7 @@ import { Router } from '@angular/router';
     }
 
     .title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
     }
 	.quantity{
