@@ -42,13 +42,13 @@ import { Router } from '@angular/router';
       width: 100%;
     }
 
-    .title, .info {
-      word-wrap: break-word;
-    }
 
     .title {
       font-size: 18px;
       font-weight: 700;
+	  overflow: hidden;
+	  white-space: nowrap;
+	  text-overflow: ellipsis;
     }
 	.quantity{
 		font-size: 25px;
@@ -58,18 +58,19 @@ import { Router } from '@angular/router';
       height: 14px;
       font-size: 10px;
       font-weight: 400;
+	  word-wrap: break-word;
     }
 
     .selected-card {
-      background-color: #05BE6A; /* Color de fondo verde */
+      background-color: #05BE6A;
     }
 
     .selected-card .title, .selected-card .info {
-      color: white; /* Color de texto blanco */
+      color: white;
     }
 
     .selected-card .link {
-      color: white; /* Color de texto blanco */
+      color: white;
     }
 
   `,

@@ -1,8 +1,19 @@
 <ion-content>
-  <div class="flex justify-content-center my-6">
+  <ion-button class="user mx-2 mt-4" [routerLink]="['/private/career/grade']">
+    Volver
+    <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
+  </ion-button>
+  <div class="flex justify-content-center mt-2 mb-4">
     <h1 class="font-bold text-white text-center text-4xl">{{ title }}</h1>
   </div>
   <card-container>
-    <ui-dropdown />
+    <div class="flex justify-content-center">
+      <ui-dropdown />
+    </div>
+    <subject-simple-card
+      title="Inteligencia de negocios"
+      info="P.final"
+      path="/private/career/grade/subject-description"
+    />
   </card-container>
 </ion-content>
