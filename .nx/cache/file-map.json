@@ -324,11 +324,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "12433911980826733687"
+        "hash": "12844562835283636658"
       },
       {
         "file": "package.json",
-        "hash": "2802981820764783516"
+        "hash": "1485739692798737735"
       },
       {
         "file": "resources/icon.png",
@@ -363,6 +363,10 @@
         "hash": "5392096979626812992"
       },
       {
+        "file": "src/app/core/interfaces/chart.data.interface.ts",
+        "hash": "7909689433324378074"
+      },
+      {
         "file": "src/app/modules/private/modules/career-profile/career-profile-routing.module.ts",
         "hash": "2114853291770026594"
       },
@@ -388,15 +392,15 @@
       },
       {
         "file": "src/app/modules/private/modules/grade/grade-routing.module.ts",
-        "hash": "13153509226079069331"
+        "hash": "8530594846076735196"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.component.css",
-        "hash": "3244421341483603138"
+        "hash": "15513488480473275964"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.component.html",
-        "hash": "3006087627443081415"
+        "hash": "8372047399744961716"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.component.spec.ts",
@@ -404,11 +408,59 @@
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.component.ts",
-        "hash": "5810314352935715568"
+        "hash": "17066313189445032829"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade.module.ts",
-        "hash": "14237377084645145395"
+        "hash": "17427118246639312808"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description-routing.module.ts",
+        "hash": "17675926095486022317"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.html",
+        "hash": "3683684131553928845"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.spec.ts",
+        "hash": "3997885206059597507"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.ts",
+        "hash": "16699271983851152307"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.module.ts",
+        "hash": "6821968304654000147"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject/subject-routing.module.ts",
+        "hash": "16580117366911350747"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject/subject.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject/subject.component.html",
+        "hash": "17697670207994698322"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject/subject.component.spec.ts",
+        "hash": "8921424741127723178"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject/subject.component.ts",
+        "hash": "8569908662705686525"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject/subject.module.ts",
+        "hash": "15738649693244013878"
       },
       {
         "file": "src/app/modules/private/modules/home/home-routing.module.ts",
@@ -416,11 +468,11 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.html",
-        "hash": "8462336503136467183"
+        "hash": "14424059502512291347"
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.scss",
-        "hash": "5175521111142333636"
+        "hash": "6614043638947637939"
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.spec.ts",
@@ -428,7 +480,7 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.ts",
-        "hash": "11370344249650654539"
+        "hash": "16915766757449199299"
       },
       {
         "file": "src/app/modules/private/modules/home/home.module.ts",
@@ -528,7 +580,7 @@
       },
       {
         "file": "src/app/shared/card-container/card-container.component.ts",
-        "hash": "12135220664701609181"
+        "hash": "5245397146642086961"
       },
       {
         "file": "src/app/shared/cards/career-card/career-card.component.spec.ts",
@@ -563,6 +615,14 @@
         "hash": "13720097187592401824"
       },
       {
+        "file": "src/app/shared/cards/subject-simple-card/subject-simple-card.component.spec.ts",
+        "hash": "7002804039888189305"
+      },
+      {
+        "file": "src/app/shared/cards/subject-simple-card/subject-simple-card.component.ts",
+        "hash": "12461763155796076736"
+      },
+      {
         "file": "src/app/shared/cards/tab-card/tab-card.component.spec.ts",
         "hash": "13609714023144607898"
       },
@@ -593,6 +653,14 @@
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.ts",
         "hash": "6944326115728596500"
+      },
+      {
+        "file": "src/app/shared/ui/ui-chart/ui-chart.component.spec.ts",
+        "hash": "9273164155076552360"
+      },
+      {
+        "file": "src/app/shared/ui/ui-chart/ui-chart.component.ts",
+        "hash": "1589365085092634184"
       },
       {
         "file": "src/app/shared/ui/ui-img/ui-img.component.spec.ts",
