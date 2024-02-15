@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './subject-description.component.html',
   styleUrl: './subject-description.component.scss',
 })
-export class SubjectDescriptionComponent {}
+export class SubjectDescriptionComponent {
+  title: String = 'Introduccion a la programación';
+  showGrades = false;
+  changeSection() {
+    this.showGrades = !this.showGrades;
+  }
+}

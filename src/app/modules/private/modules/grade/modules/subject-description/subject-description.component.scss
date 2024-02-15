@@ -1,3 +1,9 @@
 ion-content {
   --background: #05be6a;
 }
+ion-button {
+  --box-shadow: none;
+}
+.title-section {
+  color: var(--ion-color-primary);
+}

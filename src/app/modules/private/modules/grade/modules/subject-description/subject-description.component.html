@@ -1,9 +1,41 @@
 <ion-content>
-  <ion-button class="user mx-2 mt-4" [routerLink]="['/private/career/grade']">
+  <ion-button class="user mx-2 mt-2" [routerLink]="['/private/career/grade']">
     Volver
     <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
   </ion-button>
-  <!-- <div class="flex justify-content-center mt-2 mb-4">
-		<h1 class="font-bold text-white text-center text-4xl">{{ title }}</h1>
-	  </div> -->
+  <div class="mb-4">
+    <h1 class="font-bold text-white text-center text-4xl">{{ title }}</h1>
+    <p class="text-center text-white text-sm">Semestre par - 2023</p>
+  </div>
+  <card-container>
+    <div class="flex justify-content-center align-items-center text-2xl">
+      <p class="mr-4 text-xl" [ngClass]="{ 'title-section': !showGrades }" (click)="changeSection()">Información</p>
+      <p class="text-xl" [ngClass]="{ 'title-section': showGrades }" (click)="changeSection()">Notas</p>
+    </div>
+    <div *ngIf="!showGrades; else grades">
+      <classroom-description
+        main_title="Comisión"
+        title_left="Practica"
+        description_left="02"
+        title_right="Teoria"
+        description_right="A"
+      />
+      <classroom-description
+        main_title="Aula"
+        title_left="Practica"
+        description_left="L-207"
+        title_right="Teoria"
+        description_right="A-100"
+      />
+      <classroom-description
+        main_title="Horario"
+        title_left="Practica"
+        description_left="Lunes"
+        title_right="Teoria"
+        description_right="Miercoles"
+      />
+      <classroom-description main_title="Docente/s" />
+    </div>
+    <ng-template #grades></ng-template>
+  </card-container>
 </ion-content>
