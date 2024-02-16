@@ -6,6 +6,7 @@ import { SubjectDescriptionComponent } from './subject-description.component';
 import { IonicModule } from '@ionic/angular';
 import { CardContainerComponent } from 'src/app/shared/card-container/card-container.component';
 import { ClassroomDescriptionComponent } from './components/classroom-description/classroom-description.component';
+import { PersonItemComponent } from 'src/app/shared/person-item/person-item.component';
 
 @NgModule({
   declarations: [SubjectDescriptionComponent],
@@ -15,6 +16,7 @@ import { ClassroomDescriptionComponent } from './components/classroom-descriptio
     IonicModule,
     CardContainerComponent,
     ClassroomDescriptionComponent,
+    PersonItemComponent,
   ],
 })
 export class SubjectDescriptionModule {}

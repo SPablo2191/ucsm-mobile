@@ -15,14 +15,14 @@ import { IonicModule } from '@ionic/angular';
           <div class="text-xl font-bold text-center">{{ title_left }}</div>
           <div class="text-lg font-bold text-center">{{ description_left }}</div>
           <div class="col" *ngIf="start_hour">
-            <div class="flex justify-content-center align-items-center">
-              <ion-icon name="time-outline" style="font-size: 20px; margin-right: 4px;"></ion-icon>
+            <div class="flex justify-content-center align-items-center text-xs">
+              <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
               Inicio: {{ start_hour }}
             </div>
           </div>
           <div class="col" *ngIf="end_hour">
-            <div class="flex justify-content-center align-items-center">
-              <ion-icon name="time-outline" style="font-size: 20px; margin-right: 4px;"></ion-icon>
+            <div class="flex justify-content-center align-items-center text-xs">
+              <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
               Fin: {{ end_hour }}
             </div>
           </div>
@@ -31,14 +31,14 @@ import { IonicModule } from '@ionic/angular';
           <div class="text-xl font-bold text-center">{{ title_right }}</div>
           <div class="text-lg font-bold text-center">{{ description_right }}</div>
           <div class="col" *ngIf="start_hour">
-            <div class="flex justify-content-center align-items-center">
-              <ion-icon name="time-outline" style="font-size: 20px; margin-right: 4px;"></ion-icon>
+            <div class="flex justify-content-center align-items-center text-xs">
+              <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
               Inicio: {{ start_hour }}
             </div>
           </div>
           <div class="col" *ngIf="end_hour">
-            <div class="flex justify-content-center align-items-center">
-              <ion-icon name="time-outline" style="font-size: 20px; margin-right: 4px;"></ion-icon>
+            <div class="flex justify-content-center align-items-center text-xs">
+              <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
               Fin: {{ end_hour }}
             </div>
           </div>

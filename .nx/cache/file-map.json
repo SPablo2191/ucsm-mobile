@@ -415,16 +415,24 @@
         "hash": "17427118246639312808"
       },
       {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/components/classroom-description/classroom-description.component.spec.ts",
+        "hash": "12391314651209822363"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/components/classroom-description/classroom-description.component.ts",
+        "hash": "1455576834585192795"
+      },
+      {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description-routing.module.ts",
         "hash": "17675926095486022317"
       },
       {
-        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.css",
-        "hash": "3244421341483603138"
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.html",
+        "hash": "16253299946718748446"
       },
       {
-        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.html",
-        "hash": "3683684131553928845"
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.scss",
+        "hash": "8728483489862035849"
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.spec.ts",
@@ -432,11 +440,11 @@
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.ts",
-        "hash": "16699271983851152307"
+        "hash": "9053029742222076050"
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.module.ts",
-        "hash": "6821968304654000147"
+        "hash": "4448203804145313765"
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject/subject-routing.module.ts",
@@ -645,6 +653,14 @@
       {
         "file": "src/app/shared/link-button/link-button.component.ts",
         "hash": "13145683173468670595"
+      },
+      {
+        "file": "src/app/shared/person-item/person-item.component.spec.ts",
+        "hash": "18295474394676064564"
+      },
+      {
+        "file": "src/app/shared/person-item/person-item.component.ts",
+        "hash": "11883522309986604535"
       },
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.spec.ts",
