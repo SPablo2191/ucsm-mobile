@@ -23,6 +23,7 @@ const routes: Routes = [
       { path: 'grade', loadChildren: () => import('./modules/grade/grade.module').then((m) => m.GradeModule) },
     ],
   },
+  { path: 'profile', loadChildren: () => import('./modules/profile/profile.module').then((m) => m.ProfileModule) },
 ];
 
 @NgModule({

@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
   showEvent = false;
   constructor(private router: Router) {}
   changeSection() {
