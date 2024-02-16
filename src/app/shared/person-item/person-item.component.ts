@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
   template: `
     <div class="flex justify-content-center">
-      <ion-img [src]="image_url" alt="person" class="person-image"></ion-img>
+      <ion-img [src]="image_url" alt="person" [style]="style"></ion-img>
     </div>
     <div class="text-center font-bold">{{ title }}</div>
     <div class="text-center text-xs font-italic">{{ subtitle }}</div>
@@ -27,4 +27,5 @@ export class PersonItemComponent {
   @Input() image_url: string = '';
   @Input() title: string = '';
   @Input() subtitle: string = '';
+  @Input() style: string = 'width: 49px; height: 43px;';
 }

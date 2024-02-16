@@ -1,0 +1,11 @@
+ion-content {
+  --background: linear-gradient(180deg, #05be6a 0%, #099957 25%);
+}
+ion-button {
+  --box-shadow: none;
+}
+.button-transparent {
+  --background: transparentize(100);
+  --background-hover: #ffffff;
+  --box-shadow: none;
+}

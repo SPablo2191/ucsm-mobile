@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<ion-content>
+  <ion-button class="button-transparent mx-2 mt-2" [routerLink]="['/home']">
+    Volver
+    <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
+  </ion-button>
+  <div class="flex justify-content-center mb-6">
+    <div style="width: 150px">
+      <ui-img alt="UCSM LOGO" src="/assets/icon/logo_ucsm_4.png" />
+    </div>
+  </div>
+  <card-container>
+    <div class="flex justify-content-center my-4">
+      <person-item
+        image_url="/assets/images/career-profile-image.png"
+        style="width: 133px; height: 117px"
+        title="Pablo Sandoval"
+      />
+    </div>
+  </card-container>
+</ion-content>
