@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PublicModule } from './modules/public/public.module';
 import { PrivateModule } from './modules/private/private.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     PublicModule,
     PrivateModule,
   ],

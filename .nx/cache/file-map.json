@@ -423,12 +423,20 @@
         "hash": "1455576834585192795"
       },
       {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/components/grade-description/grade-description.component.spec.ts",
+        "hash": "2691408397976894549"
+      },
+      {
+        "file": "src/app/modules/private/modules/grade/modules/subject-description/components/grade-description/grade-description.component.ts",
+        "hash": "4250380231458352021"
+      },
+      {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description-routing.module.ts",
         "hash": "17675926095486022317"
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.html",
-        "hash": "16253299946718748446"
+        "hash": "4770161193189555399"
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.component.scss",
@@ -444,7 +452,7 @@
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject-description/subject-description.module.ts",
-        "hash": "4448203804145313765"
+        "hash": "2172371637620948912"
       },
       {
         "file": "src/app/modules/private/modules/grade/modules/subject/subject-routing.module.ts",
@@ -476,7 +484,7 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.html",
-        "hash": "14424059502512291347"
+        "hash": "16878865791575517413"
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.scss",
@@ -488,7 +496,7 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.ts",
-        "hash": "2661736056372214532"
+        "hash": "3477030474907035910"
       },
       {
         "file": "src/app/modules/private/modules/home/home.module.ts",
@@ -519,6 +527,30 @@
         "hash": "10971268167142101822"
       },
       {
+        "file": "src/app/modules/private/modules/profile/profile-routing.module.ts",
+        "hash": "9753840775749959743"
+      },
+      {
+        "file": "src/app/modules/private/modules/profile/profile.component.html",
+        "hash": "12357351051833072201"
+      },
+      {
+        "file": "src/app/modules/private/modules/profile/profile.component.scss",
+        "hash": "14018323436469180003"
+      },
+      {
+        "file": "src/app/modules/private/modules/profile/profile.component.spec.ts",
+        "hash": "11350592373407152760"
+      },
+      {
+        "file": "src/app/modules/private/modules/profile/profile.component.ts",
+        "hash": "323692778575302329"
+      },
+      {
+        "file": "src/app/modules/private/modules/profile/profile.module.ts",
+        "hash": "15753673572362783392"
+      },
+      {
         "file": "src/app/modules/private/modules/schedule/schedule-routing.module.ts",
         "hash": "15017460401179225818"
       },
@@ -544,7 +576,7 @@
       },
       {
         "file": "src/app/modules/private/private-routing.module.ts",
-        "hash": "9222659475604793156"
+        "hash": "9377287296233173267"
       },
       {
         "file": "src/app/modules/private/private.module.ts",
@@ -656,11 +688,11 @@
       },
       {
         "file": "src/app/shared/person-item/person-item.component.spec.ts",
-        "hash": "18295474394676064564"
+        "hash": "4648330782402239748"
       },
       {
         "file": "src/app/shared/person-item/person-item.component.ts",
-        "hash": "11883522309986604535"
+        "hash": "4822264548005313881"
       },
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.spec.ts",
