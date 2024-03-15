@@ -360,11 +360,23 @@
       },
       {
         "file": "src/app/app.module.ts",
-        "hash": "5392096979626812992"
+        "hash": "12184878110565654099"
       },
       {
         "file": "src/app/core/interfaces/chart.data.interface.ts",
         "hash": "7909689433324378074"
+      },
+      {
+        "file": "src/app/core/interfaces/request.interface.ts",
+        "hash": "6019448616331554111"
+      },
+      {
+        "file": "src/app/core/services/base.service.ts",
+        "hash": "1026041196087937459"
+      },
+      {
+        "file": "src/app/core/services/old.base.service.ts",
+        "hash": "16939196654070969546"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile-routing.module.ts",
@@ -389,6 +401,30 @@
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.module.ts",
         "hash": "2535755998667060267"
+      },
+      {
+        "file": "src/app/modules/private/modules/event/event-routing.module.ts",
+        "hash": "13144196746049830799"
+      },
+      {
+        "file": "src/app/modules/private/modules/event/event.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/private/modules/event/event.component.html",
+        "hash": "10966337034634644702"
+      },
+      {
+        "file": "src/app/modules/private/modules/event/event.component.spec.ts",
+        "hash": "173882293970140211"
+      },
+      {
+        "file": "src/app/modules/private/modules/event/event.component.ts",
+        "hash": "11545522748325818715"
+      },
+      {
+        "file": "src/app/modules/private/modules/event/event.module.ts",
+        "hash": "3566961295749996651"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade-routing.module.ts",
@@ -484,7 +520,7 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.html",
-        "hash": "16878865791575517413"
+        "hash": "2678444363068463602"
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.scss",
@@ -576,7 +612,7 @@
       },
       {
         "file": "src/app/modules/private/private-routing.module.ts",
-        "hash": "9377287296233173267"
+        "hash": "14030152005133761170"
       },
       {
         "file": "src/app/modules/private/private.module.ts",
@@ -636,7 +672,7 @@
       },
       {
         "file": "src/app/shared/cards/event-card/event-card.component.ts",
-        "hash": "10476175586854738251"
+        "hash": "4385738623417339161"
       },
       {
         "file": "src/app/shared/cards/installment-card/installment-card.component.spec.ts",
@@ -880,7 +916,7 @@
       },
       {
         "file": "src/environments/environment.prod.ts",
-        "hash": "10220522844224226756"
+        "hash": "1509269309796681975"
       },
       {
         "file": "src/environments/environment.ts",

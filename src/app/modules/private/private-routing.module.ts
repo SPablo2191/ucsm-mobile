@@ -24,6 +24,7 @@ const routes: Routes = [
     ],
   },
   { path: 'profile', loadChildren: () => import('./modules/profile/profile.module').then((m) => m.ProfileModule) },
+  { path: 'event', loadChildren: () => import('./modules/event/event.module').then((m) => m.EventModule) },
 ];
 
 @NgModule({

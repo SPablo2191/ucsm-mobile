@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -52,8 +53,11 @@ export class EventCardComponent {
   @Input() iconName!: string;
   @Input() path!: string;
   @Input() imageUrl!: string;
+  constructor(private router: Router) {}
 
   goToSite() {
-    console.log('goToSite');
+    if (this.path) {
+      this.router.navigate([this.path]);
+    }
   }
 }
