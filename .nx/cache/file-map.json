@@ -404,7 +404,7 @@
       },
       {
         "file": "src/app/modules/private/modules/event/event-routing.module.ts",
-        "hash": "13144196746049830799"
+        "hash": "5507867498527589744"
       },
       {
         "file": "src/app/modules/private/modules/event/event.component.css",
@@ -412,19 +412,19 @@
       },
       {
         "file": "src/app/modules/private/modules/event/event.component.html",
-        "hash": "10966337034634644702"
+        "hash": "17567857153607787410"
       },
       {
         "file": "src/app/modules/private/modules/event/event.component.spec.ts",
-        "hash": "173882293970140211"
+        "hash": "1683095840287068483"
       },
       {
         "file": "src/app/modules/private/modules/event/event.component.ts",
-        "hash": "11545522748325818715"
+        "hash": "10909540580614992658"
       },
       {
         "file": "src/app/modules/private/modules/event/event.module.ts",
-        "hash": "3566961295749996651"
+        "hash": "7761036177335049469"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade-routing.module.ts",
@@ -520,7 +520,7 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.html",
-        "hash": "2678444363068463602"
+        "hash": "12995189023554316983"
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.scss",
@@ -612,7 +612,7 @@
       },
       {
         "file": "src/app/modules/private/private-routing.module.ts",
-        "hash": "14030152005133761170"
+        "hash": "9981784755162127463"
       },
       {
         "file": "src/app/modules/private/private.module.ts",
@@ -672,7 +672,7 @@
       },
       {
         "file": "src/app/shared/cards/event-card/event-card.component.ts",
-        "hash": "4385738623417339161"
+        "hash": "12362650687811051142"
       },
       {
         "file": "src/app/shared/cards/installment-card/installment-card.component.spec.ts",

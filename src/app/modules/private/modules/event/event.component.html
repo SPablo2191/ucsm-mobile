@@ -1,1 +1,23 @@
-<p>event works!</p>
+<ion-content>
+  <div class="image-background" [style.background-image]="'url(' + imagePath + ')'">
+    <ion-button class="mx-2 mt-4" [routerLink]="['/home']">
+      Volver
+      <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
+    </ion-button>
+  </div>
+
+  <card-container>
+    <div class="flex justify-content-center">
+      <h1 class="font-bold text-3xl">¡Visita La UCSM!</h1>
+    </div>
+    <div class="flex justify-content-center">
+      <h1 class="text-center text-sm">Conozca la hermosa estructura de la uni</h1>
+    </div>
+    <div class="my-4">
+      <p class="text-lg">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia placeat numquam fugit inventore non, commodi
+        incidunt delectus amet repellendus et pariatur cum quae, itaque consectetur quam eos! Unde, quam placeat.
+      </p>
+    </div>
+  </card-container>
+</ion-content>
