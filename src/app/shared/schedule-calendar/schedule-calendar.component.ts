@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { NgCalendarModule } from 'ionic2-calendar';
 
 @Component({
-  selector: 'app-schedule-calendar',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'schedule-calendar',
   standalone: true,
-  imports: [],
-  template: ` <p>schedule-calendar works!</p> `,
+  imports: [NgCalendarModule],
+  template: ` <calendar></calendar>`,
   styles: ``,
 })
 export class ScheduleCalendarComponent {}
