@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { PublicModule } from './modules/public/public.module';
 import { PrivateModule } from './modules/private/private.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { SpinnerInterceptorService } from './core/interceptors/spinner.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     PublicModule,
     PrivateModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
