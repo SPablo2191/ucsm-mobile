@@ -8,40 +8,27 @@ import { CalendarComponent } from 'ionic2-calendar';
   selector: 'schedule-calendar',
   standalone: true,
   imports: [NgCalendarModule, IonicModule, CommonModule],
-  template: ` <ion-row ion-content>
-      <ion-col>
-        <ion-select placeholder="Cambiar Configuración">
-          <ion-select-option [value]="mode" *ngFor="let mode of calendarModes">{{ mode }}</ion-select-option>
-        </ion-select>
-      </ion-col>
-    </ion-row>
-    <ion-title slot="start">{{ viewTitle }}</ion-title>
-    <ion-buttons slot="end">
-      <ion-button [disabled]="isToday" (click)="today()">Today</ion-button>
-      <ion-button (click)="changeMode('month')">M</ion-button>
-      <ion-button (click)="changeMode('week')">W</ion-button>
-      <ion-button (click)="changeMode('day')">D</ion-button>
-      <ion-button (click)="loadEvents()">Load</ion-button>
-    </ion-buttons>
-    <calendar
-      [eventSource]="eventSource"
-      [queryMode]="calendar.queryMode"
-      [calendarMode]="calendar.mode"
-      [currentDate]="calendar.currentDate"
-      [step]="calendar.step"
-      [preserveScrollPosition]="calendar.preserveScrollPosition"
-      [startHour]="calendar.startHour"
-      [scrollToHour]="calendar.scrollToHour"
-      [dayviewCategorySource]="calendar.dayviewCategorySource"
-      [dayviewShowCategoryView]="calendar.dayviewShowCategoryView"
-      (onCurrentDateChanged)="onCurrentDateChanged($event)"
-      (onEventSelected)="onEventSelected($event)"
-      (onTitleChanged)="onViewTitleChanged($event)"
-      (onTimeSelected)="onTimeSelected($event)"
-      (onDayHeaderSelected)="onDayHeaderSelected($event)"
-    >
-    </calendar>`,
-  styles: ``,
+  template: ` <calendar
+    [eventSource]="eventSource"
+    [queryMode]="calendar.queryMode"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    [step]="calendar.step"
+    [preserveScrollPosition]="calendar.preserveScrollPosition"
+    [startHour]="calendar.startHour"
+    [scrollToHour]="calendar.scrollToHour"
+    [dayviewShowCategoryView]="calendar.dayviewShowCategoryView"
+    (onCurrentDateChanged)="onCurrentDateChanged($event)"
+    (onEventSelected)="onEventSelected($event)"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    (onDayHeaderSelected)="onDayHeaderSelected($event)"
+  >
+  </calendar>`,
+  styles: `
+.weekview-with-event,.weekview-current, .calendar-event-inner{
+    background-color: #05be6a !important;
+}`,
 })
 export class ScheduleCalendarComponent {
   @ViewChild(CalendarComponent) myCalendar!: CalendarComponent;
@@ -49,37 +36,15 @@ export class ScheduleCalendarComponent {
 
   constructor() {
     this.isToday = false;
+    this.loadEvents();
   }
-
-  randomNameList = [
-    'Alice',
-    'Bob',
-    'Charlie',
-    'David',
-    'Eve',
-    'Frank',
-    'Grace',
-    'Hank',
-    'Ivy',
-    'Jack',
-    'Karen',
-    'Liam',
-    'Max',
-    'Nina',
-    'Olivia',
-    'Paul',
-    'Quincy',
-    'Rita',
-    'Sara',
-    'Tina',
-  ];
 
   eventSource: any = [];
   viewTitle: any;
 
   isToday: boolean;
   calendar = {
-    mode: 'month' as CalendarMode,
+    mode: 'week' as CalendarMode,
     queryMode: 'local' as QueryMode,
     step: 30 as Step,
     currentDate: new Date(),
@@ -118,7 +83,6 @@ export class ScheduleCalendarComponent {
     showEventDetail: false,
     startingDayMonth: 2,
     startingDayWeek: 2,
-    allDayLabel: 'testallday',
     noEventsLabel: 'None',
     timeInterval: 15,
     autoSelect: false,
@@ -134,7 +98,7 @@ export class ScheduleCalendarComponent {
     sliderOptions: {
       spaceBetween: 10,
     },
-    dayviewCategorySource: new Set(this.randomNameList),
+
     dayviewShowCategoryView: true,
   };
 
@@ -164,8 +128,8 @@ export class ScheduleCalendarComponent {
     console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title + ',' + event.categoryId);
   }
 
-  changeMode(mode: any) {
-    this.calendar.mode = mode;
+  changeMode(event: any) {
+    this.calendar.mode = event.detail.value;
   }
 
   today() {
@@ -210,12 +174,6 @@ export class ScheduleCalendarComponent {
           endDay += 1;
         }
         endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
-        events.push({
-          title: 'All Day - ' + i,
-          startTime: startTime,
-          endTime: endTime,
-          allDay: true,
-        });
       } else {
         var startMinute = Math.floor(Math.random() * 24 * 60);
         var endMinute = Math.floor(Math.random() * 180) + startMinute;
@@ -240,8 +198,6 @@ export class ScheduleCalendarComponent {
           allDay: false,
         });
       }
-
-      const categorySource = [...this.calendar.dayviewCategorySource];
     }
     return events;
   }
