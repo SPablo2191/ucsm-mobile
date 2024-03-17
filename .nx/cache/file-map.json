@@ -324,11 +324,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "12844562835283636658"
+        "hash": "6872842495426370728"
       },
       {
         "file": "package.json",
-        "hash": "1485739692798737735"
+        "hash": "1445025626864738840"
       },
       {
         "file": "resources/icon.png",
@@ -407,12 +407,12 @@
         "hash": "5507867498527589744"
       },
       {
-        "file": "src/app/modules/private/modules/event/event.component.css",
-        "hash": "3244421341483603138"
+        "file": "src/app/modules/private/modules/event/event.component.html",
+        "hash": "6665456412114444229"
       },
       {
-        "file": "src/app/modules/private/modules/event/event.component.html",
-        "hash": "17567857153607787410"
+        "file": "src/app/modules/private/modules/event/event.component.scss",
+        "hash": "9377375611373493023"
       },
       {
         "file": "src/app/modules/private/modules/event/event.component.spec.ts",
@@ -420,11 +420,11 @@
       },
       {
         "file": "src/app/modules/private/modules/event/event.component.ts",
-        "hash": "10909540580614992658"
+        "hash": "15315542838541733141"
       },
       {
         "file": "src/app/modules/private/modules/event/event.module.ts",
-        "hash": "7761036177335049469"
+        "hash": "14553329061667238561"
       },
       {
         "file": "src/app/modules/private/modules/grade/grade-routing.module.ts",
@@ -596,7 +596,7 @@
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule.component.html",
-        "hash": "14367038904136456929"
+        "hash": "3202187831770986884"
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule.component.spec.ts",
@@ -608,7 +608,7 @@
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule.module.ts",
-        "hash": "15462807630034544851"
+        "hash": "3931331893710258391"
       },
       {
         "file": "src/app/modules/private/private-routing.module.ts",
@@ -729,6 +729,14 @@
       {
         "file": "src/app/shared/person-item/person-item.component.ts",
         "hash": "4822264548005313881"
+      },
+      {
+        "file": "src/app/shared/schedule-calendar/schedule-calendar.component.spec.ts",
+        "hash": "5631193852654929773"
+      },
+      {
+        "file": "src/app/shared/schedule-calendar/schedule-calendar.component.ts",
+        "hash": "4059734479439492033"
       },
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.spec.ts",
@@ -924,7 +932,7 @@
       },
       {
         "file": "src/global.scss",
-        "hash": "45990725999780201"
+        "hash": "13154960895060262337"
       },
       {
         "file": "src/index.html",
