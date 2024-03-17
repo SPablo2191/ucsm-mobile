@@ -9,6 +9,7 @@ import { PrivateModule } from './modules/private/private.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SpinnerInterceptorService } from './core/interceptors/spinner.interceptor';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { SpinnerInterceptorService } from './core/interceptors/spinner.intercept
     HttpClientModule,
     PublicModule,
     PrivateModule,
+    SpinnerComponent,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
