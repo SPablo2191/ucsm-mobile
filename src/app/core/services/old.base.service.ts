@@ -7,10 +7,10 @@ import { ApiRequest } from '../interfaces/request.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class OldBaseService<T> {
+export class OldBaseService {
   serverUrl: string = environment.apiUrl;
   constructor(protected httpClient: HttpClient) {}
-  postRequest(data: ApiRequest): Observable<T> {
-    return this.httpClient.post<T>(this.serverUrl, data);
+  postRequest(data: ApiRequest): Observable<any> {
+    return this.httpClient.post<any>(this.serverUrl, data);
   }
 }
