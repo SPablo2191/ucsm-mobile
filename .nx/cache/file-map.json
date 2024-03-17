@@ -326,11 +326,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "1960224980910348910"
+        "hash": "6872842495426370728"
       },
       {
         "file": "package.json",
-        "hash": "4548866170140818653"
+        "hash": "1445025626864738840"
       },
       {
         "file": "resources/icon.png",
@@ -610,7 +610,7 @@
       },
       {
         "file": "src/app/modules/private/modules/schedule/schedule.module.ts",
-        "hash": "12266087108479696526"
+        "hash": "3931331893710258391"
       },
       {
         "file": "src/app/modules/private/private-routing.module.ts",
@@ -738,7 +738,7 @@
       },
       {
         "file": "src/app/shared/schedule-calendar/schedule-calendar.component.ts",
-        "hash": "6231377087461866411"
+        "hash": "4059734479439492033"
       },
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.spec.ts",
@@ -934,7 +934,7 @@
       },
       {
         "file": "src/global.scss",
-        "hash": "45990725999780201"
+        "hash": "13154960895060262337"
       },
       {
         "file": "src/index.html",
