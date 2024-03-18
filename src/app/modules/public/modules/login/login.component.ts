@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { Auth } from 'src/app/core/interfaces/auth.interface';
 import { ApiRequest } from 'src/app/core/interfaces/request.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
@@ -12,13 +12,17 @@ import { AuthService } from 'src/app/project/services/php/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   protected form!: FormGroup;
+  protected subscriptions$: Subscription = new Subscription();
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
   ) {}
+  ngOnDestroy(): void {
+    this.subscriptions$.unsubscribe();
+  }
   ngOnInit(): void {
     this.buildForm();
   }
@@ -29,17 +33,20 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
+    if (!this.form.valid) return;
     let student: PartialStudent = {
       identification_document: this.form.get('identification_document')?.value,
       password: this.form.get('password')?.value,
     };
-    this.authService
-      .login(student)
-      .pipe(
-        map((student) => {
-          this.router.navigate(['/private/home']);
-        }),
-      )
-      .subscribe();
+    this.subscriptions$.add(
+      this.authService
+        .login(student)
+        .pipe(
+          map((student) => {
+            this.router.navigate(['/private/home']);
+          }),
+        )
+        .subscribe(),
+    );
   }
 }
