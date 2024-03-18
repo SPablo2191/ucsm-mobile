@@ -22,18 +22,69 @@ export class AuthService extends OldBaseService implements Auth<PartialStudent> 
       FCMTKN: '',
     };
     return this.postRequest(data).pipe(
-      map((data) => {
-        let userData = data.USERDATA;
-        console.log(userData);
-        let student: PartialStudent = {};
+      map((response) => {
+        let userData = response.data.USERDATA;
+        localStorage.setItem('CODALU', userData.CODALU);
+        localStorage.setItem('NOMUNI', userData.NOMUNI);
+        localStorage.setItem('UNIACAS', JSON.stringify(response.data.CODIGOS));
+        let studentNames: string[] = userData.NOMALU.split(' ');
+        let student: PartialStudent = {
+          identification_document: userData.NRODNI,
+          email: userData.EMAIL,
+          phone_number: userData.NROCEL,
+        };
+        switch (studentNames.length) {
+          case 2:
+            student.first_name = studentNames[1];
+            student.last_name = studentNames[0];
+            break;
+          case 3:
+            student.first_name = studentNames[2];
+            student.second_last_name = studentNames[1];
+            student.last_name = studentNames[0];
+            break;
+          case 4:
+            student.middle_name = studentNames[3];
+            student.first_name = studentNames[2];
+            student.second_last_name = studentNames[1];
+            student.last_name = studentNames[0];
+            break;
+          default:
+            student.middle_name = studentNames[3];
+            student.first_name = studentNames[2];
+            student.second_last_name = studentNames[1];
+            student.last_name = studentNames[0];
+            break;
+        }
+        localStorage.setItem('student', JSON.stringify(student));
         return student;
       }),
     );
   }
   logout(dni: string): Observable<Partial<Student>> {
-    throw new Error('Method not implemented.');
+    let data: ApiRequest = {
+      QUERY: authQuery.logout,
+      NRODNI: dni,
+    };
+    return this.postRequest(data).pipe(
+      map((data) => {
+        console.log(data);
+        let student: PartialStudent = {};
+        return student;
+      }),
+    );
   }
   killSessions(dni: string): Observable<Partial<Student>> {
-    throw new Error('Method not implemented.');
+    let data: ApiRequest = {
+      QUERY: authQuery.killAll,
+      NRODNI: dni,
+    };
+    return this.postRequest(data).pipe(
+      map((data) => {
+        console.log(data);
+        let student: PartialStudent = {};
+        return student;
+      }),
+    );
   }
 }
