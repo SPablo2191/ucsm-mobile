@@ -43,6 +43,8 @@ import { IonicModule } from '@ionic/angular';
 export class UiTabsComponent {
   constructor(private router: Router) {}
   goToHome() {
+    localStorage.removeItem('enrollmentSelected');
+    sessionStorage.removeItem('enrollmentSelected');
     this.router.navigate(['/private/home']);
   }
 }

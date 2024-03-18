@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 
@@ -7,7 +7,11 @@ import { PartialStudent } from 'src/app/project/interfaces/student.interface';
   templateUrl: './career-profile.component.html',
   styleUrl: './career-profile.component.css',
 })
-export class CareerProfileComponent implements OnInit {
+export class CareerProfileComponent implements OnInit, OnDestroy {
+  ngOnDestroy(): void {
+    localStorage.removeItem('enrollmentSelected');
+    sessionStorage.removeItem('enrollmentSelected');
+  }
   student!: PartialStudent;
   enrollment!: PartialEnrollment;
   protected totalBalance: number = 0;
