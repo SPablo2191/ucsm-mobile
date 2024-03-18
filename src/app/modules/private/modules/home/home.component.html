@@ -25,8 +25,9 @@
       <div *ngIf="!showEvent; else events">
         <div class="overflow-scroll surface-overlay" style="height: 450px">
           <career-card
-            title="Ingenieria de Sistemas"
-            subTitle="Código: 20122250982"
+            *ngFor="let enrollment of enrollments"
+            [title]="enrollment.academic_program?.name || ''"
+            [subTitle]="'Código: ' + enrollment.code"
             body="Ir a Carrera"
             path="/private/career/career-profile"
           />

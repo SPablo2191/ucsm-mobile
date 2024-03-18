@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Enrollment, PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { AuthService } from 'src/app/project/services/php/auth.service';
 
@@ -11,6 +12,7 @@ import { AuthService } from 'src/app/project/services/php/auth.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   student!: PartialStudent;
+  enrollments: PartialEnrollment[] = [];
   protected subscriptions$: Subscription = new Subscription();
   goToProfile() {
     this.router.navigate(['/profile']);
@@ -25,8 +27,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     let studentStoraged = localStorage.getItem('student');
+    let enrollmentsStoraged = localStorage.getItem('enrollments');
     if (studentStoraged) {
       this.student = JSON.parse(studentStoraged);
+    }
+    if (enrollmentsStoraged) {
+      this.enrollments = JSON.parse(enrollmentsStoraged);
     }
   }
   changeSection() {

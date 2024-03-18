@@ -82,6 +82,7 @@ export class AuthService extends OldBaseService implements Auth<PartialStudent> 
       map((data) => {
         console.log(data);
         localStorage.clear();
+        sessionStorage.clear();
         let student: PartialStudent = {};
         return student;
       }),
