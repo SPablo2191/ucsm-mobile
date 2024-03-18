@@ -22,6 +22,9 @@ export class SubjectService extends OldBaseService implements Subject<PartialSub
     return this.postRequest(data).pipe(
       map((response) => {
         console.log(response);
+        if (response.data) {
+          console.log(response);
+        }
         let subjects: PartialSubjectRegistration[] = [];
         return subjects;
       }),

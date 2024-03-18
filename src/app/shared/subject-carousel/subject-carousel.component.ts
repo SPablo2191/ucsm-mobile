@@ -10,17 +10,17 @@ import { UiCardComponent } from '../ui/ui-card/ui-card.component';
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonicModule, SubjectCardComponent, CommonModule],
-  template: `<swiper-container
-      [options]="{ slidesPerView: true, loop: true }"
-      *ngIf="items.length !== 0; else elseblock"
-    >
+  template: `
+    {{ items }}
+    <swiper-container [options]="{ slidesPerView: true, loop: true }" *ngIf="items; else elseblock">
       <swiper-slide *ngFor="let item of items">
         <subject-card [selected]="true" />
       </swiper-slide>
     </swiper-container>
     <ng-template #elseblock>
       <div class="message my-6">No hay materias disponibles</div>
-    </ng-template> `,
+    </ng-template>
+  `,
   styles: `
   .message {
   text-align: center;
