@@ -14,9 +14,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   student!: PartialStudent;
   enrollments: PartialEnrollment[] = [];
   protected subscriptions$: Subscription = new Subscription();
-  goToProfile() {
-    this.router.navigate(['/profile']);
-  }
   showEvent = false;
   constructor(
     private router: Router,
@@ -35,11 +32,18 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.enrollments = JSON.parse(enrollmentsStoraged);
     }
   }
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
   changeSection() {
     this.showEvent = !this.showEvent;
   }
   goToLogin() {
     this.router.navigate(['/login']);
+  }
+  goToEnrollment(enrollment: PartialEnrollment) {
+    localStorage.setItem('enrollmentSelected', JSON.stringify(enrollment));
+    this.router.navigate(['/private/career/career-profile']);
   }
   logout() {
     this.subscriptions$.add(
