@@ -6,7 +6,7 @@ export interface StudentCommission {
   id?: string;
   commission?: Commission;
   subject_registration?: SubjectRegistration;
-  student_commissions?: Grade[];
+  grades?: Grade[];
 }
 
 export type PartialStudentCommission = Partial<StudentCommission>;

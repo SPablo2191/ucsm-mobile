@@ -3,6 +3,7 @@ import { SubjectCardComponent } from '../cards/subject-card/subject-card.compone
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { UiCardComponent } from '../ui/ui-card/ui-card.component';
+import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -11,12 +12,21 @@ import { UiCardComponent } from '../ui/ui-card/ui-card.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonicModule, SubjectCardComponent, CommonModule],
   template: `
-    {{ items }}
-    <swiper-container [options]="{ slidesPerView: true, loop: true }" *ngIf="items; else elseblock">
-      <swiper-slide *ngFor="let item of items">
-        <subject-card [selected]="true" />
-      </swiper-slide>
-    </swiper-container>
+    <div class="overflow-x-auto flex">
+      <subject-card
+        *ngFor="let item of items"
+        [selected]="false"
+        [title]="item.subject?.name || ''"
+        [professor]="
+          (item.student_commissions?.[0]?.commission?.professor?.last_name || '') +
+          ' ' +
+          (item.student_commissions?.[0]?.commission?.professor?.first_name || '')
+        "
+        [commission]="item.student_commissions?.[0]?.commission?.id || ''"
+        [classroom]="item.student_commissions?.[0]?.commission?.classroom?.name || ' - '"
+        [building]="item.student_commissions?.[0]?.commission?.classroom?.building?.name || ' - '"
+      />
+    </div>
     <ng-template #elseblock>
       <div class="message my-6">No hay materias disponibles</div>
     </ng-template>
@@ -33,7 +43,7 @@ import { UiCardComponent } from '../ui/ui-card/ui-card.component';
 }`,
 })
 export class SubjectCarouselComponent {
-  @Input() items!: any[];
+  @Input() items!: PartialSubjectRegistration[];
   slideOpt = {
     direction: 'horizontal',
     slidesPerView: 1,

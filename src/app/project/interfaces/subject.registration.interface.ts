@@ -10,7 +10,7 @@ export interface SubjectRegistration {
   register_date?: Date;
   update_date?: Date;
   enrollment?: Enrollment;
-  student_commissions?: StudentCommission[];
+  student_commissions: StudentCommission[];
 }
 
 export type PartialSubjectRegistration = Partial<SubjectRegistration>;
