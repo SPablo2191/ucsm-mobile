@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { ApiRequest } from '../../../core/interfaces/request.interface';
 import { authQuery } from '../../enums/php/auth.request.enum';
 import { capitalizeFirstLetter } from 'src/app/core/utils/util.function';
+import { PartialEnrollment } from '../../interfaces/enrollment.interface';
+import { PartialAcademicProgram } from '../../interfaces/academic.program.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +29,15 @@ export class AuthService extends OldBaseService implements Auth<PartialStudent> 
         let userData = response.data.USERDATA;
         localStorage.setItem('CODALU', userData.CODALU);
         localStorage.setItem('NOMUNI', userData.NOMUNI);
-        localStorage.setItem('UNIACAS', JSON.stringify(response.data.CODIGOS));
+        let enrollments: PartialEnrollment[] = [];
+        response.data.CODIGOS.map((code: any) => {
+          enrollments.push({
+            code: code.CODALU,
+            academic_program: {
+              name: capitalizeFirstLetter(code.NOMUNI),
+            } as PartialAcademicProgram,
+          } as PartialEnrollment);
+        });
         let studentNames: string[] = userData.NOMALU.split(' ');
         let student: PartialStudent = {
           identification_document: userData.NRODNI,
@@ -58,6 +68,7 @@ export class AuthService extends OldBaseService implements Auth<PartialStudent> 
             break;
         }
         localStorage.setItem('student', JSON.stringify(student));
+        localStorage.setItem('enrollments', JSON.stringify(enrollments));
         return student;
       }),
     );
