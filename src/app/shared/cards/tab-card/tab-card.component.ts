@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
       <div class="flex justify-content-between ml-2">
         <h1 class="text-white font-bold text-4xl text-left">
           ¡Hola, <br />
-          Pablo!
+          {{ studentName }}!
         </h1>
         <div class="flex justify-content-end">
           <img
@@ -21,7 +21,7 @@ import { Component } from '@angular/core';
         </div>
       </div>
       <div class="flex my-0 p-0 justify-content-start mx-2">
-        <p class="text-lg font-bold text-white">Ingenieria de sistemas</p>
+        <p class="text-lg font-bold text-white">{{ enrollmentName }}</p>
       </div>
     </div>
   `,
@@ -30,4 +30,7 @@ import { Component } from '@angular/core';
 	  background: linear-gradient(180deg, #05BE6A 0%, #099957 100%); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 5px;
   }`,
 })
-export class TabCardComponent {}
+export class TabCardComponent {
+  @Input() studentName!: string;
+  @Input() enrollmentName!: string;
+}

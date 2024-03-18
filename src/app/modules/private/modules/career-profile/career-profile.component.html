@@ -1,5 +1,5 @@
 <ion-content class="ion-padding">
-  <tab-card />
+  <tab-card [enrollmentName]="enrollment.academic_program?.name || ''" [studentName]="student.first_name || ''" />
   <ui-card>
     <div class="grid text-lg">
       <div class="col font-bold">Saldo a Pagar</div>
