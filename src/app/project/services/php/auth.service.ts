@@ -6,6 +6,7 @@ import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ApiRequest } from '../../../core/interfaces/request.interface';
 import { authQuery } from '../../enums/php/auth.request.enum';
+import { capitalizeFirstLetter } from 'src/app/core/utils/util.function';
 
 @Injectable({
   providedIn: 'root',
@@ -35,25 +36,25 @@ export class AuthService extends OldBaseService implements Auth<PartialStudent> 
         };
         switch (studentNames.length) {
           case 2:
-            student.first_name = studentNames[1];
-            student.last_name = studentNames[0];
+            student.first_name = capitalizeFirstLetter(studentNames[1]);
+            student.last_name = capitalizeFirstLetter(studentNames[0]);
             break;
           case 3:
-            student.first_name = studentNames[2];
-            student.second_last_name = studentNames[1];
-            student.last_name = studentNames[0];
+            student.first_name = capitalizeFirstLetter(studentNames[2]);
+            student.second_last_name = capitalizeFirstLetter(studentNames[1]);
+            student.last_name = capitalizeFirstLetter(studentNames[0]);
             break;
           case 4:
-            student.middle_name = studentNames[3];
-            student.first_name = studentNames[2];
-            student.second_last_name = studentNames[1];
-            student.last_name = studentNames[0];
+            student.middle_name = capitalizeFirstLetter(studentNames[3]);
+            student.first_name = capitalizeFirstLetter(studentNames[2]);
+            student.second_last_name = capitalizeFirstLetter(studentNames[1]);
+            student.last_name = capitalizeFirstLetter(studentNames[0]);
             break;
           default:
-            student.middle_name = studentNames[3];
-            student.first_name = studentNames[2];
-            student.second_last_name = studentNames[1];
-            student.last_name = studentNames[0];
+            student.middle_name = capitalizeFirstLetter(studentNames[3]);
+            student.first_name = capitalizeFirstLetter(studentNames[2]);
+            student.second_last_name = capitalizeFirstLetter(studentNames[1]);
+            student.last_name = capitalizeFirstLetter(studentNames[0]);
             break;
         }
         localStorage.setItem('student', JSON.stringify(student));

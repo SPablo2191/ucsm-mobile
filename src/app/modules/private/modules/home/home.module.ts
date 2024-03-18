@@ -8,6 +8,7 @@ import { UiImgComponent } from 'src/app/shared/ui/ui-img/ui-img.component';
 import { IonicModule } from '@ionic/angular';
 import { CareerCardComponent } from 'src/app/shared/cards/career-card/career-card.component';
 import { EventCardComponent } from 'src/app/shared/cards/event-card/event-card.component';
+import { CapitalizePipe } from 'src/app/core/capitalize.pipe';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -19,6 +20,7 @@ import { EventCardComponent } from 'src/app/shared/cards/event-card/event-card.c
     IonicModule,
     CareerCardComponent,
     EventCardComponent,
+    CapitalizePipe,
   ],
 })
 export class HomeModule {}

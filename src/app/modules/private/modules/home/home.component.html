@@ -11,7 +11,7 @@
       </ion-button>
       <h4 class="font-bold text-white text-center text-5xl">
         ¡Hola,<br />
-        Pablo!
+        {{ student.first_name ? student.first_name : ('' | capitalize: 'allLowerCase') }}!
       </h4>
       <ion-button class="button-transparent" (click)="goToLogin()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
