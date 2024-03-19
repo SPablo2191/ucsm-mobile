@@ -365,6 +365,10 @@
         "hash": "1984176995879174796"
       },
       {
+        "file": "src/app/core/capitalize.pipe.ts",
+        "hash": "14495895784913581789"
+      },
+      {
         "file": "src/app/core/interceptors/spinner.interceptor.ts",
         "hash": "13145535075032169066"
       },
@@ -381,16 +385,24 @@
         "hash": "10280516863148221717"
       },
       {
+        "file": "src/app/core/interfaces/subject.interface.ts",
+        "hash": "16554850187150801978"
+      },
+      {
         "file": "src/app/core/services/base.service.ts",
         "hash": "1026041196087937459"
       },
       {
         "file": "src/app/core/services/old.base.service.ts",
-        "hash": "16939196654070969546"
+        "hash": "1907749624750106746"
       },
       {
         "file": "src/app/core/services/spinner.service.ts",
         "hash": "13168598455575744030"
+      },
+      {
+        "file": "src/app/core/utils/util.function.ts",
+        "hash": "2040600401376482870"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile-routing.module.ts",
@@ -402,7 +414,7 @@
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.html",
-        "hash": "491947550996106199"
+        "hash": "13098550568234998426"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.spec.ts",
@@ -410,7 +422,7 @@
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.ts",
-        "hash": "1035666706975328210"
+        "hash": "840592981574193617"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.module.ts",
@@ -534,7 +546,7 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.html",
-        "hash": "8633639085294954176"
+        "hash": "14265191522506501248"
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.scss",
@@ -546,11 +558,11 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.ts",
-        "hash": "3477030474907035910"
+        "hash": "7789804297806108292"
       },
       {
         "file": "src/app/modules/private/modules/home/home.module.ts",
-        "hash": "1945099216529254045"
+        "hash": "15393985398592951356"
       },
       {
         "file": "src/app/modules/private/modules/installment/installment-routing.module.ts",
@@ -638,7 +650,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.html",
-        "hash": "9604348675158769255"
+        "hash": "10496483855116223191"
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.scss",
@@ -650,7 +662,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.ts",
-        "hash": "809468498330242124"
+        "hash": "11702288932906014317"
       },
       {
         "file": "src/app/modules/public/modules/login/login.module.ts",
@@ -665,16 +677,76 @@
         "hash": "10792591670004591316"
       },
       {
+        "file": "src/app/project/enums/phase.enum.ts",
+        "hash": "10634522233896245541"
+      },
+      {
         "file": "src/app/project/enums/php/auth.request.enum.ts",
-        "hash": "12274515612845713229"
+        "hash": "7167721175522928844"
+      },
+      {
+        "file": "src/app/project/enums/php/subject.request.enum.ts",
+        "hash": "1437250578480665808"
+      },
+      {
+        "file": "src/app/project/interfaces/academic.program.interface.ts",
+        "hash": "806459447261435525"
+      },
+      {
+        "file": "src/app/project/interfaces/building.interface.ts",
+        "hash": "17171741247567774361"
+      },
+      {
+        "file": "src/app/project/interfaces/classroom.interface.ts",
+        "hash": "16652167057799514354"
+      },
+      {
+        "file": "src/app/project/interfaces/commission.interface.ts",
+        "hash": "7686988352257947423"
+      },
+      {
+        "file": "src/app/project/interfaces/commission.schedule.ts",
+        "hash": "4985187847805859966"
+      },
+      {
+        "file": "src/app/project/interfaces/enrollment.interface.ts",
+        "hash": "16421827617011350221"
+      },
+      {
+        "file": "src/app/project/interfaces/grade.interface.ts",
+        "hash": "11567981186028344169"
+      },
+      {
+        "file": "src/app/project/interfaces/professor.interface.ts",
+        "hash": "5109768735072513467"
+      },
+      {
+        "file": "src/app/project/interfaces/semester.interface.ts",
+        "hash": "5816399154616293500"
+      },
+      {
+        "file": "src/app/project/interfaces/student.commission.interface.ts",
+        "hash": "12005127891062749187"
       },
       {
         "file": "src/app/project/interfaces/student.interface.ts",
-        "hash": "10805515136096209806"
+        "hash": "11466585353651977179"
+      },
+      {
+        "file": "src/app/project/interfaces/subject.interface.ts",
+        "hash": "15205834320520724123"
+      },
+      {
+        "file": "src/app/project/interfaces/subject.registration.interface.ts",
+        "hash": "7622892928229343341"
       },
       {
         "file": "src/app/project/services/php/auth.service.ts",
-        "hash": "8489521629512634881"
+        "hash": "16765109393932231680"
+      },
+      {
+        "file": "src/app/project/services/php/subject.service.ts",
+        "hash": "9346815557941770046"
       },
       {
         "file": "src/app/shared/card-container/card-container.component.spec.ts",
@@ -714,7 +786,7 @@
       },
       {
         "file": "src/app/shared/cards/subject-card/subject-card.component.ts",
-        "hash": "13720097187592401824"
+        "hash": "7580112478968239341"
       },
       {
         "file": "src/app/shared/cards/subject-simple-card/subject-simple-card.component.spec.ts",
@@ -730,7 +802,7 @@
       },
       {
         "file": "src/app/shared/cards/tab-card/tab-card.component.ts",
-        "hash": "14210746236208216721"
+        "hash": "4923169481586843087"
       },
       {
         "file": "src/app/shared/header-page/header-page.component.spec.ts",
@@ -770,7 +842,7 @@
       },
       {
         "file": "src/app/shared/spinner/spinner.component.ts",
-        "hash": "9821196023197768168"
+        "hash": "14948478538102473366"
       },
       {
         "file": "src/app/shared/subject-carousel/subject-carousel.component.spec.ts",
@@ -778,7 +850,7 @@
       },
       {
         "file": "src/app/shared/subject-carousel/subject-carousel.component.ts",
-        "hash": "11815169378025543157"
+        "hash": "9621787063512662357"
       },
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.spec.ts",
@@ -818,7 +890,7 @@
       },
       {
         "file": "src/app/shared/ui/ui-input/ui-input.component.ts",
-        "hash": "18193164481904486263"
+        "hash": "4747575810584152573"
       },
       {
         "file": "src/app/shared/ui/ui-password/ui-password.component.spec.ts",
@@ -826,7 +898,7 @@
       },
       {
         "file": "src/app/shared/ui/ui-password/ui-password.component.ts",
-        "hash": "1094466195557784431"
+        "hash": "2364184075926401163"
       },
       {
         "file": "src/app/shared/ui/ui-tabs/ui-tabs.component.spec.ts",
@@ -834,7 +906,7 @@
       },
       {
         "file": "src/app/shared/ui/ui-tabs/ui-tabs.component.ts",
-        "hash": "8166454422763195407"
+        "hash": "9098850519204151074"
       },
       {
         "file": "src/assets/icon/Actfij.png",
