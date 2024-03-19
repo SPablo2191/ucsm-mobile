@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth } from 'src/app/core/interfaces/auth.interface';
+import { IAuthService } from 'src/app/core/interfaces/auth.interface';
 import { OldBaseService } from 'src/app/core/services/old.base.service';
 import { PartialStudent, Student } from '../../interfaces/student.interface';
 import { Observable, map } from 'rxjs';
@@ -13,7 +13,7 @@ import { PartialAcademicProgram } from '../../interfaces/academic.program.interf
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService extends OldBaseService implements Auth<PartialStudent> {
+export class AuthService extends OldBaseService implements IAuthService<PartialStudent> {
   constructor(httpClient: HttpClient) {
     super(httpClient);
   }

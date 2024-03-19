@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
 
-export interface Subject<T> {
+export interface ISubjectService<T> {
   getSubjects(code: string): Observable<T>;
 }

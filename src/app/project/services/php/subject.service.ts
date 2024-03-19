@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OldBaseService } from 'src/app/core/services/old.base.service';
 import { PartialSubjectRegistration, SubjectRegistration } from '../../interfaces/subject.registration.interface';
-import { Subject } from 'src/app/core/interfaces/subject.interface';
+import { ISubjectService } from 'src/app/core/interfaces/subject.interface';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ApiRequest } from 'src/app/core/interfaces/request.interface';
@@ -15,7 +15,7 @@ import { PartialProfessor, Professor } from '../../interfaces/professor.interfac
 @Injectable({
   providedIn: 'root',
 })
-export class SubjectService extends OldBaseService implements Subject<PartialSubjectRegistration[]> {
+export class SubjectService extends OldBaseService implements ISubjectService<PartialSubjectRegistration[]> {
   constructor(httpClient: HttpClient) {
     super(httpClient);
   }
