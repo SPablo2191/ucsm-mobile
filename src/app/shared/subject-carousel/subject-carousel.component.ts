@@ -12,7 +12,7 @@ import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.r
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonicModule, SubjectCardComponent, CommonModule],
   template: `
-    <div class="overflow-x-auto flex" *ngIf="items; else elseblock">
+    <div class="overflow-x-auto flex" *ngIf="items && items.length !== 0; else elseblock">
       <subject-card
         *ngFor="let item of items"
         [selected]="false"

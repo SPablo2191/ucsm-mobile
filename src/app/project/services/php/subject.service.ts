@@ -28,7 +28,6 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
       map((response) => {
         let subjects: PartialSubjectRegistration[] = [];
         if (response.data) {
-          console.log(response.data);
           let subjectsData = response.data;
           subjectsData.map((subject: any) => {
             let professorNames: string[] = subject.CNOMBRE.split(' ');

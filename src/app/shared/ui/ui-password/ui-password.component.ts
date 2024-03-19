@@ -40,7 +40,6 @@ export class UiPasswordComponent {
   @Input() name!: string;
   constructor() {}
   public showPassword() {
-    console.log(`showPassword => ${this.flag}`);
     this.flag = !this.flag;
   }
 }

@@ -3,6 +3,7 @@ import { Observable, Subscription, map } from 'rxjs';
 import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
+import { DebtService } from 'src/app/project/services/php/debt.service';
 import { SubjectService } from 'src/app/project/services/php/subject.service';
 
 @Component({
@@ -19,7 +20,10 @@ export class CareerProfileComponent implements OnInit, OnDestroy {
   protected linkMatricula = 'https://webapp.ucsm.edu.pe/sm/Views/login.php';
   protected subjects: PartialSubjectRegistration[] = [];
   protected subscriptions$: Subscription = new Subscription();
-  constructor(private subjectService: SubjectService) {}
+  constructor(
+    private subjectService: SubjectService,
+    private debtService: DebtService,
+  ) {}
   ngOnDestroy(): void {
     localStorage.removeItem('enrollmentSelected');
     sessionStorage.removeItem('enrollmentSelected');
@@ -35,15 +39,27 @@ export class CareerProfileComponent implements OnInit, OnDestroy {
       this.enrollment = JSON.parse(enrollmentSelectedStoraged);
     }
     this.getSubjects();
+    this.getTotalBalance();
   }
   getSubjects() {
-    console.log(this.enrollment.code);
     this.subscriptions$.add(
       this.subjectService
         .getSubjects(this.enrollment.code || '')
         .pipe(
           map((response) => {
             this.subjects = response;
+          }),
+        )
+        .subscribe(),
+    );
+  }
+  getTotalBalance() {
+    this.subscriptions$.add(
+      this.debtService
+        .getTotalBalance(this.student.identification_document || '')
+        .pipe(
+          map((response) => {
+            this.totalBalance = response.balance || 0;
           }),
         )
         .subscribe(),

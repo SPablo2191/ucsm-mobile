@@ -21,8 +21,10 @@ export class DebtService extends OldBaseService implements IDebtService<PartialD
     };
     return this.postRequest(data).pipe(
       map((response) => {
-        console.log(response);
         let debt: PartialDebt = {};
+        if (response.data.length !== 0) {
+          debt.balance = response.data[0].DEUTOT;
+        }
         return debt;
       }),
     );
@@ -34,7 +36,6 @@ export class DebtService extends OldBaseService implements IDebtService<PartialD
     };
     return this.postRequest(data).pipe(
       map((response) => {
-        console.log(response);
         let debt: PartialDebt = {};
         return debt;
       }),

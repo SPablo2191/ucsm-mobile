@@ -80,7 +80,6 @@ export class AuthService extends OldBaseService implements IAuthService<PartialS
     };
     return this.postRequest(data).pipe(
       map((data) => {
-        console.log(data);
         localStorage.clear();
         sessionStorage.clear();
         let student: PartialStudent = {};
@@ -95,7 +94,6 @@ export class AuthService extends OldBaseService implements IAuthService<PartialS
     };
     return this.postRequest(data).pipe(
       map((data) => {
-        console.log(data);
         let student: PartialStudent = {};
         return student;
       }),

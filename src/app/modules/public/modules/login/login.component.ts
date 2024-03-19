@@ -2,8 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription, map } from 'rxjs';
-import { Auth } from 'src/app/core/interfaces/auth.interface';
-import { ApiRequest } from 'src/app/core/interfaces/request.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { AuthService } from 'src/app/project/services/php/auth.service';
 
