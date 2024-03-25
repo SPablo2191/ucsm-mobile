@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/project/services/php/auth.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   student!: PartialStudent;
   enrollments: PartialEnrollment[] = [];
   protected subscriptions$: Subscription = new Subscription();
@@ -19,8 +19,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     private router: Router,
     private authService: AuthService,
   ) {}
-  ngOnDestroy(): void {
+  ionViewDidLeave() {
     this.subscriptions$.unsubscribe();
+  }
+  ionViewWillEnter() {
+    let studentStoraged = JSON.parse(localStorage.getItem('student') || '{}');
+    if (this.student.identification_document === studentStoraged.identification_document) {
+      return;
+    }
+    this.student = studentStoraged;
   }
   ngOnInit(): void {
     let studentStoraged = localStorage.getItem('student');
