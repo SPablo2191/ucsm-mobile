@@ -11,7 +11,7 @@ import { SubjectService } from 'src/app/project/services/php/subject.service';
   templateUrl: './career-profile.component.html',
   styleUrl: './career-profile.component.css',
 })
-export class CareerProfileComponent implements OnInit, OnDestroy {
+export class CareerProfileComponent implements OnInit {
   protected student!: PartialStudent;
   protected enrollment!: PartialEnrollment;
   protected totalBalance: number = 0;
@@ -24,10 +24,16 @@ export class CareerProfileComponent implements OnInit, OnDestroy {
     private subjectService: SubjectService,
     private debtService: DebtService,
   ) {}
-  ngOnDestroy(): void {
+  ionViewDidLeave() {
     localStorage.removeItem('enrollmentSelected');
-    sessionStorage.removeItem('enrollmentSelected');
     this.subscriptions$.unsubscribe();
+  }
+  ionViewWillEnter() {
+    let enrollmentStoraged = JSON.parse(localStorage.getItem('enrollmentSelected') || '{}');
+    if (this.enrollment.code === enrollmentStoraged.code) {
+      return;
+    }
+    this.enrollment = enrollmentStoraged;
   }
   ngOnInit(): void {
     let studentStoraged = localStorage.getItem('student');

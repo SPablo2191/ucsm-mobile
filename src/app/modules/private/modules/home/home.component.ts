@@ -24,10 +24,14 @@ export class HomeComponent implements OnInit {
   }
   ionViewWillEnter() {
     let studentStoraged = JSON.parse(localStorage.getItem('student') || '{}');
+    let enrollmentsStoraged = localStorage.getItem('enrollments');
     if (this.student.identification_document === studentStoraged.identification_document) {
       return;
     }
     this.student = studentStoraged;
+    if (enrollmentsStoraged) {
+      this.enrollments = JSON.parse(enrollmentsStoraged);
+    }
   }
   ngOnInit(): void {
     let studentStoraged = localStorage.getItem('student');
