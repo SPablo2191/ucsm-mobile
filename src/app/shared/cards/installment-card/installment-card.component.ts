@@ -13,8 +13,8 @@ registerLocaleData(LocaleEsPe);
     <div class="card ion-margin">
       <div class="grid">
         <div class="col-7">
-          <div class="info">Fecha de vencimiento: 23/10/24</div>
-          <div class="info">Código: 04</div>
+          <div class="info">Fecha de vencimiento: {{ dueDate | date: 'dd/MM/yyyy' }}</div>
+          <div class="info">Código: {{ code }}</div>
           <div class="header">
             <div class="info">Pensión: {{ pension | currency: 'PEN' : 'symbol' : '' }}</div>
             <div class="info">Mora: {{ defaultedLoan | currency: 'PEN' : 'symbol' : '' }}</div>
@@ -83,4 +83,6 @@ export class InstallmentCardComponent {
   @Input() pension: number = 200;
   @Input() defaultedLoan: number = 0;
   @Input() total: number = 0;
+  @Input() dueDate!: Date | undefined;
+  @Input() code!: string | undefined;
 }

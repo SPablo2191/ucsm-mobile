@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, map } from 'rxjs';
 import { PartialDebt } from 'src/app/project/interfaces/debt.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { DebtService } from 'src/app/project/services/php/debt.service';
@@ -9,10 +9,14 @@ import { DebtService } from 'src/app/project/services/php/debt.service';
   templateUrl: './installment.component.html',
   styleUrl: './installment.component.css',
 })
-export class InstallmentComponent implements OnInit {
+export class InstallmentComponent implements OnInit, OnDestroy {
   debt: PartialDebt = {};
   protected student!: PartialStudent;
+  protected subscriptions$: Subscription = new Subscription();
   constructor(private debtService: DebtService) {}
+  ngOnDestroy(): void {
+    this.subscriptions$.unsubscribe();
+  }
   ngOnInit(): void {
     let studentStoraged = localStorage.getItem('student');
     if (studentStoraged) {
@@ -22,13 +26,15 @@ export class InstallmentComponent implements OnInit {
   }
   getInstallments() {
     console.log(this.student.identification_document);
-    this.debtService
-      .getDebt(this.student.identification_document || '')
-      .pipe(
-        map((debt) => {
-          this.debt = debt;
-        }),
-      )
-      .subscribe();
+    this.subscriptions$.add(
+      this.debtService
+        .getDebt(this.student.identification_document || '')
+        .pipe(
+          map((debt) => {
+            this.debt = debt;
+          }),
+        )
+        .subscribe(),
+    );
   }
 }
