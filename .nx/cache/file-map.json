@@ -374,11 +374,15 @@
       },
       {
         "file": "src/app/core/interfaces/auth.interface.ts",
-        "hash": "13974459450604336240"
+        "hash": "6358918948425266663"
       },
       {
         "file": "src/app/core/interfaces/chart.data.interface.ts",
         "hash": "7909689433324378074"
+      },
+      {
+        "file": "src/app/core/interfaces/debt.interface.ts",
+        "hash": "15728525749507185120"
       },
       {
         "file": "src/app/core/interfaces/request.interface.ts",
@@ -386,7 +390,7 @@
       },
       {
         "file": "src/app/core/interfaces/subject.interface.ts",
-        "hash": "16554850187150801978"
+        "hash": "11507116739280211809"
       },
       {
         "file": "src/app/core/services/base.service.ts",
@@ -414,7 +418,7 @@
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.html",
-        "hash": "13098550568234998426"
+        "hash": "5662786638931474408"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.spec.ts",
@@ -422,7 +426,7 @@
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.component.ts",
-        "hash": "840592981574193617"
+        "hash": "565729006496878634"
       },
       {
         "file": "src/app/modules/private/modules/career-profile/career-profile.module.ts",
@@ -558,7 +562,7 @@
       },
       {
         "file": "src/app/modules/private/modules/home/home.component.ts",
-        "hash": "7789804297806108292"
+        "hash": "14634617285987487605"
       },
       {
         "file": "src/app/modules/private/modules/home/home.module.ts",
@@ -662,7 +666,7 @@
       },
       {
         "file": "src/app/modules/public/modules/login/login.component.ts",
-        "hash": "11702288932906014317"
+        "hash": "7477605022960906209"
       },
       {
         "file": "src/app/modules/public/modules/login/login.module.ts",
@@ -683,6 +687,10 @@
       {
         "file": "src/app/project/enums/php/auth.request.enum.ts",
         "hash": "7167721175522928844"
+      },
+      {
+        "file": "src/app/project/enums/php/debt.request.enum.ts",
+        "hash": "5650960249534955780"
       },
       {
         "file": "src/app/project/enums/php/subject.request.enum.ts",
@@ -709,12 +717,20 @@
         "hash": "4985187847805859966"
       },
       {
+        "file": "src/app/project/interfaces/debt.interface.ts",
+        "hash": "6421917529738384461"
+      },
+      {
         "file": "src/app/project/interfaces/enrollment.interface.ts",
         "hash": "16421827617011350221"
       },
       {
         "file": "src/app/project/interfaces/grade.interface.ts",
         "hash": "11567981186028344169"
+      },
+      {
+        "file": "src/app/project/interfaces/installment.interface.ts",
+        "hash": "16082997581177942188"
       },
       {
         "file": "src/app/project/interfaces/professor.interface.ts",
@@ -742,11 +758,15 @@
       },
       {
         "file": "src/app/project/services/php/auth.service.ts",
-        "hash": "16765109393932231680"
+        "hash": "4374066941800208256"
+      },
+      {
+        "file": "src/app/project/services/php/debt.service.ts",
+        "hash": "16884537869412799012"
       },
       {
         "file": "src/app/project/services/php/subject.service.ts",
-        "hash": "9346815557941770046"
+        "hash": "11111138626640053757"
       },
       {
         "file": "src/app/shared/card-container/card-container.component.spec.ts",
@@ -850,7 +870,7 @@
       },
       {
         "file": "src/app/shared/subject-carousel/subject-carousel.component.ts",
-        "hash": "9621787063512662357"
+        "hash": "11189111447392788034"
       },
       {
         "file": "src/app/shared/ui/ui-card/ui-card.component.spec.ts",
@@ -898,7 +918,7 @@
       },
       {
         "file": "src/app/shared/ui/ui-password/ui-password.component.ts",
-        "hash": "2364184075926401163"
+        "hash": "13065596701658582327"
       },
       {
         "file": "src/app/shared/ui/ui-tabs/ui-tabs.component.spec.ts",
