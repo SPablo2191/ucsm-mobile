@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/project/services/php/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   protected form!: FormGroup;
   protected subscriptions$: Subscription = new Subscription();
   constructor(
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private authService: AuthService,
   ) {}
-  ngOnDestroy(): void {
+  ionViewDidLeave() {
     this.subscriptions$.unsubscribe();
   }
   ngOnInit(): void {
