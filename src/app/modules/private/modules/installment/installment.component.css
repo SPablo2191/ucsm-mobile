@@ -1,9 +1,11 @@
 .total {
-  color: rgba(231, 76, 60, 0.8);
   font-size: 40px;
   font-family: Roboto;
   font-weight: 900;
   word-wrap: break-word;
+}
+.in-debt {
+  color: rgba(231, 76, 60, 0.8);
 }
 .subtitle {
   color: #575756;

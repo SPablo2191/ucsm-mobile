@@ -1,4 +1,4 @@
-import { Installment } from './installment.interface';
+import { Installment, PartialInstallment } from './installment.interface';
 import { Student } from './student.interface';
 
 export interface Debt {
@@ -6,7 +6,7 @@ export interface Debt {
   balance: number;
   register_date: Date;
   updated_date: Date;
-  installments: Installment[];
+  installments: PartialInstallment[];
   student: Student;
 }
 
