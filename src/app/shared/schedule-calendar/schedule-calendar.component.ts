@@ -9,23 +9,40 @@ import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.r
   selector: 'schedule-calendar',
   standalone: true,
   imports: [NgCalendarModule, IonicModule, CommonModule],
-  template: ` <calendar
-    [eventSource]="eventSource"
-    [queryMode]="calendar.queryMode"
-    [calendarMode]="calendar.mode"
-    [currentDate]="calendar.currentDate"
-    [step]="calendar.step"
-    [preserveScrollPosition]="calendar.preserveScrollPosition"
-    [startHour]="calendar.startHour"
-    [scrollToHour]="calendar.scrollToHour"
-    [dayviewShowCategoryView]="calendar.dayviewShowCategoryView"
-    (onCurrentDateChanged)="onCurrentDateChanged($event)"
-    (onEventSelected)="onEventSelected($event)"
-    (onTitleChanged)="onViewTitleChanged($event)"
-    (onTimeSelected)="onTimeSelected($event)"
-    (onDayHeaderSelected)="onDayHeaderSelected($event)"
-  >
-  </calendar>`,
+  template: `
+    <calendar
+      [eventSource]="eventSource"
+      [queryMode]="calendar.queryMode"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      [step]="calendar.step"
+      [preserveScrollPosition]="calendar.preserveScrollPosition"
+      [startHour]="calendar.startHour"
+      [scrollToHour]="calendar.scrollToHour"
+      [dayviewShowCategoryView]="calendar.dayviewShowCategoryView"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)"
+      (onEventSelected)="onEventSelected($event)"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      (onDayHeaderSelected)="onDayHeaderSelected($event)"
+      [weekviewNormalEventTemplate]="weekEvents"
+    >
+    </calendar>
+    <ng-template #weekEvents let-displayEvent="displayEvent">
+      <div
+        class="calendar-event-inner"
+        [style.backgroundColor]="'#05be6a'"
+        [style.color]="' #fdfefe '"
+        [style.fontSize]="'12px'"
+        [style.top]="37 * displayEvent.startOffset + 'px'"
+        [style.left]="(100 / displayEvent.overlapNumber) * displayEvent.position + '%'"
+        [style.width]="100 / displayEvent.overlapNumber + '%'"
+        [style.height]="37 * (displayEvent.endIndex - displayEvent.startIndex) - 4 + 'px'"
+      >
+        {{ displayEvent.event.title }}
+      </div>
+    </ng-template>
+  `,
   styles: `
 .weekview-with-event,.weekview-current, .calendar-event-inner{
     background-color: #05be6a !important;
