@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CalendarMode, NgCalendarModule, QueryMode, Step } from 'ionic2-calendar';
 import { CalendarComponent } from 'ionic2-calendar';
+import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'schedule-calendar',
@@ -30,12 +31,15 @@ import { CalendarComponent } from 'ionic2-calendar';
     background-color: #05be6a !important;
 }`,
 })
-export class ScheduleCalendarComponent {
+export class ScheduleCalendarComponent implements OnInit {
   @ViewChild(CalendarComponent) myCalendar!: CalendarComponent;
   calendarModes: CalendarMode[] = ['day', 'week'];
+  @Input() subjects!: PartialSubjectRegistration[];
 
   constructor() {
     this.isToday = false;
+  }
+  ngOnInit(): void {
     this.loadEvents();
   }
 
@@ -103,7 +107,16 @@ export class ScheduleCalendarComponent {
   };
 
   loadEvents() {
-    this.eventSource = this.createRandomEvents();
+    if (this.subjects === undefined) return;
+    this.subjects.forEach((subject) => {
+      this.eventSource.push({
+        title: subject.subject?.name,
+        startTime: subject.student_commissions?.[0].commission?.commission_schedule?.start_time,
+        endTime: subject.student_commissions?.[0].commission?.commission_schedule?.end_time,
+        allDay: false,
+      });
+    });
+    // this.eventSource = this.createRandomEvents();
   }
 
   loadDynamicEvents() {

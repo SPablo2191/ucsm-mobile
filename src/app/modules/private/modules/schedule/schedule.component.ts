@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
+import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
 import { ScheduleService } from 'src/app/project/services/php/schedule.service';
 
 @Component({
@@ -11,6 +13,7 @@ import { ScheduleService } from 'src/app/project/services/php/schedule.service';
 export class ScheduleComponent implements OnInit {
   protected student!: PartialStudent;
   protected enrollment!: PartialEnrollment;
+  protected subjects: PartialSubjectRegistration[] = [];
   constructor(private scheduleService: ScheduleService) {}
   ngOnInit(): void {
     let studentStoraged = localStorage.getItem('student');
@@ -20,11 +23,17 @@ export class ScheduleComponent implements OnInit {
     }
     if (enrollmentSelectedStoraged) {
       this.enrollment = JSON.parse(enrollmentSelectedStoraged);
+      this.getSchedule();
     }
-    this.getSchedule();
   }
   getSchedule() {
-    console.log(this.enrollment);
-    this.scheduleService.getSchedule(this.enrollment.code || '').subscribe();
+    this.scheduleService
+      .getSchedule(this.enrollment.code || '')
+      .pipe(
+        map((subjects) => {
+          this.subjects = subjects;
+        }),
+      )
+      .subscribe();
   }
 }

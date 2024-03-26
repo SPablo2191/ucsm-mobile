@@ -21,7 +21,6 @@ export class ScheduleService extends OldBaseService implements IScheduleService<
     super(httpClient);
   }
   getSchedule(code: string): Observable<Partial<SubjectRegistration>[]> {
-    console.log(code);
     let data: ApiRequest = {
       QUERY: scheduleQuery.getSchedule,
       CODUSU: code,

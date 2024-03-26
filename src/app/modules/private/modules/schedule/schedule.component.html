@@ -4,5 +4,10 @@
     subtitle="Puedes ver tus materias a cursar"
     imageurl="/assets/images/schedule.png"
   />
-  <schedule-calendar></schedule-calendar>
+  <div *ngIf="this.subjects.length !== 0; else elseblock" class="h-full">
+    <schedule-calendar [subjects]="subjects"></schedule-calendar>
+  </div>
+  <ng-template #elseblock>
+    <h1 class="text-center font-bold text-xl mt-6">No hay Horario disponible</h1>
+  </ng-template>
 </ion-content>
