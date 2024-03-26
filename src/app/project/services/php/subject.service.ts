@@ -19,6 +19,20 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
   constructor(httpClient: HttpClient) {
     super(httpClient);
   }
+  getSemesters(code: string): Observable<any> {
+    let data: ApiRequest = {
+      QUERY: subjectQuery.getSemesters,
+      CODALU: code,
+    };
+    return this.postRequest(data).pipe(
+      map((response: any) => {
+        console.log(response);
+      }),
+    );
+  }
+  getGrades(code: string): Observable<Partial<SubjectRegistration>[]> {
+    throw new Error('Method not implemented.');
+  }
   getSubjects(code: string): Observable<Partial<SubjectRegistration>[]> {
     let data: ApiRequest = {
       QUERY: subjectQuery.getSubjects,
