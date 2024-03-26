@@ -25,7 +25,6 @@ export class CareerProfileComponent implements OnInit {
     private debtService: DebtService,
   ) {}
   ionViewDidLeave() {
-    localStorage.removeItem('enrollmentSelected');
     this.subscriptions$.unsubscribe();
   }
   ionViewWillEnter() {
