@@ -1,7 +1,7 @@
 export interface CommissionSchedule {
   id?: string;
-  start_time?: string;
-  end_time?: string;
+  start_time?: Date;
+  end_time?: Date;
   day?: Days;
 }
 
