@@ -11,6 +11,7 @@ import { capitalizeFirstLetter } from 'src/app/core/utils/util.function';
 import { PartialStudentCommission } from '../../interfaces/student.commission.interface';
 import { PartialCommission } from '../../interfaces/commission.interface';
 import { PartialProfessor, Professor } from '../../interfaces/professor.interface';
+import { PartialSemester } from '../../interfaces/semester.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +27,16 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
     };
     return this.postRequest(data).pipe(
       map((response: any) => {
-        console.log(response);
+        let semesters: PartialSemester[] = [];
+        let responseData = response.data;
+        responseData.map((data: any) => {
+          semesters.push({
+            id: data.SEMESTRE,
+            name: data.DESSEM,
+          } as PartialSemester);
+        });
+        console.log(semesters);
+        return semesters;
       }),
     );
   }

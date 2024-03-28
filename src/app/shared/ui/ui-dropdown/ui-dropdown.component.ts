@@ -1,23 +1,25 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { PartialSemester } from 'src/app/project/interfaces/semester.interface';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'ui-dropdown',
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, CommonModule, FormsModule],
   template: `
-    <ion-select
-      [interfaceOptions]="{ size: 'cover' }"
-      interface="popover"
-      placeholder="Seleccione el semestre"
-      detail="false"
-    >
-      <ion-select-option value="apple">Apple</ion-select-option>
-      <ion-select-option value="banana">Banana</ion-select-option>
-      <ion-select-option value="orange">Orange</ion-select-option>
+    <ion-select placeholder="Seleccione el semestre" interface="popover" text-wrap detail="true" [(ngModel)]="selected">
+      <ng-container *ngFor="let item of items">
+        <ion-select-option [value]="item.id">{{ item.name }}</ion-select-option>
+      </ng-container>
     </ion-select>
   `,
-  styles: ``,
+  styles: `
+  `,
 })
-export class UiDropdownComponent {}
+export class UiDropdownComponent {
+  @Input() items!: PartialSemester[];
+  selected!: PartialSemester;
+}
