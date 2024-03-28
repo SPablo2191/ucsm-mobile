@@ -151,11 +151,11 @@ export class ScheduleCalendarComponent implements OnInit {
 
   onViewTitleChanged(title: string) {
     this.viewTitle = title;
-    console.log('view title changed: ' + title + ', this.viewTitle: ' + this.viewTitle);
+    // console.log('view title changed: ' + title + ', this.viewTitle: ' + this.viewTitle);
   }
 
   onEventSelected(event: any) {
-    console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title + ',' + event.categoryId);
+    // console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title + ',' + event.categoryId);
   }
 
   changeMode(event: any) {

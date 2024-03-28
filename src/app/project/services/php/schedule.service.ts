@@ -70,8 +70,6 @@ export class ScheduleService extends OldBaseService implements IScheduleService<
           newScheduleSubject.student_commissions = commissions;
           schedule.push(newScheduleSubject);
         });
-
-        console.log(schedule);
         return schedule;
       }),
     );

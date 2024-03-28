@@ -35,7 +35,6 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
             name: data.DESSEM,
           } as PartialSemester);
         });
-        console.log(semesters);
         return semesters;
       }),
     );
@@ -48,7 +47,6 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
     };
     return this.postRequest(data).pipe(
       map((response: any) => {
-        console.log(response);
         let subjects: PartialSubjectRegistration[] = [];
         return subjects;
       }),

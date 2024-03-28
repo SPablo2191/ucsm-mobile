@@ -25,7 +25,6 @@ export class InstallmentComponent implements OnInit, OnDestroy {
     this.getInstallments();
   }
   getInstallments() {
-    console.log(this.student.identification_document);
     this.subscriptions$.add(
       this.debtService
         .getDebt(this.student.identification_document || '')
