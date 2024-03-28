@@ -16,6 +16,7 @@ export class SubjectComponent implements OnInit {
   protected student!: PartialStudent;
   protected enrollment!: PartialEnrollment;
   protected semesters: PartialSemester[] = [];
+  protected selectedSemester: PartialSemester = {};
   subscriptions$: Subscription = new Subscription();
   constructor(
     private route: ActivatedRoute,
@@ -46,8 +47,13 @@ export class SubjectComponent implements OnInit {
       .pipe(
         map((semesters) => {
           this.semesters = semesters;
+          this.selectedSemester = this.semesters[0];
+          this.getGrades();
         }),
       )
       .subscribe();
+  }
+  getGrades() {
+    this.subjectService.getGrades(this.enrollment.code || '', this.selectedSemester.id || '').subscribe();
   }
 }

@@ -8,7 +8,7 @@
   </div>
   <card-container>
     <div class="flex justify-content-center">
-      <ui-dropdown [items]="semesters" />
+      <ui-dropdown [items]="semesters" [selected]="selectedSemester" (changed)="getGrades()" />
     </div>
     <div class="overflow-scroll surface-overlay" style="height: 450px">
       <subject-simple-card

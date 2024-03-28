@@ -31,7 +31,7 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
         let responseData = response.data;
         responseData.map((data: any) => {
           semesters.push({
-            id: data.SEMESTRE,
+            id: data.SEMESTRE, // utilizado para recuperar las notas
             name: data.DESSEM,
           } as PartialSemester);
         });
@@ -40,8 +40,19 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
       }),
     );
   }
-  getGrades(code: string): Observable<Partial<SubjectRegistration>[]> {
-    throw new Error('Method not implemented.');
+  getGrades(code: string, semester_id: string): Observable<Partial<SubjectRegistration>[]> {
+    let data: ApiRequest = {
+      QUERY: subjectQuery.getGrades,
+      CODALU: code,
+      PROYEC: semester_id,
+    };
+    return this.postRequest(data).pipe(
+      map((response: any) => {
+        console.log(response);
+        let subjects: PartialSubjectRegistration[] = [];
+        return subjects;
+      }),
+    );
   }
   getSubjects(code: string): Observable<Partial<SubjectRegistration>[]> {
     let data: ApiRequest = {
