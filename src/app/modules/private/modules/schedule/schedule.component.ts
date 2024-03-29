@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
@@ -14,6 +14,7 @@ export class ScheduleComponent implements OnInit {
   protected student!: PartialStudent;
   protected enrollment!: PartialEnrollment;
   protected subjects: PartialSubjectRegistration[] = [];
+  protected subscriptions$: Subscription = new Subscription();
   constructor(private scheduleService: ScheduleService) {}
   ngOnInit(): void {
     let studentStoraged = localStorage.getItem('student');
@@ -26,14 +27,19 @@ export class ScheduleComponent implements OnInit {
       this.getSchedule();
     }
   }
+  ionViewDidLeave() {
+    this.subscriptions$.unsubscribe();
+  }
   getSchedule() {
-    this.scheduleService
-      .getSchedule(this.enrollment.code || '')
-      .pipe(
-        map((subjects) => {
-          this.subjects = subjects;
-        }),
-      )
-      .subscribe();
+    this.subscriptions$.add(
+      this.scheduleService
+        .getSchedule(this.enrollment.code || '')
+        .pipe(
+          map((subjects) => {
+            this.subjects = subjects;
+          }),
+        )
+        .subscribe(),
+    );
   }
 }

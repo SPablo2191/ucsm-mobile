@@ -9,12 +9,12 @@ import { DebtService } from 'src/app/project/services/php/debt.service';
   templateUrl: './installment.component.html',
   styleUrl: './installment.component.css',
 })
-export class InstallmentComponent implements OnInit, OnDestroy {
+export class InstallmentComponent implements OnInit {
   debt: PartialDebt = {};
   protected student!: PartialStudent;
   protected subscriptions$: Subscription = new Subscription();
   constructor(private debtService: DebtService) {}
-  ngOnDestroy(): void {
+  ionViewDidLeave(): void {
     this.subscriptions$.unsubscribe();
   }
   ngOnInit(): void {
