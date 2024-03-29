@@ -14,32 +14,32 @@ import { IonicModule } from '@ionic/angular';
         <div class="col">
           <div class="text-xl font-bold text-center">{{ title_left }}</div>
           <div class="text-lg font-bold text-center">{{ description_left }}</div>
-          <div class="col" *ngIf="start_hour">
+          <div class="col" *ngIf="left_start_hour">
             <div class="flex justify-content-center align-items-center text-xs">
               <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
-              Inicio: {{ start_hour }}
+              Inicio: {{ left_start_hour }}
             </div>
           </div>
-          <div class="col" *ngIf="end_hour">
+          <div class="col" *ngIf="left_end_hour">
             <div class="flex justify-content-center align-items-center text-xs">
               <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
-              Fin: {{ end_hour }}
+              Fin: {{ left_end_hour }}
             </div>
           </div>
         </div>
         <div class="col">
           <div class="text-xl font-bold text-center">{{ title_right }}</div>
           <div class="text-lg font-bold text-center">{{ description_right }}</div>
-          <div class="col" *ngIf="start_hour">
+          <div class="col" *ngIf="right_start_hour">
             <div class="flex justify-content-center align-items-center text-xs">
               <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
-              Inicio: {{ start_hour }}
+              Inicio: {{ right_start_hour }}
             </div>
           </div>
-          <div class="col" *ngIf="end_hour">
+          <div class="col" *ngIf="right_end_hour">
             <div class="flex justify-content-center align-items-center text-xs">
               <ion-icon name="time-outline" style="font-size: 15px; margin-right: 4px;"></ion-icon>
-              Fin: {{ end_hour }}
+              Fin: {{ right_end_hour }}
             </div>
           </div>
         </div>
@@ -58,6 +58,8 @@ export class ClassroomDescriptionComponent {
   @Input() title_right = '';
   @Input() description_left = '';
   @Input() description_right = '';
-  @Input() start_hour!: string;
-  @Input() end_hour!: string;
+  @Input() left_start_hour!: string;
+  @Input() right_start_hour!: string;
+  @Input() right_end_hour!: string;
+  @Input() left_end_hour!: string;
 }

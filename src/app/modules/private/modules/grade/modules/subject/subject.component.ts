@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription, map } from 'rxjs';
 import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialSemester } from 'src/app/project/interfaces/semester.interface';
@@ -21,7 +21,7 @@ export class SubjectComponent implements OnInit {
   protected subjects: PartialSubjectRegistration[] = [];
   subscriptions$: Subscription = new Subscription();
   constructor(
-    private route: ActivatedRoute,
+    private router: Router,
     private subjectService: SubjectService,
   ) {}
   ionViewDidLeave() {
@@ -64,5 +64,12 @@ export class SubjectComponent implements OnInit {
         )
         .subscribe(),
     );
+  }
+  goToSubjectDescription(subject: PartialSubjectRegistration) {
+    if (subject && subject.subject) {
+      subject.subject.semester = this.selectedSemester;
+    }
+    localStorage.setItem('subjectSelected', JSON.stringify(subject));
+    this.router.navigate(['/private/career/grade/subject-description']);
   }
 }

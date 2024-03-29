@@ -10,13 +10,13 @@
     <div class="flex justify-content-center">
       <ui-dropdown [items]="semesters" [selected]="selectedSemester" (changed)="getSubjects($event)" />
     </div>
-    <div class="overflow-scroll surface-overlay" *ngIf="subjects.length !== 0" style="height: 600px">
+    <div class="overflow-scroll surface-overlay" *ngIf="subjects.length !== 0" style="height: 450px">
       <subject-simple-card
+        (click)="goToSubjectDescription(subject)"
         *ngFor="let subject of subjects"
         [title]="subject.subject?.name || ''"
         info="P.final"
         [quantity]="subject.final_score || 0"
-        path="/private/career/grade/subject-description"
       />
     </div>
   </card-container>

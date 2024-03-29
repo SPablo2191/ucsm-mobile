@@ -62,8 +62,8 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
           newSubjectRegistration.subject = subject;
           // add commission
           let commissions = [];
-          commissions.push(this.getStudenCommission('PRACTICA', phases, data.NOTPRA));
-          commissions.push(this.getStudenCommission('TEORIA', phases, data.NOTTEO));
+          commissions.push(this.getStudenCommission('-', phases, data.NOTPRA));
+          commissions.push(this.getStudenCommission('-', phases, data.NOTTEO));
           newSubjectRegistration.student_commissions = commissions;
           newSubjectRegistration.avg_practice_score = +data.PROMPRA;
           newSubjectRegistration.avg_theory_score = +data.PROMTEO;

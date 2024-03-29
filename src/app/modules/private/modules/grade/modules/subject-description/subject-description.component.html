@@ -4,8 +4,8 @@
     <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
   </ion-button>
   <div class="mb-4">
-    <h1 class="font-bold text-white text-center text-4xl">{{ title }}</h1>
-    <p class="text-center text-white text-sm">Semestre par - 2023</p>
+    <h1 class="font-bold text-white text-center text-3xl">{{ subject.subject?.name }}</h1>
+    <p class="text-center text-white text-sm">{{ subject.subject?.semester?.name }}</p>
   </div>
   <card-container>
     <div class="flex justify-content-center align-items-center text-2xl">
@@ -16,47 +16,76 @@
       <classroom-description
         main_title="Comisión"
         title_left="Practica"
-        description_left="02"
+        [description_left]="subject.student_commissions?.[0]?.commission?.id || ''"
         title_right="Teoria"
-        description_right="A"
+        [description_right]="subject.student_commissions?.[1]?.commission?.id || ''"
       />
       <classroom-description
         main_title="Aula"
         title_left="Practica"
-        description_left="L-207"
+        [description_left]="
+          subject.student_commissions?.[0]?.commission?.classroom?.building?.name ||
+          '' + '-' + subject.student_commissions?.[0]?.commission?.classroom?.name
+            ? subject.student_commissions?.[0]?.commission?.classroom?.name || ''
+            : ''
+        "
         title_right="Teoria"
-        description_right="A-100"
+        [description_right]="
+          subject.student_commissions?.[1]?.commission?.classroom?.building?.name ||
+          '' + '-' + subject.student_commissions?.[1]?.commission?.classroom?.name
+            ? subject.student_commissions?.[1]?.commission?.classroom?.name || ''
+            : ''
+        "
       />
       <classroom-description
         main_title="Horario"
         title_left="Practica"
-        description_left="Lunes"
+        [description_left]="subject.student_commissions?.[0]?.commission?.commission_schedule?.day || ''"
+        [left_start_hour]="
+          (subject.student_commissions?.[0]?.commission?.commission_schedule?.start_time | date: 'shortTime') || ''
+        "
+        [left_end_hour]="
+          (subject.student_commissions?.[0]?.commission?.commission_schedule?.end_time | date: 'shortTime') || ''
+        "
         title_right="Teoria"
-        description_right="Miercoles"
-        start_hour="08:00"
-        end_hour="10:00"
+        [description_right]="subject.student_commissions?.[1]?.commission?.commission_schedule?.day || ''"
+        [right_start_hour]="
+          (subject.student_commissions?.[1]?.commission?.commission_schedule?.start_time | date: 'shortTime') || ''
+        "
+        [right_end_hour]="
+          (subject.student_commissions?.[1]?.commission?.commission_schedule?.end_time | date: 'shortTime') || ''
+        "
       />
       <classroom-description main_title="Docente/s" />
       <div class="flex justify-content-between">
-        <person-item image_url="/assets/images/career-profile-image.png" title="Practica" subtitle="Pablo Sandoval" />
-        <person-item image_url="/assets/images/career-profile-image.png" title="Practica" subtitle="Pablo Sandoval" />
-        <person-item image_url="/assets/images/career-profile-image.png" title="Practica" subtitle="Pablo Sandoval" />
+        <person-item
+          image_url="/assets/icon/logo_ucsm.png"
+          [title]="commission.commission?.id || ''"
+          [subtitle]="
+            (commission.commission?.professor?.first_name || '') + (commission.commission?.professor?.last_name || '')
+          "
+          *ngFor="let commission of subject.student_commissions"
+        />
       </div>
     </div>
     <ng-template #grades>
       <grade-description
-        title_left="19"
-        title_right="16"
+        [title_left]="subject.simulated_score?.toString() || ''"
+        [title_right]="subject.final_score?.toString() || ''"
         description_left="Puntaje Simulado"
         description_right="Puntaje Final"
       />
-      <grade-description
-        title_left="19"
-        title_right="16"
-        main_title="Primera Fase"
-        description_left="Practica"
-        description_right="Teoria"
-      />
+      <ng-container *ngIf="this.grades">
+        <ng-container *ngFor="let grade of this.grades">
+          <grade-description
+            [title_left]="grade.left_score"
+            [title_right]="grade.right_score"
+            main_title="Primera Fase"
+            description_left="Practica"
+            description_right="Teoria"
+          />
+        </ng-container>
+      </ng-container>
     </ng-template>
   </card-container>
 </ion-content>
