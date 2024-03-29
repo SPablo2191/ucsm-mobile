@@ -13,7 +13,7 @@ import { SubjectService } from 'src/app/project/services/php/subject.service';
   styleUrl: './subject.component.scss',
 })
 export class SubjectComponent implements OnInit {
-  title: String = '';
+  title: String = 'Materias Aprobadas';
   protected student!: PartialStudent;
   protected enrollment!: PartialEnrollment;
   protected semesters: PartialSemester[] = [];
@@ -36,11 +36,6 @@ export class SubjectComponent implements OnInit {
     if (enrollmentSelectedStoraged) {
       this.enrollment = JSON.parse(enrollmentSelectedStoraged);
     }
-    this.subscriptions$.add(
-      this.route.paramMap.subscribe((params) => {
-        this.title = params.get('title') || '';
-      }),
-    );
     this.getSemester();
   }
   getSemester() {
