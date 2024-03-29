@@ -8,6 +8,7 @@ import { CardContainerComponent } from 'src/app/shared/card-container/card-conta
 import { ClassroomDescriptionComponent } from './components/classroom-description/classroom-description.component';
 import { PersonItemComponent } from 'src/app/shared/person-item/person-item.component';
 import { GradeDescriptionComponent } from './components/grade-description/grade-description.component';
+import { CapitalizePipe } from 'src/app/core/pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [SubjectDescriptionComponent],
@@ -19,6 +20,7 @@ import { GradeDescriptionComponent } from './components/grade-description/grade-
     ClassroomDescriptionComponent,
     PersonItemComponent,
     GradeDescriptionComponent,
+    CapitalizePipe,
   ],
 })
 export class SubjectDescriptionModule {}

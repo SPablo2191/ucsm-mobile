@@ -78,10 +78,17 @@
       <grade-description
         [title_left]="grade.left_score.toString()"
         [title_right]="grade.right_score.toString()"
-        [main_title]="grade.phase"
+        [main_title]="grade.phase | capitalize: 'titleCase'"
         description_left="Practica"
         description_right="Teoria"
         *ngFor="let grade of gradesPerPhase"
+      />
+      <grade-description
+        main_title="Promedio"
+        [title_left]="subject.avg_practice_score?.toString() || ''"
+        [title_right]="subject.avg_theory_score?.toString() || ''"
+        description_left="Practica"
+        description_right="Teoria"
       />
     </ng-template>
   </card-container>
