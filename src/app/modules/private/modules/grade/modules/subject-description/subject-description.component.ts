@@ -10,14 +10,14 @@ import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.r
 export class SubjectDescriptionComponent implements OnInit {
   subject!: PartialSubjectRegistration;
   showGrades = false;
-  grades: gradePhase[] = [];
+  gradesPerPhase: gradePhase[] = [];
 
   ngOnInit(): void {
     let subjectSelected = localStorage.getItem('subjectSelected');
     if (subjectSelected) {
       this.subject = JSON.parse(subjectSelected);
     }
-    console.log(subjectSelected);
+    this.loadGrades();
   }
   ionViewWillEnter() {
     let subjectSelected = JSON.parse(localStorage.getItem('subjectSelected') || '{}');
@@ -25,19 +25,27 @@ export class SubjectDescriptionComponent implements OnInit {
       return;
     }
     this.subject = subjectSelected;
-    this.subject.student_commissions?.[0]?.grades?.forEach((grade) => {
-      this.grades.push({
-        left_score: grade.score || 0,
-        phase: grade.phase || Phase.FIRST,
-        right_score: 0,
-      });
-    });
-    this.grades.forEach((grade, index) => {
-      grade.right_score = this.subject.student_commissions?.[1]?.grades?.[index].score || 0;
-    });
+    this.loadGrades();
   }
   changeSection() {
     this.showGrades = !this.showGrades;
+  }
+  loadGrades() {
+    console.log(this.subject.student_commissions?.[0]?.grades);
+    if (this.gradesPerPhase.length !== 0) this.gradesPerPhase = [];
+    this.subject.student_commissions?.[0]?.grades?.forEach((grade) => {
+      if (grade.score && grade.phase) {
+        this.gradesPerPhase.push({
+          left_score: grade.score,
+          phase: grade.phase,
+          right_score: 0,
+        });
+      }
+    });
+    console.log(this.gradesPerPhase);
+    this.gradesPerPhase.forEach((grade, index) => {
+      grade.right_score = this.subject.student_commissions?.[1]?.grades?.[index].score || 0;
+    });
   }
 }
 

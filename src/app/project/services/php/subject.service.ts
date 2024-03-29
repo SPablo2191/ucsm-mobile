@@ -143,7 +143,7 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
     phases.forEach((phase, index) => {
       let grade: PartialGrade = {};
       grade.phase = phase;
-      grade.score = Number.isInteger(grades[index]) ? grades[index] : 0;
+      grade.score = grades[index];
       newGrades.push(grade);
     });
     commission.grades = newGrades;

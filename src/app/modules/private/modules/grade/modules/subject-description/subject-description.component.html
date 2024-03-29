@@ -75,17 +75,14 @@
         description_left="Puntaje Simulado"
         description_right="Puntaje Final"
       />
-      <ng-container *ngIf="this.grades">
-        <ng-container *ngFor="let grade of this.grades">
-          <grade-description
-            [title_left]="grade.left_score"
-            [title_right]="grade.right_score"
-            main_title="Primera Fase"
-            description_left="Practica"
-            description_right="Teoria"
-          />
-        </ng-container>
-      </ng-container>
+      <grade-description
+        [title_left]="grade.left_score.toString()"
+        [title_right]="grade.right_score.toString()"
+        [main_title]="grade.phase"
+        description_left="Practica"
+        description_right="Teoria"
+        *ngFor="let grade of gradesPerPhase"
+      />
     </ng-template>
   </card-container>
 </ion-content>
