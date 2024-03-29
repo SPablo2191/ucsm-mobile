@@ -19,7 +19,7 @@ import { PartialSemester } from 'src/app/project/interfaces/semester.interface';
       [(ngModel)]="selected"
     >
       <ng-container *ngFor="let item of items">
-        <ion-select-option [value]="item.id">{{ item.name }}</ion-select-option>
+        <ion-select-option [value]="item">{{ item.name }}</ion-select-option>
       </ng-container>
     </ion-select>
   `,
@@ -29,8 +29,8 @@ import { PartialSemester } from 'src/app/project/interfaces/semester.interface';
 export class UiDropdownComponent {
   @Input() items!: PartialSemester[];
   @Input() selected!: PartialSemester;
-  @Output() changed = new EventEmitter<boolean>();
+  @Output() changed = new EventEmitter<PartialSemester>();
   change() {
-    this.changed.emit(true);
+    this.changed.emit(this.selected);
   }
 }

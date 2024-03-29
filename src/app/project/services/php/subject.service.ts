@@ -49,7 +49,6 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
     };
     return this.postRequest(data).pipe(
       map((response: any) => {
-        console.log(response);
         let responseData = response.data;
         let subjects: PartialSubjectRegistration[] = [];
         let phases = [Phase.FIRST, Phase.SECOND, Phase.THIRD];
@@ -70,7 +69,6 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
           newSubjectRegistration.avg_theory_score = +data.PROMTEO;
           subjects.push(newSubjectRegistration);
         });
-        console.log(subjects);
         return subjects;
       }),
     );

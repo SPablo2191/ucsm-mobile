@@ -4,6 +4,7 @@ import { Observable, Subscription, map } from 'rxjs';
 import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialSemester } from 'src/app/project/interfaces/semester.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
+import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
 import { SubjectService } from 'src/app/project/services/php/subject.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class SubjectComponent implements OnInit {
   protected enrollment!: PartialEnrollment;
   protected semesters: PartialSemester[] = [];
   protected selectedSemester: PartialSemester = {};
+  protected subjects: PartialSubjectRegistration[] = [];
   subscriptions$: Subscription = new Subscription();
   constructor(
     private route: ActivatedRoute,
@@ -42,18 +44,30 @@ export class SubjectComponent implements OnInit {
     this.getSemester();
   }
   getSemester() {
-    this.subjectService
-      .getSemesters(this.enrollment.code || '')
-      .pipe(
-        map((semesters) => {
-          this.semesters = semesters;
-          this.selectedSemester = this.semesters[0];
-          this.getGrades();
-        }),
-      )
-      .subscribe();
+    this.subscriptions$.add(
+      this.subjectService
+        .getSemesters(this.enrollment.code || '')
+        .pipe(
+          map((semesters) => {
+            this.semesters = semesters;
+            this.selectedSemester = this.semesters[0];
+            this.getSubjects();
+          }),
+        )
+        .subscribe(),
+    );
   }
-  getGrades() {
-    this.subjectService.getGrades(this.enrollment.code || '', this.selectedSemester.id || '').subscribe();
+  getSubjects(semester?: PartialSemester) {
+    if (semester) this.selectedSemester = semester;
+    this.subscriptions$.add(
+      this.subjectService
+        .getGrades(this.enrollment.code || '', this.selectedSemester.id || '')
+        .pipe(
+          map((subjects) => {
+            this.subjects = subjects;
+          }),
+        )
+        .subscribe(),
+    );
   }
 }
