@@ -11,10 +11,46 @@
   <card-container>
     <div class="flex justify-content-center my-4">
       <person-item
-        image_url="/assets/images/career-profile-image.png"
-        style="width: 133px; height: 117px"
-        title="Pablo Sandoval"
+        image_url="/assets/images/icon_student.png"
+        style="width: 500px; height: 117px"
+        [title]="(student.first_name || '') + ' ' + (student.last_name || '')"
       />
+    </div>
+    <div class="my-6">
+      <div class="field">
+        <h2 class="font-bold">Nombre Completo</h2>
+        <p>
+          {{
+            (student.first_name || '') +
+              ' ' +
+              (student.middle_name || '') +
+              ' ' +
+              (student.last_name || '') +
+              ' ' +
+              (student.second_last_name || '')
+          }}
+        </p>
+      </div>
+      <div class="field">
+        <h2 class="font-bold">DNI</h2>
+        <p>{{ student.identification_document }}</p>
+      </div>
+      <div class="field">
+        <h2 class="font-bold">Email</h2>
+        <p>{{ student.email }}</p>
+      </div>
+      <div class="field">
+        <h2 class="font-bold">Telefóno</h2>
+        <p>{{ student.phone_number }}</p>
+      </div>
+      <div class="field">
+        <h2 class="font-bold">Domicilio</h2>
+        <p>{{ student.address }}</p>
+      </div>
+      <div class="field">
+        <h2 class="font-bold">Fecha de Nacimiento</h2>
+        <p>{{ student.birth_date }}</p>
+      </div>
     </div>
   </card-container>
 </ion-content>

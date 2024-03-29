@@ -10,7 +10,7 @@ import { IonicModule } from '@ionic/angular';
     <div class="flex justify-content-center">
       <ion-img [src]="image_url" alt="person" [style]="style"></ion-img>
     </div>
-    <div class="text-center font-bold">{{ title }}</div>
+    <div class="text-center text-lg font-bold">{{ title }}</div>
     <div class="text-center text-xs font-italic">{{ subtitle }}</div>
   `,
   styles: `

@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { UiCardComponent } from '../ui/ui-card/ui-card.component';
 import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
+import { Router } from '@angular/router';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -25,6 +26,7 @@ import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.r
         [commission]="item.student_commissions?.[0]?.commission?.id || ''"
         [classroom]="item.student_commissions?.[0]?.commission?.classroom?.name || ' - '"
         [building]="item.student_commissions?.[0]?.commission?.classroom?.building?.name || ' - '"
+        (click)="goToSubjectDescription(item)"
       />
     </div>
     <ng-template #elseblock>
@@ -51,4 +53,9 @@ export class SubjectCarouselComponent {
       el: '.swiper-pagination',
     },
   };
+  constructor(private router: Router) {}
+  goToSubjectDescription(subject: PartialSubjectRegistration) {
+    localStorage.setItem('subjectSelected', JSON.stringify(subject));
+    this.router.navigate(['/private/career/grade/subject-description']);
+  }
 }
