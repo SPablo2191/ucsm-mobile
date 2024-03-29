@@ -40,7 +40,7 @@
       <classroom-description
         main_title="Horario"
         title_left="Practica"
-        [description_left]="subject.student_commissions?.[0]?.commission?.commission_schedule?.day || ''"
+        [description_left]="subject.student_commissions?.[0]?.commission?.commission_schedule?.day || '' | day"
         [left_start_hour]="
           (subject.student_commissions?.[0]?.commission?.commission_schedule?.start_time | date: 'shortTime') || ''
         "
@@ -62,7 +62,9 @@
           image_url="/assets/icon/logo_ucsm.png"
           [title]="commission.commission?.id || ''"
           [subtitle]="
-            (commission.commission?.professor?.first_name || '') + (commission.commission?.professor?.last_name || '')
+            (commission.commission?.professor?.first_name || '') +
+            ' ' +
+            (commission.commission?.professor?.last_name || '')
           "
           *ngFor="let commission of subject.student_commissions"
         />

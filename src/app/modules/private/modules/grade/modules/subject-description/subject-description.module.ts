@@ -9,6 +9,7 @@ import { ClassroomDescriptionComponent } from './components/classroom-descriptio
 import { PersonItemComponent } from 'src/app/shared/person-item/person-item.component';
 import { GradeDescriptionComponent } from './components/grade-description/grade-description.component';
 import { CapitalizePipe } from 'src/app/core/pipes/capitalize.pipe';
+import { DayPipe } from 'src/app/core/pipes/day.pipe';
 
 @NgModule({
   declarations: [SubjectDescriptionComponent],
@@ -21,6 +22,7 @@ import { CapitalizePipe } from 'src/app/core/pipes/capitalize.pipe';
     PersonItemComponent,
     GradeDescriptionComponent,
     CapitalizePipe,
+    DayPipe,
   ],
 })
 export class SubjectDescriptionModule {}
