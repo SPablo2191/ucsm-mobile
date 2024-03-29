@@ -6,7 +6,9 @@ export interface SubjectRegistration {
   id?: string;
   subject?: Subject;
   final_score?: number | null;
-  simulated_score?: number | null;
+  simulated_score?: number | null | string;
+  avg_practice_score?: number | null;
+  avg_theory_score?: number | null;
   register_date?: Date;
   update_date?: Date;
   enrollment?: Enrollment;

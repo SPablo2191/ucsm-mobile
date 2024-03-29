@@ -12,6 +12,8 @@ import { PartialStudentCommission } from '../../interfaces/student.commission.in
 import { PartialCommission } from '../../interfaces/commission.interface';
 import { PartialProfessor, Professor } from '../../interfaces/professor.interface';
 import { PartialSemester } from '../../interfaces/semester.interface';
+import { Phase } from '../../enums/phase.enum';
+import { PartialGrade } from '../../interfaces/grade.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -47,7 +49,28 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
     };
     return this.postRequest(data).pipe(
       map((response: any) => {
+        console.log(response);
+        let responseData = response.data;
         let subjects: PartialSubjectRegistration[] = [];
+        let phases = [Phase.FIRST, Phase.SECOND, Phase.THIRD];
+        responseData.map((data: any) => {
+          let newSubjectRegistration: PartialSubjectRegistration = {};
+          newSubjectRegistration.final_score = +data.NOTFIN;
+          newSubjectRegistration.simulated_score = data.NOTSUB;
+          // add subject
+          let subject: PartialSubject = {};
+          subject.name = capitalizeFirstLetter(data.NOMCUR);
+          newSubjectRegistration.subject = subject;
+          // add commission
+          let commissions = [];
+          commissions.push(this.getStudenCommission('PRACTICA', phases, data.NOTPRA));
+          commissions.push(this.getStudenCommission('TEORIA', phases, data.NOTTEO));
+          newSubjectRegistration.student_commissions = commissions;
+          newSubjectRegistration.avg_practice_score = +data.PROMPRA;
+          newSubjectRegistration.avg_theory_score = +data.PROMTEO;
+          subjects.push(newSubjectRegistration);
+        });
+        console.log(subjects);
         return subjects;
       }),
     );
@@ -111,5 +134,21 @@ export class SubjectService extends OldBaseService implements ISubjectService<Pa
         break;
     }
     return professor;
+  }
+  getStudenCommission(type: string, phases: Phase[], grades: any[]) {
+    let commission: PartialStudentCommission = {
+      commission: {
+        id: type,
+      } as PartialCommission,
+    };
+    let newGrades: PartialGrade[] = [];
+    phases.forEach((phase, index) => {
+      let grade: PartialGrade = {};
+      grade.phase = phase;
+      grade.score = Number.isInteger(grades[index]) ? grades[index] : 0;
+      newGrades.push(grade);
+    });
+    commission.grades = newGrades;
+    return commission;
   }
 }
