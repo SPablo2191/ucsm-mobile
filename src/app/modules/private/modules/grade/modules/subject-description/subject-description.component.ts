@@ -31,7 +31,6 @@ export class SubjectDescriptionComponent implements OnInit {
     this.showGrades = !this.showGrades;
   }
   loadGrades() {
-    console.log(this.subject.student_commissions?.[0]?.grades);
     if (this.gradesPerPhase.length !== 0) this.gradesPerPhase = [];
     this.subject.student_commissions?.[0]?.grades?.forEach((grade) => {
       if (grade.score && grade.phase) {
@@ -42,7 +41,6 @@ export class SubjectDescriptionComponent implements OnInit {
         });
       }
     });
-    console.log(this.gradesPerPhase);
     this.gradesPerPhase.forEach((grade, index) => {
       grade.right_score = this.subject.student_commissions?.[1]?.grades?.[index].score || 0;
     });
