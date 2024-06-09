@@ -17,12 +17,21 @@ import { IonicModule } from '@ionic/angular';
         }"
       >
         <ion-card-title class="text-white font-italic text-right text-xs mt-2 py-2">Ver Novedad ></ion-card-title>
-        <ion-card-subtitle class="text-white font-bold text-left text-2xl">{{ title }}</ion-card-subtitle>
+        <ion-card-subtitle
+          class="text-white font-bold text-left text-2xl  surface-overlay white-space-nowrap overflow-hidden text-overflow-ellipsis"
+          style="width:250px"
+          >{{ title }}</ion-card-subtitle
+        >
         <ion-icon [name]="iconName" size="large" class="my-1" *ngIf="iconName"></ion-icon>
       </ion-card-header>
 
       <ion-card-content>
-        <p class="text-white text-left font-italic text-xs">{{ body }}</p>
+        <div
+          class="text-white text-left font-italic text-xs surface-overlay white-space-nowrap overflow-hidden text-overflow-ellipsis"
+          style="width:250px"
+        >
+          {{ body }}
+        </div>
         <ng-content></ng-content>
       </ion-card-content>
     </ion-card>

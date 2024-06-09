@@ -36,33 +36,10 @@
       <ng-template #events>
         <div class="overflow-scroll surface-overlay" style="height: 450px">
           <event-card
-            imageUrl="/assets/images/casa-marianista.jpg"
-            title="¡Visita la UCSM!"
-            body="Conozca la hermosa estructura de la uni"
-            path="/event"
-          />
-          <event-card
-            imageUrl="/assets/images/casa-marianista.jpg"
-            title="¡Visita la UCSM!"
-            body="Conozca la hermosa estructura de la uni"
-            path="/event"
-          />
-          <event-card
-            imageUrl="/assets/images/casa-marianista.jpg"
-            title="¡Visita la UCSM!"
-            body="Conozca la hermosa estructura de la uni"
-            path="/event"
-          />
-          <event-card
-            imageUrl="/assets/images/casa-marianista.jpg"
-            title="¡Visita la UCSM!"
-            body="Conozca la hermosa estructura de la uni"
-            path="/event"
-          />
-          <event-card
-            imageUrl="/assets/images/casa-marianista.jpg"
-            title="¡Visita la UCSM!"
-            body="Conozca la hermosa estructura de la uni"
+            *ngFor="let event of events$ | async"
+            [imageUrl]="event.image_url || ''"
+            [title]="event.name || ''"
+            [body]="event.description || ''"
             path="/event"
           />
         </div>

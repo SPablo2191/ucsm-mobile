@@ -2,9 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription, map } from 'rxjs';
 import { Enrollment, PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
+import { PartialEvent } from 'src/app/project/interfaces/event.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { AuthService } from 'src/app/project/services/python/auth.service';
 import { EnrollmentService } from 'src/app/project/services/python/enrollment.service';
+import { EventService } from 'src/app/project/services/python/event.service';
 import { ProfileService } from 'src/app/project/services/python/profile.service';
 
 @Component({
@@ -12,10 +14,10 @@ import { ProfileService } from 'src/app/project/services/python/profile.service'
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   student$!: Observable<PartialStudent>;
   enrollments$!: Observable<PartialEnrollment[]>;
-  enrollments: PartialEnrollment[] = [];
+  events$!: Observable<PartialEvent[]>;
   protected subscriptions$: Subscription = new Subscription();
   showEvent = false;
   constructor(
@@ -23,19 +25,24 @@ export class HomeComponent {
     private authService: AuthService,
     private profileService: ProfileService,
     private enrollmentService: EnrollmentService,
+    private eventService: EventService,
   ) {}
-  ionViewDidLeave() {
-    this.subscriptions$.unsubscribe();
-  }
-  ionViewWillEnter() {
+  ngOnInit(): void {
     this.getProfile();
     this.getEnrollment();
+    this.getEvents();
+  }
+  ionViewDidLeave() {
+    this.subscriptions$.unsubscribe();
   }
   getProfile() {
     this.student$ = this.profileService.getProfile();
   }
   getEnrollment() {
     this.enrollments$ = this.enrollmentService.getEnrollments();
+  }
+  getEvents() {
+    this.events$ = this.eventService.getEvents();
   }
   goToProfile() {
     this.router.navigate(['/profile']);
