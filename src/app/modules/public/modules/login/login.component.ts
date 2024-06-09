@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
         .login(student)
         .pipe(
           map((student) => {
-            console.log(`login => ${student.identification_document}`);
             this.router.navigate(['/private/home']);
           }),
         )

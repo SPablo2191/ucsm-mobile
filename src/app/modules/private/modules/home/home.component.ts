@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription, map } from 'rxjs';
+import { Observable, Subscription, map } from 'rxjs';
 import { Enrollment, PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { AuthService } from 'src/app/project/services/python/auth.service';
@@ -12,8 +12,9 @@ import { ProfileService } from 'src/app/project/services/python/profile.service'
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
-  student!: PartialStudent;
+export class HomeComponent {
+  student$!: Observable<PartialStudent>;
+  enrollments$!: Observable<PartialEnrollment[]>;
   enrollments: PartialEnrollment[] = [];
   protected subscriptions$: Subscription = new Subscription();
   showEvent = false;
@@ -23,10 +24,6 @@ export class HomeComponent implements OnInit {
     private profileService: ProfileService,
     private enrollmentService: EnrollmentService,
   ) {}
-  ngOnInit(): void {
-    this.getProfile();
-    this.getEnrollment();
-  }
   ionViewDidLeave() {
     this.subscriptions$.unsubscribe();
   }
@@ -35,28 +32,10 @@ export class HomeComponent implements OnInit {
     this.getEnrollment();
   }
   getProfile() {
-    this.subscriptions$.add(
-      this.profileService
-        .getProfile()
-        .pipe(
-          map((student) => {
-            this.student = student;
-          }),
-        )
-        .subscribe(),
-    );
+    this.student$ = this.profileService.getProfile();
   }
   getEnrollment() {
-    this.subscriptions$.add(
-      this.enrollmentService
-        .getEnrollments()
-        .pipe(
-          map((enrollments) => {
-            this.enrollments = enrollments;
-          }),
-        )
-        .subscribe(),
-    );
+    this.enrollments$ = this.enrollmentService.getEnrollments();
   }
   goToProfile() {
     this.router.navigate(['/profile']);
@@ -72,10 +51,6 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/private/career/career-profile']);
   }
   logout() {
-    this.subscriptions$.add(
-      this.authService
-        .logout(this.student.identification_document ? this.student.identification_document : '')
-        .subscribe(),
-    );
+    this.subscriptions$.add(this.authService.logout(localStorage.getItem('identification_document') || '').subscribe());
   }
 }

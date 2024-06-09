@@ -10,18 +10,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProfileService extends BaseService<PartialStudent> {
+  override serverUrl: string | undefined = environment.apiUrl + Endpoint.STUDENT;
   constructor(httpClient: HttpClient) {
     super(httpClient);
   }
   getProfile(): Observable<Partial<Student>> {
-    let url = environment.apiUrl + Endpoint.STUDENT + `${localStorage.getItem('student_id')}/`;
+    let student_id = localStorage.getItem('student_id') || '';
     let token = localStorage.getItem('token');
-    console.log(url);
-    console.log(token);
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('Authorization', 'Token' + ' ' + token);
-    return this.httpClient.post<PartialStudent>(url, null, {
+    return this.getId(student_id, {
       headers: headers,
     });
   }

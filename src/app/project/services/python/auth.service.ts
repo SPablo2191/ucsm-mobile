@@ -13,7 +13,6 @@ export class AuthService implements IAuthService<PartialStudent | StudentWithTok
   constructor(protected httpClient: HttpClient) {}
   login(user: Partial<Student>): Observable<PartialStudent> {
     let url = environment.apiUrl + Endpoint.LOGIN;
-    console.log(url);
     return this.httpClient.post<StudentWithToken>(url, user).pipe(
       map((response) => {
         let student = response.user;

@@ -9,22 +9,14 @@ export class BaseService<T> {
   serverUrl: string | undefined;
 
   constructor(protected httpClient: HttpClient) {}
-  protected get(params = {}): Observable<T[]> {
-    return this.httpClient.get<T[]>(this.serverUrl!, { params });
+  protected get(options = {}): Observable<T[]> {
+    return this.httpClient.get<T[]>(this.serverUrl!, options);
   }
   protected post(data: T) {
     return this.httpClient.post(this.serverUrl!, data);
   }
-  protected update(id: string, data: T): Observable<T> {
-    const url = `${this.serverUrl}/${id}`;
-    return this.httpClient.put<T>(url, data);
-  }
-  protected getId(id: string): Observable<T> {
-    const url = `${this.serverUrl}/${id}`;
-    return this.httpClient.get<T>(url);
-  }
-  protected delete(id: string): Observable<T> {
-    const url = `${this.serverUrl}/${id}`;
-    return this.httpClient.delete<T>(url);
+  protected getId(id: string, options = {}): Observable<T> {
+    const url = `${this.serverUrl}${id}/`;
+    return this.httpClient.get<T>(url, options);
   }
 }
