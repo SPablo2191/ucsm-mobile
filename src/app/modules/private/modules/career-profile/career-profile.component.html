@@ -12,7 +12,7 @@
     </div>
   </ui-card>
   <p class="sub-title">Mis Materias</p>
-  <subject-carousel [items]="subjects" />
+  <subject-carousel [items]="(subjects$ | async)!" />
   <p class="sub-title">Mis Atajos</p>
   <div class="grid">
     <div class="col">

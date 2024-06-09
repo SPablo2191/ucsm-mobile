@@ -4,9 +4,9 @@ import { PartialDebt } from 'src/app/project/interfaces/debt.interface';
 import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
-import { SubjectService } from 'src/app/project/services/php/subject.service';
 import { DebtService } from 'src/app/project/services/python/debt.service';
 import { EnrollmentService } from 'src/app/project/services/python/enrollment.service';
+import { SubjectService } from 'src/app/project/services/python/subject.service';
 
 @Component({
   selector: 'app-career-profile',
@@ -16,6 +16,7 @@ import { EnrollmentService } from 'src/app/project/services/python/enrollment.se
 export class CareerProfileComponent implements OnInit {
   protected enrollment!: PartialEnrollment;
   enrollment$!: Observable<PartialEnrollment>;
+  subjects$!: Observable<PartialSubjectRegistration[]>;
   debt$!: Observable<PartialDebt>;
   protected linkBiblioteca = 'http://catalogo.ucsm.edu.pe/';
   protected linkAulaVirtual = 'https://www.ucsm.edu.pe/aula-virtual/';
@@ -40,7 +41,10 @@ export class CareerProfileComponent implements OnInit {
     let enrollmentId = localStorage.getItem('enrollment_id');
     if (enrollmentId) this.enrollment$ = this.enrollmentService.getEnrollment(enrollmentId);
   }
-  getSubjects() {}
+  getSubjects() {
+    let enrollmentId = localStorage.getItem('enrollment_id');
+    if (enrollmentId) this.subjects$ = this.subjectService.getSubjects(enrollmentId);
+  }
   getTotalBalance() {
     let enrollmentId = localStorage.getItem('enrollment_id');
     if (enrollmentId) this.debt$ = this.debtService.getDebt(enrollmentId);
