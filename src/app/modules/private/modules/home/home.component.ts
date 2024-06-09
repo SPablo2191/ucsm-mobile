@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Subscription, map } from 'rxjs';
 import { Enrollment, PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
-import { AuthService } from 'src/app/project/services/php/auth.service';
+import { AuthService } from 'src/app/project/services/python/auth.service';
+import { EnrollmentService } from 'src/app/project/services/python/enrollment.service';
+import { ProfileService } from 'src/app/project/services/python/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -18,30 +20,43 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
+    private profileService: ProfileService,
+    private enrollmentService: EnrollmentService,
   ) {}
+  ngOnInit(): void {
+    this.getProfile();
+    this.getEnrollment();
+  }
   ionViewDidLeave() {
     this.subscriptions$.unsubscribe();
   }
   ionViewWillEnter() {
-    let studentStoraged = JSON.parse(localStorage.getItem('student') || '{}');
-    let enrollmentsStoraged = localStorage.getItem('enrollments');
-    if (this.student.identification_document === studentStoraged.identification_document) {
-      return;
-    }
-    this.student = studentStoraged;
-    if (enrollmentsStoraged) {
-      this.enrollments = JSON.parse(enrollmentsStoraged);
-    }
+    this.getProfile();
+    this.getEnrollment();
   }
-  ngOnInit(): void {
-    let studentStoraged = localStorage.getItem('student');
-    let enrollmentsStoraged = localStorage.getItem('enrollments');
-    if (studentStoraged) {
-      this.student = JSON.parse(studentStoraged);
-    }
-    if (enrollmentsStoraged) {
-      this.enrollments = JSON.parse(enrollmentsStoraged);
-    }
+  getProfile() {
+    this.subscriptions$.add(
+      this.profileService
+        .getProfile()
+        .pipe(
+          map((student) => {
+            this.student = student;
+          }),
+        )
+        .subscribe(),
+    );
+  }
+  getEnrollment() {
+    this.subscriptions$.add(
+      this.enrollmentService
+        .getEnrollments()
+        .pipe(
+          map((enrollments) => {
+            this.enrollments = enrollments;
+          }),
+        )
+        .subscribe(),
+    );
   }
   goToProfile() {
     this.router.navigate(['/profile']);

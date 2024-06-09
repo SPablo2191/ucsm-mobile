@@ -6,9 +6,9 @@ export interface Enrollment {
   academic_program: AcademicProgram;
   student: Student;
   code: string;
-  // subjectRegistrations: SubjectRegistration[];
   register_date: Date;
   update_date: Date;
+  student_code: string;
 }
 
 export type PartialEnrollment = Partial<Enrollment>;

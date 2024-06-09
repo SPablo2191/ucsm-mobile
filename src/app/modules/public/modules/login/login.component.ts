@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Subscription, map } from 'rxjs';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
-import { AuthService } from 'src/app/project/services/php/auth.service';
+import { AuthService } from 'src/app/project/services/python/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         .login(student)
         .pipe(
           map((student) => {
+            console.log(`login => ${student.identification_document}`);
             this.router.navigate(['/private/home']);
           }),
         )

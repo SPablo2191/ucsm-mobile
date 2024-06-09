@@ -16,3 +16,9 @@ export interface Student {
 }
 
 export type PartialStudent = Partial<Student>;
+
+export interface StudentWithToken {
+  user: Student;
+  expires_in: string;
+  token: string;
+}
