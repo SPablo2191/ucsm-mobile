@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CalendarMode, NgCalendarModule, QueryMode, Step } from 'ionic2-calendar';
 import { CalendarComponent } from 'ionic2-calendar';
+import { Days } from 'src/app/project/interfaces/commission.schedule';
 import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
+import { ScheduleService } from 'src/app/project/services/python/schedule.service';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'schedule-calendar',
@@ -117,7 +119,10 @@ export class ScheduleCalendarComponent implements OnInit {
     dayviewShowCategoryView: true,
   };
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private scheduleService: ScheduleService,
+  ) {
     this.isToday = false;
   }
   ngOnInit(): void {
@@ -126,10 +131,19 @@ export class ScheduleCalendarComponent implements OnInit {
   loadEvents() {
     if (this.subjects === undefined) return;
     this.subjects?.forEach((subject) => {
+      let startDate = this.scheduleService.getDateOfWeekday(
+        subject.student_commissions?.[0].commission?.commission_schedule?.day || Days.MONDAY,
+        subject.student_commissions?.[0].commission?.commission_schedule?.start_time?.toString() || '',
+      );
+      let endDate = this.scheduleService.getDateOfWeekday(
+        subject.student_commissions?.[0].commission?.commission_schedule?.day || Days.MONDAY,
+        subject.student_commissions?.[0].commission?.commission_schedule?.end_time?.toString() || '',
+      );
+      console.log(startDate);
       this.eventSource.push({
         title: subject.subject?.name,
-        startTime: new Date(subject.student_commissions?.[0].commission?.commission_schedule?.start_time || ''),
-        endTime: new Date(subject.student_commissions?.[0].commission?.commission_schedule?.end_time || ''),
+        startTime: startDate,
+        endTime: endDate,
         allDay: false,
       });
     });
@@ -154,9 +168,7 @@ export class ScheduleCalendarComponent implements OnInit {
   }
 
   onEventSelected(event: any) {
-    let subjectRegistration = this.subjects.find(
-      (subject) => subject.student_commissions?.[0].commission?.commission_schedule?.start_time === event?.startTime,
-    );
+    let subjectRegistration = this.subjects.find((subject) => subject.subject?.name === event?.title);
     if (subjectRegistration) {
       this.goToSubjectDescription(subjectRegistration);
     }
