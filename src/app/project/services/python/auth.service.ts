@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { IAuthService } from 'src/app/core/interfaces/auth.interface';
 import { PartialStudent, Student, StudentWithToken } from '../../interfaces/student.interface';
-import { Observable, map } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, map, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Endpoint } from '../../enums/python/endpoint.enum';
 
@@ -21,6 +21,9 @@ export class AuthService implements IAuthService<PartialStudent | StudentWithTok
         localStorage.setItem('identification_document', student.identification_document);
         localStorage.setItem('expires_In', response.expires_in);
         return student;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        return throwError(() => err);
       }),
     );
   }

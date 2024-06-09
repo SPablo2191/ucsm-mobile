@@ -1,6 +1,6 @@
 <ion-content>
   <div class="image-background" [style.background-image]="'url(' + (event$ | async)?.image_url + ')'">
-    <ion-button class="mx-2 mt-4" [routerLink]="['/home']">
+    <ion-button class="mx-2 mt-4" (click)="goBack()">
       Volver
       <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
     </ion-button>

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from 'src/app/core/services/base.service';
 import { Enrollment, PartialEnrollment } from '../../interfaces/enrollment.interface';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Endpoint } from '../../enums/python/endpoint.enum';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +27,9 @@ export class EnrollmentService extends BaseService<PartialEnrollment | PartialEn
         let enrollments = response.results;
         console.log(enrollments);
         return enrollments;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        return throwError(() => err);
       }),
     );
   }

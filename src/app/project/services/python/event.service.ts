@@ -3,8 +3,8 @@ import { BaseService } from 'src/app/core/services/base.service';
 import { PartialEvent } from '../../interfaces/event.interface';
 import { environment } from 'src/environments/environment';
 import { Endpoint } from '../../enums/python/endpoint.enum';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, map, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,23 +24,27 @@ export class EventService extends BaseService<PartialEvent | PartialEvent[]> {
     }).pipe(
       map((response: any) => {
         let events = response.results;
-        console.log(events);
         return events;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        return throwError(() => err);
       }),
     );
   }
-  getEvent(): Observable<PartialEvent> {
-    let event_id = localStorage.getItem('event_id') || '';
+  getEvent(eventId: string): Observable<PartialEvent> {
     let token = localStorage.getItem('token');
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('Authorization', 'Token' + ' ' + token);
-    return this.getId(event_id, {
+    return this.getId(eventId, {
       headers: headers,
     }).pipe(
       map((response: any) => {
         let event: PartialEvent = response;
         return event;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        return throwError(() => err);
       }),
     );
   }

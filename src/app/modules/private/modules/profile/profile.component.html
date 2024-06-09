@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-button class="button-transparent mx-2 mt-2" [routerLink]="['/home']">
+  <ion-button class="button-transparent mx-2 mt-2" (click)="goBack()">
     Volver
     <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
   </ion-button>
@@ -13,7 +13,7 @@
       <person-item
         image_url="/assets/images/icon_student.png"
         style="width: 500px; height: 117px"
-        [title]="(student.first_name || '') + ' ' + (student.last_name || '')"
+        [title]="((student$ | async)?.first_name || '') + ' ' + ((student$ | async)?.last_name || '')"
       />
     </div>
     <div class="my-6">
@@ -21,35 +21,35 @@
         <h2 class="font-bold">Nombre Completo</h2>
         <p>
           {{
-            (student.first_name || '') +
+            ((student$ | async)?.first_name || '') +
               ' ' +
-              (student.middle_name || '') +
+              ((student$ | async)?.middle_name || '') +
               ' ' +
-              (student.last_name || '') +
+              ((student$ | async)?.last_name || '') +
               ' ' +
-              (student.second_last_name || '')
+              ((student$ | async)?.second_last_name || '')
           }}
         </p>
       </div>
       <div class="field">
         <h2 class="font-bold">DNI</h2>
-        <p>{{ student.identification_document }}</p>
+        <p>{{ (student$ | async)?.identification_document }}</p>
       </div>
       <div class="field">
         <h2 class="font-bold">Email</h2>
-        <p>{{ student.email }}</p>
+        <p>{{ (student$ | async)?.email }}</p>
       </div>
       <div class="field">
         <h2 class="font-bold">Telefóno</h2>
-        <p>{{ student.phone_number }}</p>
+        <p>{{ (student$ | async)?.phone_number }}</p>
       </div>
       <div class="field">
         <h2 class="font-bold">Domicilio</h2>
-        <p>{{ student.address }}</p>
+        <p>{{ (student$ | async)?.address }}</p>
       </div>
       <div class="field">
         <h2 class="font-bold">Fecha de Nacimiento</h2>
-        <p>{{ student.birth_date }}</p>
+        <p>{{ (student$ | async)?.birth_date }}</p>
       </div>
     </div>
   </card-container>

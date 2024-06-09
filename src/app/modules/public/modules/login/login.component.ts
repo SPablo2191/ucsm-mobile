@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         .login(student)
         .pipe(
           map((student) => {
+            this.form.reset();
             this.router.navigate(['/private/home']);
           }),
         )

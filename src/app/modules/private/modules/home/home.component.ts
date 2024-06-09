@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Observable, Subscription, map } from 'rxjs';
 import { Enrollment, PartialEnrollment } from 'src/app/project/interfaces/enrollment.interface';
 import { PartialEvent } from 'src/app/project/interfaces/event.interface';
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
     private authService: AuthService,
     private profileService: ProfileService,
     private enrollmentService: EnrollmentService,
+    private navController: NavController,
     private eventService: EventService,
   ) {}
   ngOnInit(): void {
@@ -50,18 +52,29 @@ export class HomeComponent implements OnInit {
   changeSection() {
     this.showEvent = !this.showEvent;
   }
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
   goToEnrollment(enrollment: PartialEnrollment) {
     localStorage.setItem('enrollmentSelected', JSON.stringify(enrollment));
     this.router.navigate(['/private/career/career-profile']);
   }
   goToEvent(eventId: string) {
-    localStorage.setItem('event_id', eventId);
-    this.router.navigate(['/private/event']);
+    this.router.navigate([
+      '/private/event',
+      {
+        id: eventId,
+      },
+    ]);
   }
   logout() {
-    this.subscriptions$.add(this.authService.logout(localStorage.getItem('identification_document') || '').subscribe());
+    this.subscriptions$.add(
+      this.authService
+        .logout(localStorage.getItem('identification_document') || '')
+        .pipe(
+          map((response) => {
+            this.navController.pop();
+            this.navController.navigateBack('/login');
+          }),
+        )
+        .subscribe(),
+    );
   }
 }

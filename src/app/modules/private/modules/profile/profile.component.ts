@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
+import { ProfileService } from 'src/app/project/services/python/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,12 +10,19 @@ import { PartialStudent } from 'src/app/project/interfaces/student.interface';
   styleUrl: './profile.component.scss',
 })
 export class ProfileComponent implements OnInit {
-  student!: PartialStudent;
+  student$!: Observable<PartialStudent>;
+  constructor(
+    private profileService: ProfileService,
+    private navController: NavController,
+  ) {}
   ngOnInit(): void {
-    let studentStoraged = localStorage.getItem('student');
-    let enrollmentSelectedStoraged = localStorage.getItem('enrollmentSelected');
-    if (studentStoraged) {
-      this.student = JSON.parse(studentStoraged);
-    }
+    this.getProfile();
+  }
+  getProfile() {
+    this.student$ = this.profileService.getProfile();
+  }
+  goBack() {
+    this.navController.pop();
+    this.navController.navigateBack('/home');
   }
 }
