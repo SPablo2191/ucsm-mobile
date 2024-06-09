@@ -33,4 +33,22 @@ export class EnrollmentService extends BaseService<PartialEnrollment | PartialEn
       }),
     );
   }
+  getEnrollment(enrollmentId: string): Observable<PartialEnrollment> {
+    let token = localStorage.getItem('token');
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/json')
+      .append('Authorization', 'Token' + ' ' + token);
+    return this.getId(enrollmentId, {
+      headers: headers,
+      params: { identification_document: localStorage.getItem('identification_document') },
+    }).pipe(
+      map((response: any) => {
+        let enrollment = response;
+        return enrollment;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        return throwError(() => err);
+      }),
+    );
+  }
 }

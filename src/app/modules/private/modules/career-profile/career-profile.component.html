@@ -1,10 +1,13 @@
 <ion-content class="ion-padding">
-  <tab-card [enrollmentName]="enrollment.academic_program?.name || ''" [studentName]="student.first_name || ''" />
+  <tab-card
+    [enrollmentName]="(enrollment$ | async)?.academic_program?.name || ''"
+    [studentName]="(enrollment$ | async)?.student?.first_name || ''"
+  />
   <ui-card>
     <div class="grid text-lg">
       <div class="col font-bold">Saldo a Pagar</div>
       <div class="col flex justify-content-end">
-        <div class="">{{ totalBalance | currency: 'PEN' : 'symbol' : '' }}</div>
+        <div class="">{{ (debt$ | async)?.balance | currency: 'PEN' : 'symbol' : '' }}</div>
       </div>
     </div>
   </ui-card>

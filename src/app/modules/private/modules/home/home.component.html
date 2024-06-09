@@ -29,7 +29,7 @@
             [title]="enrollment.academic_program?.name || ''"
             [subTitle]="'Código: ' + enrollment.academic_program?.code"
             body="Ir a Carrera"
-            (click)="goToEnrollment(enrollment)"
+            (click)="goToEnrollment(enrollment.id || '')"
           />
         </div>
       </div>

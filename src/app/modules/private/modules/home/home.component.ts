@@ -52,8 +52,8 @@ export class HomeComponent implements OnInit {
   changeSection() {
     this.showEvent = !this.showEvent;
   }
-  goToEnrollment(enrollment: PartialEnrollment) {
-    localStorage.setItem('enrollmentSelected', JSON.stringify(enrollment));
+  goToEnrollment(enrollmentId: string) {
+    localStorage.setItem('enrollment_id', enrollmentId);
     this.router.navigate(['/private/career/career-profile']);
   }
   goToEvent(eventId: string) {
