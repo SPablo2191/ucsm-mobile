@@ -54,13 +54,6 @@ export class ScheduleCalendarComponent implements OnInit {
   calendarModes: CalendarMode[] = ['day', 'week'];
   @Input() subjects!: PartialSubjectRegistration[];
 
-  constructor(private router: Router) {
-    this.isToday = false;
-  }
-  ngOnInit(): void {
-    this.loadEvents();
-  }
-
   eventSource: any = [];
   viewTitle: any;
 
@@ -124,17 +117,22 @@ export class ScheduleCalendarComponent implements OnInit {
     dayviewShowCategoryView: true,
   };
 
+  constructor(private router: Router) {
+    this.isToday = false;
+  }
+  ngOnInit(): void {
+    this.loadEvents();
+  }
   loadEvents() {
     if (this.subjects === undefined) return;
-    this.subjects.forEach((subject) => {
+    this.subjects?.forEach((subject) => {
       this.eventSource.push({
         title: subject.subject?.name,
-        startTime: subject.student_commissions?.[0].commission?.commission_schedule?.start_time,
-        endTime: subject.student_commissions?.[0].commission?.commission_schedule?.end_time,
+        startTime: new Date(subject.student_commissions?.[0].commission?.commission_schedule?.start_time || ''),
+        endTime: new Date(subject.student_commissions?.[0].commission?.commission_schedule?.end_time || ''),
         allDay: false,
       });
     });
-    // this.eventSource = this.createRandomEvents();
   }
 
   loadDynamicEvents() {

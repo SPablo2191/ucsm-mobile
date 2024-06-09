@@ -29,7 +29,6 @@ export class SubjectService
     }).pipe(
       map((response: any) => {
         let subjects = response.results;
-        console.log(subjects);
         return subjects;
       }),
       catchError((err: HttpErrorResponse) => {

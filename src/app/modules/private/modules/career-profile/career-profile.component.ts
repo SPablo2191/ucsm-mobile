@@ -14,14 +14,12 @@ import { SubjectService } from 'src/app/project/services/python/subject.service'
   styleUrl: './career-profile.component.css',
 })
 export class CareerProfileComponent implements OnInit {
-  protected enrollment!: PartialEnrollment;
   enrollment$!: Observable<PartialEnrollment>;
   subjects$!: Observable<PartialSubjectRegistration[]>;
   debt$!: Observable<PartialDebt>;
   protected linkBiblioteca = 'http://catalogo.ucsm.edu.pe/';
   protected linkAulaVirtual = 'https://www.ucsm.edu.pe/aula-virtual/';
   protected linkMatricula = 'https://webapp.ucsm.edu.pe/sm/Views/login.php';
-  protected subjects: PartialSubjectRegistration[] = [];
   protected subscriptions$: Subscription = new Subscription();
   constructor(
     private subjectService: SubjectService,

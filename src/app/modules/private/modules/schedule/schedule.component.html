@@ -4,7 +4,7 @@
     subtitle="Puedes ver tus materias a cursar"
     imageurl="/assets/images/schedule.png"
   />
-  <div *ngIf="this.subjects.length !== 0; else elseblock" class="h-full">
+  <div *ngIf="subjects.length! > 0; else elseblock" class="h-full">
     <schedule-calendar [subjects]="subjects"></schedule-calendar>
   </div>
   <ng-template #elseblock>
