@@ -57,6 +57,10 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('enrollmentSelected', JSON.stringify(enrollment));
     this.router.navigate(['/private/career/career-profile']);
   }
+  goToEvent(eventId: string) {
+    localStorage.setItem('event_id', eventId);
+    this.router.navigate(['/private/event']);
+  }
   logout() {
     this.subscriptions$.add(this.authService.logout(localStorage.getItem('identification_document') || '').subscribe());
   }

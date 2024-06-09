@@ -29,4 +29,19 @@ export class EventService extends BaseService<PartialEvent | PartialEvent[]> {
       }),
     );
   }
+  getEvent(): Observable<PartialEvent> {
+    let event_id = localStorage.getItem('event_id') || '';
+    let token = localStorage.getItem('token');
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/json')
+      .append('Authorization', 'Token' + ' ' + token);
+    return this.getId(event_id, {
+      headers: headers,
+    }).pipe(
+      map((response: any) => {
+        let event: PartialEvent = response;
+        return event;
+      }),
+    );
+  }
 }

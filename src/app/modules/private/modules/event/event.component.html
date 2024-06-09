@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="image-background" [style.background-image]="'url(' + imagePath + ')'">
+  <div class="image-background" [style.background-image]="'url(' + (event$ | async)?.image_url + ')'">
     <ion-button class="mx-2 mt-4" [routerLink]="['/home']">
       Volver
       <ion-icon name="chevron-back-outline" size="large" slot="start" aria-hidden="true"></ion-icon>
@@ -7,15 +7,26 @@
   </div>
   <card-container>
     <div class="flex justify-content-center">
-      <h1 class="font-bold text-3xl">¡Visita La UCSM!</h1>
+      <h1 class="font-bold text-3xl text-center">{{ (event$ | async)?.name }}</h1>
     </div>
     <div class="flex justify-content-center">
-      <h1 class="text-center text-sm">Conozca la hermosa estructura de la uni</h1>
+      <h1 class="text-center text-xl">{{ (event$ | async)?.building?.name }}</h1>
     </div>
     <div class="my-4">
       <p class="text-lg">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia placeat numquam fugit inventore non, commodi
-        incidunt delectus amet repellendus et pariatur cum quae, itaque consectetur quam eos! Unde, quam placeat.
+        {{ (event$ | async)?.description }}
+      </p>
+    </div>
+    <div class="flex justify-content-between flex-wrap">
+      <p class="text-lg font-bold">Inicio</p>
+      <p class="text-lg font-bold">Fin</p>
+    </div>
+    <div class="flex justify-content-between flex-wrap">
+      <p class="text-lg">
+        {{ (event$ | async)?.start_date | date: 'd/M/yyyy' }}
+      </p>
+      <p class="text-lg">
+        {{ (event$ | async)?.end_date | date: 'd/M/yyyy' }}
       </p>
     </div>
   </card-container>

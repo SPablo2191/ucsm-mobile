@@ -41,6 +41,7 @@
             [title]="event.name || ''"
             [body]="event.description || ''"
             path="/event"
+            (click)="goToEvent(event.id || '')"
           />
         </div>
       </ng-template>
