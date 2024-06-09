@@ -2,16 +2,18 @@
   <header-page title="Deudas Pendientes" subtitle="Puedes ver tus deudas a pagar" imageurl="/assets/images/debt.png" />
   <div class="flex flex-column my-4">
     <div class="flex justify-content-center text-center">
-      <span class="total" [ngClass]="{ 'in-debt': debt.balance !== 0 }">{{
-        debt.balance | currency: 'PEN' : 'symbol' : ''
-      }}</span>
+      <span
+        class="total"
+        [ngClass]="{ 'in-debt': (debt$ | async)?.balance! > 0, 'no-debt': (debt$ | async)?.balance! <= 0 }"
+        >{{ (debt$ | async)?.balance | currency: 'PEN' : 'symbol' : '' }}</span
+      >
     </div>
     <div class="flex justify-content-center text-center subtitle">saldo a pagar</div>
   </div>
   <div
     class="overflow-scroll surface-overlay"
     style="height: 380px"
-    *ngIf="debt.installments?.length !== 0 && debt.installments; else elseblock"
+    *ngIf="(debt$ | async)?.installments?.length !== 0 && (debt$ | async)?.installments; else elseblock"
   >
     <installment-card
       [defaultedLoan]="installment.owed_amount || 0"
@@ -19,7 +21,7 @@
       [dueDate]="installment.register_date"
       [code]="installment.code"
       [total]="installment.total_amount || 0"
-      *ngFor="let installment of debt.installments"
+      *ngFor="let installment of (debt$ | async)?.installments"
     />
   </div>
   <ng-template #elseblock>

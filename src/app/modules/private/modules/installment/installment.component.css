@@ -7,6 +7,9 @@
 .in-debt {
   color: rgba(231, 76, 60, 0.8);
 }
+.no-debt {
+  color: rgba(45, 158, 51, 0.8);
+}
 .subtitle {
   color: #575756;
   font-size: 12px;
