@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
         <div class="col-3">
           <div class="flex flex-column">
             <div class=" flex justify-content-center">
-              <span class="title">{{ quantity }}</span>
+              <span class="title" *ngIf="quantity > 0">{{ quantity }}</span>
             </div>
             <div class="info flex justify-content-center">{{ info }}</div>
           </div>

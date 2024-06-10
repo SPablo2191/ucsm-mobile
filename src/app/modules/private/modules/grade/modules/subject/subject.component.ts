@@ -13,7 +13,7 @@ import { SubjectService } from 'src/app/project/services/python/subject.service'
   styleUrl: './subject.component.scss',
 })
 export class SubjectComponent implements OnInit {
-  title: String = 'Materias Aprobadas';
+  title: String = 'Materias';
   protected semesters$!: Observable<PartialSemester[]>;
   protected selectedSemester: PartialSemester = {};
   subjects$!: Observable<PartialSubjectRegistration[]>;
@@ -27,14 +27,19 @@ export class SubjectComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getSemester();
+    this.getSubjects();
   }
   getSemester() {
     this.semesters$ = this.subjectService.getSemesters();
   }
-  getSubjects(semester?: PartialSemester) {
-    if (semester) this.selectedSemester = semester;
+  getSubjects_per_semester(semester?: PartialSemester) {
     let enrollmentId = localStorage.getItem('enrollment_id');
+    if (semester) this.selectedSemester = semester;
     if (enrollmentId) this.subjects$ = this.subjectService.getSubjects(enrollmentId, this.selectedSemester?.id);
+  }
+  getSubjects() {
+    let enrollmentId = localStorage.getItem('enrollment_id');
+    if (enrollmentId) this.subjects$ = this.subjectService.getSubjects(enrollmentId);
   }
   goToSubjectDescription(subject: PartialSubjectRegistration) {
     if (subject && subject.subject) {

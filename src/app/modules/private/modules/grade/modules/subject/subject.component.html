@@ -8,7 +8,11 @@
   </div>
   <card-container>
     <div class="flex justify-content-center">
-      <ui-dropdown [items]="(semesters$ | async)!" [selected]="selectedSemester" (changed)="getSubjects($event)" />
+      <ui-dropdown
+        [items]="(semesters$ | async)!"
+        [selected]="selectedSemester"
+        (changed)="getSubjects_per_semester($event)"
+      />
     </div>
     <div class="overflow-scroll surface-overlay" *ngIf="(subjects$ | async)?.length! > 0" style="height: 450px">
       <subject-simple-card

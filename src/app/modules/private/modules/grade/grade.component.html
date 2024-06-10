@@ -19,14 +19,10 @@
     {{ careerStatistics.approved_subjects + careerStatistics.remaining_subjects }}
   </div>
   <div class="motivation-message">¡Sigue asi!</div>
-  <subject-simple-card
-    title="Materias aprobadas"
-    path="/private/career/grade/subject"
-    [quantity]="careerStatistics.approved_subjects"
-  />
-  <subject-simple-card
+  <subject-simple-card title="Listado de materias" path="/private/career/grade/subject" />
+  <!-- <subject-simple-card
     title="Materias Restantes"
     path="/private/career/grade/remaining-subject"
     [quantity]="careerStatistics.remaining_subjects"
-  />
+  /> -->
 </ion-content>
