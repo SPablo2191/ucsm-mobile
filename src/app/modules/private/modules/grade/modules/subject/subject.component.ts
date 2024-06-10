@@ -42,10 +42,11 @@ export class SubjectComponent implements OnInit {
     if (enrollmentId) this.subjects$ = this.subjectService.getSubjects(enrollmentId);
   }
   goToSubjectDescription(subject: PartialSubjectRegistration) {
-    if (subject && subject.subject) {
-      subject.subject.semester = this.selectedSemester;
-    }
-    localStorage.setItem('subjectSelected', JSON.stringify(subject));
-    this.router.navigate(['/private/career/grade/subject-description']);
+    this.router.navigate([
+      '/private/career/grade/subject-description',
+      {
+        id: subject.id,
+      },
+    ]);
   }
 }

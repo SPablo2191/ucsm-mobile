@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription, map } from 'rxjs';
 import { Phase } from 'src/app/project/enums/phase.enum';
 import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
+import { SubjectService } from 'src/app/project/services/python/subject.service';
 
 @Component({
   selector: 'app-subject-description',
@@ -11,28 +14,40 @@ export class SubjectDescriptionComponent implements OnInit {
   subject!: PartialSubjectRegistration;
   showGrades = false;
   gradesPerPhase: gradePhase[] = [];
+  protected subscriptions$: Subscription = new Subscription();
+  constructor(
+    private route: ActivatedRoute,
+    private subjectService: SubjectService,
+  ) {}
 
   ngOnInit(): void {
-    let subjectSelected = localStorage.getItem('subjectSelected');
-    if (subjectSelected) {
-      this.subject = JSON.parse(subjectSelected);
-    }
-    this.loadGrades();
+    this.getSubject();
   }
-  ionViewWillEnter() {
-    let subjectSelected = JSON.parse(localStorage.getItem('subjectSelected') || '{}');
-    if (this.subject.subject?.name === subjectSelected.subject?.name) {
-      return;
-    }
-    this.subject = subjectSelected;
-    this.loadGrades();
+  ionViewDidLeave() {
+    this.subscriptions$.unsubscribe();
   }
+  getSubject() {
+    let subjectId = this.route.snapshot.paramMap.get('id');
+    if (subjectId)
+      this.subscriptions$.add(
+        this.subjectService
+          .getSubject(subjectId)
+          .pipe(
+            map((response) => {
+              this.subject = response;
+              this.loadGrades(this.subject);
+            }),
+          )
+          .subscribe(),
+      );
+  }
+  ionViewWillEnter() {}
   changeSection() {
     this.showGrades = !this.showGrades;
   }
-  loadGrades() {
+  loadGrades(subject: PartialSubjectRegistration) {
     if (this.gradesPerPhase.length !== 0) this.gradesPerPhase = [];
-    this.subject.student_commissions?.[0]?.grades?.forEach((grade) => {
+    subject.student_commissions?.[0]?.grades?.forEach((grade) => {
       if (grade.score && grade.phase) {
         this.gradesPerPhase.push({
           left_score: grade.score,
@@ -42,7 +57,7 @@ export class SubjectDescriptionComponent implements OnInit {
       }
     });
     this.gradesPerPhase.forEach((grade, index) => {
-      grade.right_score = this.subject.student_commissions?.[1]?.grades?.[index].score || 0;
+      grade.right_score = subject.student_commissions?.[1]?.grades?.[index].score || 0;
     });
   }
 }

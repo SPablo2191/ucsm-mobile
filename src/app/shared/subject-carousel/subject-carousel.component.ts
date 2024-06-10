@@ -55,7 +55,11 @@ export class SubjectCarouselComponent {
   };
   constructor(private router: Router) {}
   goToSubjectDescription(subject: PartialSubjectRegistration) {
-    localStorage.setItem('subjectSelected', JSON.stringify(subject));
-    this.router.navigate(['/private/career/grade/subject-description']);
+    this.router.navigate([
+      '/private/career/grade/subject-description',
+      {
+        id: subject.id,
+      },
+    ]);
   }
 }

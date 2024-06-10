@@ -44,6 +44,15 @@ export class SubjectService
       }),
     );
   }
+  getSubject(subjectId: string): Observable<Partial<SubjectRegistration>> {
+    let token = localStorage.getItem('token');
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/json')
+      .append('Authorization', 'Token' + ' ' + token);
+    return this.getId(subjectId, {
+      headers: headers,
+    });
+  }
   getSemesters(): Observable<PartialSemester[]> {
     let token = localStorage.getItem('token');
     let url = environment.apiUrl + Endpoint.SEMESTER;

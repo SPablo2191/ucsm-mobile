@@ -174,8 +174,12 @@ export class ScheduleCalendarComponent implements OnInit {
     }
   }
   goToSubjectDescription(subject: PartialSubjectRegistration) {
-    localStorage.setItem('subjectSelected', JSON.stringify(subject));
-    this.router.navigate(['/private/career/grade/subject-description']);
+    this.router.navigate([
+      '/private/career/grade/subject-description',
+      {
+        id: subject.id,
+      },
+    ]);
   }
 
   changeMode(event: any) {

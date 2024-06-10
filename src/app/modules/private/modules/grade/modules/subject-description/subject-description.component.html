@@ -13,13 +13,13 @@
       <p class="text-xl" [ngClass]="{ 'title-section': showGrades }" (click)="changeSection()">Notas</p>
     </div>
     <div *ngIf="!showGrades; else grades">
-      <classroom-description
+      <!-- <classroom-description
         main_title="Comisión"
         title_left="Practica"
         [description_left]="subject.student_commissions?.[0]?.commission?.id || ''"
         title_right="Teoria"
         [description_right]="subject.student_commissions?.[1]?.commission?.id || ''"
-      />
+      /> -->
       <classroom-description
         main_title="Aula"
         title_left="Practica"
@@ -42,25 +42,21 @@
         title_left="Practica"
         [description_left]="subject.student_commissions?.[0]?.commission?.commission_schedule?.day || '' | day"
         [left_start_hour]="
-          (subject.student_commissions?.[0]?.commission?.commission_schedule?.start_time | date: 'shortTime') || ''
+          subject.student_commissions?.[0]?.commission?.commission_schedule?.start_time?.toString() || ''
         "
-        [left_end_hour]="
-          (subject.student_commissions?.[0]?.commission?.commission_schedule?.end_time | date: 'shortTime') || ''
-        "
+        [left_end_hour]="subject.student_commissions?.[0]?.commission?.commission_schedule?.end_time?.toString() || ''"
         title_right="Teoria"
-        [description_right]="subject.student_commissions?.[1]?.commission?.commission_schedule?.day || ''"
+        [description_right]="subject.student_commissions?.[1]?.commission?.commission_schedule?.day || '' | day"
         [right_start_hour]="
-          (subject.student_commissions?.[1]?.commission?.commission_schedule?.start_time | date: 'shortTime') || ''
+          subject.student_commissions?.[1]?.commission?.commission_schedule?.start_time?.toString() || ''
         "
-        [right_end_hour]="
-          (subject.student_commissions?.[1]?.commission?.commission_schedule?.end_time | date: 'shortTime') || ''
-        "
+        [right_end_hour]="subject.student_commissions?.[1]?.commission?.commission_schedule?.end_time?.toString() || ''"
       />
       <classroom-description main_title="Docente/s" />
       <div class="flex justify-content-between">
         <person-item
           image_url="/assets/icon/logo_ucsm.png"
-          [title]="commission.commission?.id || ''"
+          title="Profesor/a"
           [subtitle]="
             (commission.commission?.professor?.first_name || '') +
             ' ' +
