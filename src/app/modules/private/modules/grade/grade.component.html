@@ -4,16 +4,29 @@
     subtitle="Puedes ver tus avance de carrera aqui"
     imageurl="/assets/images/grades.png"
   />
-  <ui-chart
-    [data]="[0, 100]"
-    type="doughnut"
-    [labels]="['Materias Llevadas', 'Materias No Llevadas']"
-    [backgroundColors]="['#05be6a', '#ada7a7']"
-    [hoverOffset]="4"
-    [options]="chartStyle"
-  ></ui-chart>
-  <div class="chart-footer">Tienes {{ 0 }} materias aprobadas de {{ 0 }}</div>
+  <div *ngIf="data.length > 0">
+    <ui-chart
+      [data]="data"
+      type="doughnut"
+      [labels]="['Materias Llevadas', 'Materias No Llevadas']"
+      [backgroundColors]="['#05be6a', '#ada7a7']"
+      [hoverOffset]="4"
+      [options]="chartStyle"
+    ></ui-chart>
+  </div>
+  <div class="chart-footer">
+    Tienes {{ careerStatistics.approved_subjects }} materias aprobadas de
+    {{ careerStatistics.approved_subjects + careerStatistics.remaining_subjects }}
+  </div>
   <div class="motivation-message">¡Sigue asi!</div>
-  <subject-simple-card title="Materias aprobadas" path="/private/career/grade/subject" />
-  <!-- <subject-simple-card title="Materias Restantes" path="/private/career/grade/subject" /> -->
+  <subject-simple-card
+    title="Materias aprobadas"
+    path="/private/career/grade/subject"
+    [quantity]="careerStatistics.approved_subjects"
+  />
+  <subject-simple-card
+    title="Materias Restantes"
+    path="/private/career/grade/remaining-subject"
+    [quantity]="careerStatistics.remaining_subjects"
+  />
 </ion-content>

@@ -16,3 +16,8 @@ export interface SubjectRegistration {
 }
 
 export type PartialSubjectRegistration = Partial<SubjectRegistration>;
+
+export interface CareerStatistics {
+  approved_subjects: number;
+  remaining_subjects: number;
+}

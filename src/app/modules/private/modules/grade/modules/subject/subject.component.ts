@@ -5,7 +5,7 @@ import { PartialEnrollment } from 'src/app/project/interfaces/enrollment.interfa
 import { PartialSemester } from 'src/app/project/interfaces/semester.interface';
 import { PartialStudent } from 'src/app/project/interfaces/student.interface';
 import { PartialSubjectRegistration } from 'src/app/project/interfaces/subject.registration.interface';
-import { SubjectService } from 'src/app/project/services/php/subject.service';
+import { SubjectService } from 'src/app/project/services/python/subject.service';
 
 @Component({
   selector: 'app-subject',
@@ -14,11 +14,9 @@ import { SubjectService } from 'src/app/project/services/php/subject.service';
 })
 export class SubjectComponent implements OnInit {
   title: String = 'Materias Aprobadas';
-  protected student!: PartialStudent;
-  protected enrollment!: PartialEnrollment;
-  protected semesters: PartialSemester[] = [];
+  protected semesters$!: Observable<PartialSemester[]>;
   protected selectedSemester: PartialSemester = {};
-  protected subjects: PartialSubjectRegistration[] = [];
+  subjects$!: Observable<PartialSubjectRegistration[]>;
   subscriptions$: Subscription = new Subscription();
   constructor(
     private router: Router,
@@ -28,42 +26,15 @@ export class SubjectComponent implements OnInit {
     this.subscriptions$.unsubscribe();
   }
   ngOnInit(): void {
-    let studentStoraged = localStorage.getItem('student');
-    let enrollmentSelectedStoraged = localStorage.getItem('enrollmentSelected');
-    if (studentStoraged) {
-      this.student = JSON.parse(studentStoraged);
-    }
-    if (enrollmentSelectedStoraged) {
-      this.enrollment = JSON.parse(enrollmentSelectedStoraged);
-    }
     this.getSemester();
   }
   getSemester() {
-    this.subscriptions$.add(
-      this.subjectService
-        .getSemesters(this.enrollment.code || '')
-        .pipe(
-          map((semesters) => {
-            this.semesters = semesters;
-            this.selectedSemester = this.semesters[0];
-            this.getSubjects();
-          }),
-        )
-        .subscribe(),
-    );
+    this.semesters$ = this.subjectService.getSemesters();
   }
   getSubjects(semester?: PartialSemester) {
     if (semester) this.selectedSemester = semester;
-    this.subscriptions$.add(
-      this.subjectService
-        .getGrades(this.enrollment.code || '', this.selectedSemester.id || '')
-        .pipe(
-          map((subjects) => {
-            this.subjects = subjects;
-          }),
-        )
-        .subscribe(),
-    );
+    let enrollmentId = localStorage.getItem('enrollment_id');
+    if (enrollmentId) this.subjects$ = this.subjectService.getSubjects(enrollmentId, this.selectedSemester?.id);
   }
   goToSubjectDescription(subject: PartialSubjectRegistration) {
     if (subject && subject.subject) {

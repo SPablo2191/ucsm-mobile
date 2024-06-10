@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription, map } from 'rxjs';
+import { CareerStatistics } from 'src/app/project/interfaces/subject.registration.interface';
+import { SubjectService } from 'src/app/project/services/python/subject.service';
 
 @Component({
   selector: 'app-grade',
@@ -6,6 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './grade.component.css',
 })
 export class GradeComponent {
+  careerStatistics: CareerStatistics = {
+    approved_subjects: 0,
+    remaining_subjects: 0,
+  } as CareerStatistics;
+  data: number[] = [];
+  protected subscriptions$: Subscription = new Subscription();
   protected chartStyle = {
     cutout: '50%',
     rotation: -90,
@@ -29,4 +38,28 @@ export class GradeComponent {
       },
     },
   };
+  constructor(private subjectService: SubjectService) {}
+  ionViewWillEnter() {
+    this.getStatistics();
+  }
+  ionViewDidLeave() {
+    this.subscriptions$.unsubscribe();
+  }
+  getStatistics() {
+    let enrollmentId = localStorage.getItem('enrollment_id');
+    if (enrollmentId)
+      this.subscriptions$.add(
+        this.subjectService
+          .getStatistics(enrollmentId)
+          .pipe(
+            map((response) => {
+              console.log(response);
+              this.data.push(response.approved_subjects);
+              this.data.push(response.remaining_subjects);
+              this.careerStatistics = response;
+            }),
+          )
+          .subscribe(),
+      );
+  }
 }

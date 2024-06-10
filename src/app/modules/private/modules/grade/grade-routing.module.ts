@@ -13,6 +13,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/subject-description/subject-description.module').then((m) => m.SubjectDescriptionModule),
   },
+  {
+    path: 'remaining-subject',
+    loadChildren: () =>
+      import('./modules/remaining-subject/remaining-subject.module').then((m) => m.RemainingSubjectModule),
+  },
 ];
 
 @NgModule({

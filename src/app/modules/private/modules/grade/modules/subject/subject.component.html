@@ -8,12 +8,12 @@
   </div>
   <card-container>
     <div class="flex justify-content-center">
-      <ui-dropdown [items]="semesters" [selected]="selectedSemester" (changed)="getSubjects($event)" />
+      <ui-dropdown [items]="(semesters$ | async)!" [selected]="selectedSemester" (changed)="getSubjects($event)" />
     </div>
-    <div class="overflow-scroll surface-overlay" *ngIf="subjects.length !== 0" style="height: 450px">
+    <div class="overflow-scroll surface-overlay" *ngIf="(subjects$ | async)?.length! > 0" style="height: 450px">
       <subject-simple-card
         (click)="goToSubjectDescription(subject)"
-        *ngFor="let subject of subjects"
+        *ngFor="let subject of subjects$ | async"
         [title]="subject.subject?.name || ''"
         info="P.final"
         [quantity]="subject.final_score || 0"
